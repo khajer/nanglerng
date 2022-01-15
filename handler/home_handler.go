@@ -8,7 +8,6 @@ import (
 
 func HomeHandler(c echo.Context) error {
   return c.Render(http.StatusOK, "home.html", map[string]interface{}{
-    "name": "HOME",
-    "msg": "Hello, Boatswain!",
+    "name": "Nanglerng",
   })
 }
