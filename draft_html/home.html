@@ -58,10 +58,25 @@
                 bottom: 0px;
                 left: 0px;
                 width: 100%;                
-                height: 80px;
+                height: 60px;
                 background-color: #0000FF;
                 color: #fff;
                 text-align: center;
+            }            
+            .bb{
+                position: relative;
+            }
+            
+            .box-right-content{
+                width: 50%;
+                height: 100px;
+            }
+            .list-box{
+                display: flex;
+                flex-wrap: wrap;
+            }
+            .more{
+                text-align: right;
             }
         </style>
     </head>
@@ -75,44 +90,44 @@
                     <li class="menu-item" id="private-events"><a href="/aboutus">About us</a></li>
                 </ul>
             </div>
-            <div class="text-right">tags</div>
+            <div class="text-right"><a href="">*tags</a></div>
         </div>
         <div id="content">
             <div class="column">
                 <div class="content-box">
                     <div class="main-image-left">
                         <img src="img.png" width="100%" height="100%">                    
-                        <div class="label_img">นางเลิ้งเป็นชุมชนเก่าแก่ดึกดำบรรพ์มาแต่โบราณกาลนางเลิ้งเป็นชุมชนเก่าแก่ดึกดำบรรพ์มาแต่โบราณกาลนางเลิ้งเป็นชุมชนเก่าแก read more</div>
+                        <div class="label_img">นางเลิ้งเป็นชุมชนเก่าแก่ดึกดำบรรพ์มาแต่โบราณกาลนางเลิ้งเป็นชุมชนเก่าแก่ดึกดำบรรพ์มาแต่โบราณกาลนางเลิ้งเป็นชุมชนเก่าแก <a href="">read more</a></div>
                     </div>
                 </div>
             </div>
             <div class="column">
                 <div class="content-box">
-                    <div>
+                    <div class="bb">
                         <div>What's on</div>
-                        <div>
-                            <div>
+                        <div class="list-box">
+                            <div class="box-right-content">
                                 <div>20/20/21</div>
                                 <div>location A</div>
-                                <div><img src=""></div>
+                                <div><img src="img.png"></div>
                                 <div>desc</div>
                             </div>
                             <div>
                                 <div>20/20/21</div>
                                 <div>สถานที่ ก</div>
-                                <div><img src=""></div>
+                                <div><img src="img.png"></div>
                                 <div>desc</div>
-                            </div>
-                            <div>see all events</div>                        
+                            </div>                            
                         </div>
+                        <div class="more"><a href="">see all events</a></div>                        
                     </div>
-                    <div>
+                    <div  class="bb">
                         <div>Get to know nanglerng</div>
-                        <div><img src=""></div>
+                        <div ><img src="img.png" width="100%" height="40%"></div>
                         <div>Lorem Ipsum is simply dummy text of the printing typesettin...</div>
-                        <div>read more </div>
+                        <div class="more"><a href="">read more</a></div>
                     </div>
-                    <div>
+                    <div class="bb1">
                         <div>article</div>
                         <div>
                             <div>culture</div>
