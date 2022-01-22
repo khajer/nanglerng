@@ -1,54 +1,207 @@
 <html>
-    <head></head>
+    <head>
+        <title>NANGLERNG COMMUNITY</title>
+        <style>
+            body{
+                margin: 0 auto;
+                padding: 0;
+            }
+            #header {
+                position: relative;
+                width: 100%;
+                height: 6%;
+                /* background-color: #ff0000; */
+                border: 0;
+            }
+            #content{
+                width: 100%;
+                height: 88%;
+            }
+            #footer{
+                width: 100%;
+                height: 6%;
+            }
+            ul.menu {
+                list-style-type: none;
+                margin: 0;
+                padding: 0;
+            }
+
+            li.menu-item {
+                padding-right: 10px;
+                display: block;
+                float: left;
+            }
+            .text-right {
+                /* position: absolute; */
+                /* top: 0;
+                right: 0; */
+                text-align: right;                
+            }
+            
+            .column{
+                width: 50%;
+                float: left;
+                height: 100%;
+                overflow-y: auto;
+            }
+            
+            .content-box{
+                /* padding: 8px; */
+                            
+            }
+            .main-image-left{
+                position: relative;
+            }
+            .label_img{
+                position: absolute;
+                bottom: 0px;
+                left: 0px;
+                width: 100%;                
+                height: 80px;
+                background-color: #0000FF;
+                color: #fff;
+                text-align: center;
+            }
+        </style>
+    </head>
     <body>
         <div id="header">
-            <div id="nav">
-                <ul>
-                    <li>Nanglerng community</li>
-                    <li>What’s on</li>
-                    <li>Articles</li>
-                    <li>About us</li>
+            <div id="div-menu">
+                <ul class="menu ">
+                    <li class="menu-item" id="menu-page"><a href="/menu">Nanglerng community</a></li>
+                    <li class="menu-item" id="shop-page"><a href="/about">What’s on</a></li>
+                    <li class="menu-item" id="catering-page"><a href="/articles">Articles</a></li>
+                    <li class="menu-item" id="private-events"><a href="/aboutus">About us</a></li>
                 </ul>
             </div>
-            <div id="nav-right">
-                tags
-            </div>
+            <div class="text-right">tags</div>
         </div>
         <div id="content">
-            <div id="leftContent">
-                <img src="">
-                <div>นางเลิ้งเป็นชุมชนเก่าแก่ดึกดำบรรพ์มาแต่โบราณกาลนางเลิ้งเป็นชุมชนเก่าแก่ดึกดำบรรพ์มาแต่โบราณกาลนางเลิ้งเป็นชุมชนเก่าแก
-                    read more</div>
-            </div>
-            <div id="rightContent">
-                <div>
-                    <div>What's on</div>
-                    <div>
-                        <div>
-                            <div>20/20/21</div>
-                            <div>location A</div>
-                            <div><img src=""></div>
-                            <div>desc</div>
-                        </div>
-                        <div>
-                            <div>20/20/21</div>
-                            <div>สถานที่ ก</div>
-                            <div><img src=""></div>
-                            <div>desc</div>
-                        </div>
-                        <div>see all events</div>                        
+            <div class="column">
+                <div class="content-box">
+                    <div class="main-image-left">
+                        <img src="img.png" width="100%" height="100%">                    
+                        <div class="label_img">นางเลิ้งเป็นชุมชนเก่าแก่ดึกดำบรรพ์มาแต่โบราณกาลนางเลิ้งเป็นชุมชนเก่าแก่ดึกดำบรรพ์มาแต่โบราณกาลนางเลิ้งเป็นชุมชนเก่าแก read more</div>
                     </div>
                 </div>
-                <div>
-                    <div>Get to know nanglerng</div>
-                    <div><img src=""></div>
-                    <div>Lorem Ipsum is simply dummy text of the printing typesettin...</div>
+            </div>
+            <div class="column">
+                <div class="content-box">
+                    <div>
+                        <div>What's on</div>
+                        <div>
+                            <div>
+                                <div>20/20/21</div>
+                                <div>location A</div>
+                                <div><img src=""></div>
+                                <div>desc</div>
+                            </div>
+                            <div>
+                                <div>20/20/21</div>
+                                <div>สถานที่ ก</div>
+                                <div><img src=""></div>
+                                <div>desc</div>
+                            </div>
+                            <div>see all events</div>                        
+                        </div>
+                    </div>
+                    <div>
+                        <div>Get to know nanglerng</div>
+                        <div><img src=""></div>
+                        <div>Lorem Ipsum is simply dummy text of the printing typesettin...</div>
+                        <div>read more </div>
+                    </div>
+                    <div>
+                        <div>article</div>
+                        <div>
+                            <div>culture</div>
+                            <div>contributor A</div>
+                            <div><img src=""></div>
+                            <div>Lorem Ipsum is simply dummy text of the printing typesettin...</div>
+                        </div>
+                        <div>
+                            <div>culture</div>
+                            <div>contributor A</div>
+                            <div><img src=""></div>
+                            <div>Lorem Ipsum is simply dummy text of the printing typesettin...</div>
+                        </div>
+                        <div>
+                            <div>culture</div>
+                            <div>contributor A</div>
+                            <div><img src=""></div>
+                            <div>Lorem Ipsum is simply dummy text of the printing typesettin...</div>
+                        </div>
+                        <div>
+                            <div>culture</div>
+                            <div>contributor A</div>
+                            <div><img src=""></div>
+                            <div>Lorem Ipsum is simply dummy text of the printing typesettin...</div>
+                        </div>
+                        <div>see all article</div>
+                    </div>
+                    <div>
+                        <div>article</div>
+                        <div>
+                            <div>culture</div>
+                            <div>contributor A</div>
+                            <div><img src=""></div>
+                            <div>Lorem Ipsum is simply dummy text of the printing typesettin...</div>
+                        </div>
+                        <div>
+                            <div>culture</div>
+                            <div>contributor A</div>
+                            <div><img src=""></div>
+                            <div>Lorem Ipsum is simply dummy text of the printing typesettin...</div>
+                        </div>
+                        <div>
+                            <div>culture</div>
+                            <div>contributor A</div>
+                            <div><img src=""></div>
+                            <div>Lorem Ipsum is simply dummy text of the printing typesettin...</div>
+                        </div>
+                        <div>
+                            <div>culture</div>
+                            <div>contributor A</div>
+                            <div><img src=""></div>
+                            <div>Lorem Ipsum is simply dummy text of the printing typesettin...</div>
+                        </div>
+                        <div>see all article</div>
+                    </div>
+                    <div>
+                        <div>article</div>
+                        <div>
+                            <div>culture</div>
+                            <div>contributor A</div>
+                            <div><img src=""></div>
+                            <div>Lorem Ipsum is simply dummy text of the printing typesettin...</div>
+                        </div>
+                        <div>
+                            <div>culture</div>
+                            <div>contributor A</div>
+                            <div><img src=""></div>
+                            <div>Lorem Ipsum is simply dummy text of the printing typesettin...</div>
+                        </div>
+                        <div>
+                            <div>culture</div>
+                            <div>contributor A</div>
+                            <div><img src=""></div>
+                            <div>Lorem Ipsum is simply dummy text of the printing typesettin...</div>
+                        </div>
+                        <div>
+                            <div>culture</div>
+                            <div>contributor A</div>
+                            <div><img src=""></div>
+                            <div>Lorem Ipsum is simply dummy text of the printing typesettin...</div>
+                        </div>
+                        <div>see all article</div>
+                    </div>
+
                 </div>
             </div>
         </div>
         <div id="footer">
-            <div>Community Lab 23 Nakhon Sawan Rd, Wat Sommanat, Pom Prap Sattru Phai, Bangkok 10100</div>
-            <div id="social">facebook</div>
+            <div >Community Lab 23 Nakhon Sawan Rd, Wat Sommanat, Pom Prap Sattru Phai, Bangkok 10100</div>
         </div>
     </body>
 </html>
