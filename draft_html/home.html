@@ -97,13 +97,42 @@
             .headcard-right{
                 float: right;
             }
+            #sub-menu-title{                
+                background: #0000FF;
+                width: 100%;
+                /* display: inline-block; */
+                display: none;
+                position: absolute;                
+                height: 30px;
+                z-index: 2;
+                padding: 8px;
+            }
+            #sub-menu-title a{
+                color: #fff;
+            }
         </style>
+        <script>
+            function openSubmenu(){
+                if(document.getElementById("sub-menu-title").style.display === "inline"){
+                    document.getElementById("sub-menu-title").style.display = "none";
+                }else{
+                    document.getElementById("sub-menu-title").style.display = "inline";
+                }
+            }
+        </script>
     </head>
     <body>
         <div id="header">
             <!-- <div id="div-menu"> -->
                 <ul class="menu ">
-                    <li class="menu-item" id="menu-page"><a href="/menu">Nanglerng community</a></li>
+                    <li class="menu-item" id="menu-page">                        
+                        <div><a href="#" onclick="openSubmenu()">Nanglerng community</a></div>  
+                        <div id="sub-menu-title">
+                            <a href="#">Eassy</a>
+                            <a href="#">Timeline</a>
+                            <a href="#">Maps</a>
+                        </div>
+                    </li>
                     <li class="menu-item" id="shop-page"><a href="/about">What’s on</a></li>
                     <li class="menu-item" id="catering-page"><a href="/articles">Articles</a></li>
                     <li class="menu-item" id="private-events"><a href="/aboutus">About us</a></li>
