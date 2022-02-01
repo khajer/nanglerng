@@ -182,8 +182,14 @@
             .social-icon-map{
                 text-align: right;
             }
+            #map{
+                width: 100%;
+            }
             .map{
                 width: 100%;
+            }
+            #detail_map{
+                display: none;
             }
 
         </style>
@@ -194,6 +200,15 @@
                 }else{
                     document.getElementById("sub-menu-title").style.display = "inline";
                 }
+            }
+
+            function gotoDetail(){
+                document.getElementById("map").style.display = "none";
+                document.getElementById("detail_map").style.display =" block";
+            }
+            function gotomap(){
+                document.getElementById("detail_map").style.display = "none";
+                document.getElementById("map").style.display =" block";
             }
         </script>
     </head>
@@ -258,12 +273,16 @@
                         </ul>
                     </div>
                     <div id="center_right_column">                        
-                        <div class="map">
-                            <img src="google_map.png"  class="map">
+                        <div id="map">
+                            <a href="#" onclick="gotoDetail('test')"><img src="google_map.png" class="map"></a>
+                        </div>
+                        <div id="detail_map">
+                            <div><a href="#" onclick="gotomap()"">go back to map</a></div>                            
+                            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum
                         </div>                      
                     </div>                    
                 </div>
-            </div>
+            </div>   
             <div id="footer">
                 <div class="footer-box">
                     <div class="footer-tradmark">Community Lab 23 Nakhon Sawan Rd, Wat Sommanat, Pom Prap Sattru Phai, Bangkok 10100</div>
