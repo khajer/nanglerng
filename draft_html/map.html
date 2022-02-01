@@ -188,10 +188,26 @@
             .map{
                 width: 100%;
             }
-            #detail_map{
-                display: none;
-            }
 
+            #detail_map{                
+                float:left;
+                display:none;
+                
+                position: relative;
+                left: 100px;
+                animation: slide 0.5sforwards;
+                -webkit-animation: slide 0.5s forwards;
+            }   
+            @-webkit-keyframes slide {
+                100% {
+                    left: 0;
+                }
+            }
+            @keyframes slide {
+                100% {
+                    left: 0;
+                }
+            }         
         </style>
         <script>
             function openSubmenu(){
@@ -203,12 +219,13 @@
             }
 
             function gotoDetail(){
-                document.getElementById("map").style.display = "none";
                 document.getElementById("detail_map").style.display =" block";
+                document.getElementById("map").style.display = "none";                
             }
             function gotomap(){
                 document.getElementById("detail_map").style.display = "none";
                 document.getElementById("map").style.display =" block";
+                document.getElementById("map").style.left = "100px";
             }
         </script>
     </head>
@@ -273,10 +290,10 @@
                         </ul>
                     </div>
                     <div id="center_right_column">                        
-                        <div id="map">
-                            <a href="#" onclick="gotoDetail('test')"><img src="google_map.png" class="map"></a>
+                        <div id="map" class="slide">
+                            <a href="#" onclick="gotoDetail()"><img src="google_map.png" class="map"></a>
                         </div>
-                        <div id="detail_map">
+                        <div id="detail_map" class="slide">
                             <div><a href="#" onclick="gotomap()"">go back to map</a></div>                            
                             Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum
                         </div>                      
