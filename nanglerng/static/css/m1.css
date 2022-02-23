@@ -101,7 +101,6 @@ li.menu-item {
     position: absolute;                
     height: 30px;
     z-index: 2;
-    padding: 8px;
 }
 #sub-menu-title a{
     color: #fff;
@@ -113,4 +112,8 @@ li.menu-item {
 
 a.text-detail-right {
     text-decoration: none
+}
+
+#list-community{
+    padding: 8px;
 }
