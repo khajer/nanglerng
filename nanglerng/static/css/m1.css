@@ -106,3 +106,11 @@ li.menu-item {
 #sub-menu-title a{
     color: #fff;
 }
+
+.head-left-box{
+    font-size: 24px;
+}
+
+a.text-detail-right{
+    text-decoration: none
+}

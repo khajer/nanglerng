@@ -16,7 +16,7 @@ def comTimeline(request, eventId=0):
     context = {}
     return HttpResponse(template.render(context, request))
 
-def comMap(request):
+def comMap(request, mapId=0):
     template = loader.get_template('community/map.html')
     context = {}
     return HttpResponse(template.render(context, request))
@@ -31,7 +31,7 @@ def article(request):
     context = {}
     return HttpResponse(template.render(context, request))
 
-def articleDetail(request):
+def articleDetail(request, articleId=0):
     template = loader.get_template('article/detail.html')
     context = {}
     return HttpResponse(template.render(context, request))
