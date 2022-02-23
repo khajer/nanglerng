@@ -7,7 +7,7 @@
     </head>
     <body>
         {% include "project/header.html" %}         
-        {% block header %}{{ section.title }}{% endblock %}
+        {% block header %}{% endblock %}
         
         <div id="content">
             <div class="community-tab-menu">
@@ -15,8 +15,8 @@
                 <div>
                     <ul class="menu-comunity">
                         <li class="menu-item tab-border tab-active">Essays</li>
-                        <li class="menu-item tab-border"><a href="">Timeline</a></li>
-                        <li class="menu-item tab-border"><a href="">Map</a></li>
+                        <li class="menu-item tab-border"><a href="/community/timeline">Timeline</a></li>
+                        <li class="menu-item tab-border"><a href="/community/map">Map</a></li>
                     </ul>
                     <div class="spacer"></div>
                 </div>

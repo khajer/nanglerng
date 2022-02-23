@@ -2,7 +2,8 @@ django-admin startproject nanglerng
 
 python3 manage.py migrate
 
-
+# install font awesome
+pip3 install -r requirements.txt
 
 # run server
 python3 manage.py runserver
