@@ -20,5 +20,14 @@ from . import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', views.index, name='home')
+    path('', views.index, name='home'),
+    path('community/essay', views.comEssay, name='comEssay'),
+    path('community/timeline', views.comTimeline, name='comTimeline'),
+    path('community/timeline/<int:eventId>', views.comTimeline, name='comTimeline'),
+    path('community/map', views.comMap, name='comMap'),    
+    path('whatson', views.whatsOn, name='whatson'),
+    path('article', views.article, name='article'),
+    path('article/detail', views.articleDetail, name='articleDetail'),
+    path('aboutus', views.aboutus, name='about'),
+    path('tags', views.tags, name='tags'),
 ]
