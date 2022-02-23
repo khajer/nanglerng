@@ -101,6 +101,8 @@ li.menu-item {
     position: absolute;                
     height: 30px;
     z-index: 2;
+}
+#list-community{
     padding: 8px;
 }
 #sub-menu-title a{

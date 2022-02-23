@@ -6,24 +6,8 @@
          <script src="{% static 'js/toggle_menu.js' %}"></script> 
     </head>
     <body>
-        <div id="header">
-            <!-- <div id="div-menu"> -->
-                <ul class="menu ">
-                    <li class="menu-item" id="menu-page">                        
-                        <div><a href="#" onclick="openSubmenu()">Nanglerng community</a></div>  
-                        <div id="sub-menu-title">
-                            <a href="#">Eassy</a>
-                            <a href="#">Timeline</a>
-                            <a href="#">Maps</a>
-                        </div>
-                    </li>
-                    <li class="menu-item" id="shop-page"><a href="/about">What’s on</a></li>
-                    <li class="menu-item" id="catering-page"><a href="/articles">Articles</a></li>
-                    <li class="menu-item" id="private-events"><a href="/aboutus">About us</a></li>
-                </ul>
-            <!-- </div> -->
-            <div class="text-right"><a href="">*tags</a></div>
-        </div>
+        {% include "project/header.html" %} 
+        {% block header %}{{ section.title }}{% endblock %}        
         <div id="content">
             <div class="community-tab-menu">
                 <div class="title_text">นางเลิ้งเป็นชุมชนเก่าแก่ดึกดำบรรพ์มาแต่โบราณกาลนางเลิ้งเป็นชุมชนเก่าแก่ดึกดำบรรพ์มาแต่โบราณกาล</div>

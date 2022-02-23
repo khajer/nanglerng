@@ -6,26 +6,8 @@
          <script src="{% static 'js/toggle_menu.js' %}"></script> 
     </head>
     <body>
-        <div id="header">
-            <!-- <div id="div-menu"> -->
-                <ul class="menu ">
-                    <li class="menu-item" id="menu-page">                        
-                        <div><a href="#" onclick="openSubmenu()">Nanglerng community</a></div>  
-                        <div id="sub-menu-title">
-                            <div id="list-community">
-                                <a href="/community/essay">Eassy</a>
-                                <a href="/community/timeline">Timeline</a>
-                                <a href="/community/map">Maps</a>
-                            </div>
-                        </div>
-                    </li>
-                    <li class="menu-item"><a href="/whatson">What’s on</a></li>
-                    <li class="menu-item"><a href="/article">Articles</a></li>
-                    <li class="menu-item"><a href="/aboutus">About us</a></li>
-                </ul>
-            <!-- </div> -->
-            <div class="text-right"><a href="/tags">* tags</a></div>
-        </div>
+        {% include "project/header.html" %} 
+        {% block header %}{{ section.title }}{% endblock %}        
         <div id="content">
             <div class="column">                
                 <div class="main-image-left">
