@@ -3,6 +3,8 @@
         <title>NANGLERNG COMMUNITY</title>
         {% load static %}
         <link rel="stylesheet" type="text/css" href="{% static 'css/m3.css' %}">   
+        <link href="{% static 'fontawesomefree/css/all.min.css' %}" rel="stylesheet" type="text/css">
+        <script src="{% static 'fontawesomefree/js/all.min.js' %}"></script>
          <script src="{% static 'js/toggle_menu.js' %}"></script> 
     </head>
     <body>
@@ -74,10 +76,8 @@
                 </div>
             </div>
             <div id="footer">
-                <div class="footer-box">
-                    <div class="footer-tradmark">Community Lab 23 Nakhon Sawan Rd, Wat Sommanat, Pom Prap Sattru Phai, Bangkok 10100</div>
-                    <div class="footer-social"><a href="">facebook</a> <a href="">instagram</a></div>
-                </div>
+                {% include "project/footer.html" %} 
+                {% block footer %}{% endblock %}
             </div>
         </div>
         
