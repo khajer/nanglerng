@@ -1,0 +1,36 @@
+ul.menu-comunity {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    height: 30px;
+}
+
+li.tab-border{
+    width: 180px;
+    height: 30px;
+    border: 1px solid #000;
+    border-bottom: 0;
+    padding: 0 0 0 4px;
+}
+li.tab-active{
+    color: #fff;
+    background: #0000FF;
+}
+.spacer{
+    width: 100%;
+    border-top: 1px solid #000;
+}
+.title_text{
+    padding: 20px 0 20px 0;
+}
+.social_text{
+    padding: 10px 0 10px 0;
+}
+.w-on{
+    margin: 0 auto;
+    width: 80%;
+}
+.w-on-img-list{
+    width: 300px;
+}
+
