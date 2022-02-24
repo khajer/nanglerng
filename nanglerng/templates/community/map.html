@@ -3,7 +3,9 @@
         <title>NANGLERNG COMMUNITY</title>
         {% load static %}
         <link rel="stylesheet" type="text/css" href="{% static 'css/m4.css' %}">   
-         <script src="{% static 'js/toggle_menu.js' %}"></script>    
+        <link rel="stylesheet" type="text/css" href="{% static 'css/map.css' %}">
+        <script src="{% static 'js/toggle_menu.js' %}"></script>    
+        <script src="{% static 'js/initmap.js' %}"></script>    
 
     </head>
     <body>
@@ -15,7 +17,7 @@
                 <div>
                     <ul class="menu-comunity">
                         <li class="menu-item tab-border"><a href="/community/essay">Essays</a></li>
-                        <li class="menu-item tab-border"><a href="/community/timeline">Timeline</a></li>
+                        <li class="menu-item tab-border"><a href="community/timeline">Timeline</a></li>
                         <li class="menu-item tab-border tab-active">Map</li>
                     </ul>
                     <div class="spacer"></div>
@@ -51,11 +53,15 @@
                         </ul>
                     </div>
                     <div id="center_right_column">                        
-                        <div id="map" class="slide">
-                            <a href="#" onclick="gotoDetail()"><img src="google_map.png" class="map"></a>
+                        <div class="slide">
+                            <div id="map"></div>
+                            <script
+                                src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCy41h4x-3qDCWMMH7QDST4Xm2VQJVKd7o&callback=initMap&libraries=&v=weekly"
+                                async
+                            ></script>
                         </div>
                         <div id="detail_map" class="slide">
-                            <div><a href="#" onclick="gotomap()"">go back to map</a></div>
+                            <div id="map"></div>
                             <div id="center_column">
                                 <div class="title_text">Salaochalermthai</div>
                                 <div class="image"><img src="img.png"></div>
