@@ -1,0 +1,34 @@
+#content_text{
+    display: flex;
+    flex-direction: row;
+}
+#left_column{
+    width: 25%;
+}
+#center_column{
+    width: 55%;
+}
+#right_column{
+    width: 20%;
+}
+#list-image{
+    display: flex;
+    flex-wrap: wrap;
+    padding-top: 20px;
+}
+.image{
+    padding: 4px;
+}
+
+ul.event{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+li.event-item{                
+    color: #0000FF;
+}
+#left_center_column{
+    width: 80%;
+}
+
