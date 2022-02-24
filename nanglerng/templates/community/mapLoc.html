@@ -1,0 +1,110 @@
+<html>
+    <head>
+        <title>NANGLERNG COMMUNITY</title>
+        {% load static %}
+        <link rel="stylesheet" type="text/css" href="{% static 'css/m4.css' %}">   
+        <!-- <link rel="stylesheet" type="text/css" href="{% static 'css/map.css' %}"> -->
+        <script src="{% static 'js/toggle_menu.js' %}"></script>     
+
+    </head>
+    <body>
+        {% include "project/header.html" %} 
+        {% block header %}{% endblock %}        
+        <div id="content">
+            <div class="community-tab-menu">
+                <div class="title_text">นางเลิ้งเป็นชุมชนเก่าแก่ดึกดำบรรพ์มาแต่โบราณกาลนางเลิ้งเป็นชุมชนเก่าแก่ดึกดำบรรพ์มาแต่โบราณกาล</div>
+                <div>
+                    <ul class="menu-comunity">
+                        <li class="menu-item tab-border"><a href="/community/essay">Essays</a></li>
+                        <li class="menu-item tab-border"><a href="/community/timeline">Timeline</a></li>
+                        <li class="menu-item tab-border tab-active">Map</li>
+                    </ul>
+                    <div class="spacer"></div>
+                </div>
+            </div>
+            <div>
+                <div class="title_text">
+                    นางเลิ้งเป็นชุมชนเก่าแก่ดึกดำบรรพ์มาแต่โบราณกาลนางเลิ้งเป็นชุมชนเก่าแก่
+                </div>
+                <div class="pad-10">
+                    <div class="social-icon-map">
+                        facebook twitter
+                    </div>
+                </div>                
+                <div id="content_text">
+                    <div id="left_column">                        
+                        <div>buildings</div>
+                        <ul class="event">                            
+                            <li class="event-item"><a href="3">1. Lorem Ipsum is simply dummy text of </a></li>
+                            <li class="event-item"><a href="4">2. Lorem Ipsum is simply dummy text of </a></li>
+                        </ul>
+                        <div>Ghost</div>
+                        <ul class="event">                            
+                            <li class="event-item"><a href="5">1. Lorem Ipsum is simply dummy text of </a></li>
+                            <li class="event-item"><a href="6">2. Lorem Ipsum is simply dummy text of </a></li>
+                            <li class="event-item"><a href="7">3. Lorem Ipsum is simply dummy text of </a></li>
+                            <li class="event-item"><a href="8">4. Lorem Ipsum is simply dummy text of </a></li>
+                            <li class="event-item"><a href="9">5. Lorem Ipsum is simply dummy text of </a></li>
+                        </ul>
+                    </div>
+                    <div id="center_right_column">                                                
+                        <div id="detail_map">
+                            <div id="center_column">
+                                <div><a href="/community/map">back to map</a></div>
+                                <div class="title_text">Salaochalermthai</div>
+                                <div class="image"><img src="img.png"></div>
+                                <div class="title_text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum</div>
+                                <div class="spacer"></div>                                
+                                <div class="title_text">Related events</div>                                
+                                <div class="b-list">
+                                    <div class="llist">                                
+                                        <div class="headcard">
+                                            <div class="headcard-left">20/20/21</div>
+                                            <div class="headcard-right">location B</div>
+                                        </div>                                
+                                        <div><img src="img.png" width="100%"></div>
+                                        <div>desc</div>                            
+                                    </div>
+                                    <div class="llist">
+                                        <div class="headcard">
+                                            <div class="headcard-left">20/20/21</div>
+                                            <div class="headcard-right">location A</div>
+                                        </div>                                
+                                        <div><img src="img.png" width="100%"></div>
+                                        <div>desc</div>
+                                    
+                                    </div>                            
+                                </div>
+                                <div class="title_text">Related articles</div>                                
+                                <div class="b-list">
+                                    <div class="llist">                                
+                                        <div class="headcard">
+                                            <div class="headcard-left">20/20/21</div>
+                                            <div class="headcard-right">location B</div>
+                                        </div>                                
+                                        <div><img src="img.png" width="100%"></div>
+                                        <div>desc</div>                            
+                                    </div>
+                                    <div class="llist">
+                                        <div class="headcard">
+                                            <div class="headcard-left">20/20/21</div>
+                                            <div class="headcard-right">location A</div>
+                                        </div>                                
+                                        <div><img src="img.png" width="100%"></div>
+                                        <div>desc</div>                                    
+                                    </div>                            
+                                </div>
+                            </div>                                                        
+                        </div>                      
+                    </div>                    
+                </div>
+            </div>   
+            <div id="footer">
+                {% include "project/footer.html" %} 
+                {% block footer %}{% endblock %}
+            </div>
+        </div>
+        
+    </body>
+</html>
+

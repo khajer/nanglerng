@@ -179,29 +179,11 @@
     .social-icon-map{
         text-align: right;
     }
-    #map{
-        width: 100%;
-    }
-    .map{
-        width: 100%;
-    }
+    
 
     #detail_map{                
-        float:left;
-        display:none;
-        
+        float:left;        
         position: relative;
-        left: 100px;
-        animation: slide 0.5sforwards;
-        -webkit-animation: slide 0.5s forwards;
+        left: 100px;        
     }   
-    @-webkit-keyframes slide {
-        100% {
-            left: 0;
-        }
-    }
-    @keyframes slide {
-        100% {
-            left: 0;
-        }
-    }         
+       

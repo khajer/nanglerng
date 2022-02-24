@@ -16,8 +16,13 @@ def comTimeline(request, eventId=0):
     context = {}
     return HttpResponse(template.render(context, request))
 
-def comMap(request, mapId=0):
+def comMap(request):
     template = loader.get_template('community/map.html')
+    context = {}
+    return HttpResponse(template.render(context, request))
+
+def comMapLoc(request, locId=0):
+    template = loader.get_template('community/mapLoc.html')
     context = {}
     return HttpResponse(template.render(context, request))
 
