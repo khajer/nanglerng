@@ -4,9 +4,8 @@
         {% load static %}
         <script src="{% static 'fontawesomefree/js/all.min.js' %}"></script>
         <link rel="stylesheet" type="text/css" href="{% static 'css/m4.css' %}">   
-        <!-- <link rel="stylesheet" type="text/css" href="{% static 'css/map.css' %}"> -->
+        <link rel="stylesheet" type="text/css" href="{% static 'css/image_slide.css' %}">
         <script src="{% static 'js/toggle_menu.js' %}"></script>     
-
     </head>
     <body>
         {% include "project/header.html" %} 
@@ -53,7 +52,31 @@
                             <div id="center_column">
                                 <div><a href="/community/map">back to map</a></div>
                                 <div class="title_text">Salaochalermthai</div>
-                                <div class="image"><img src="img.png"></div>
+                                <div class="image">
+                                    <div class="slidercontainer">  
+                                        <div class="showSlide fade">  
+                                            <img src="{% static 'images/example.png' %}" />  
+                                            <div class="content">Slide1 heading</div>  
+                                        </div>  
+                                        <div class="showSlide fade">  
+                                            <img src="{% static 'images/example.png' %}" />  
+                                            <div class="content">Slide2 heading</div>  
+                                        </div>  
+                                  
+                                        <div class="showSlide fade">  
+                                            <img src="{% static 'images/example.png' %}" />  
+                                            <div class="content">Slide3 heading</div>  
+                                        </div>  
+                                        <div class="showSlide fade">  
+                                            <img src="{% static 'images/example.png' %}" />  
+                                            <div class="content">Slide4 heading</div>  
+                                        </div>  
+                                        <!-- Navigation arrows -->  
+                                        <a class="left" onclick="nextSlide(-1)">❮</a>  
+                                        <a class="right" onclick="nextSlide(1)">❯</a>  
+                                    </div>  
+                                    <script src="{% static 'js/image_slide.js' %}"></script>
+                                </div>
                                 <div class="title_text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum</div>
                                 <div class="spacer"></div>                                
                                 <div class="title_text">Related events</div>                                
