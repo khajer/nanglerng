@@ -48,6 +48,7 @@
                     });
                     marker.addListener("click", () => {
                         console.log(marker.locId);
+                        window.location.assign("/community/map/"+marker.locId)
                     });
                 })
             }    
