@@ -39,7 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'nanglerng',
-    'fontawesomefree'
+    'fontawesomefree',
+    'django_quill',
 ]
 
 MIDDLEWARE = [

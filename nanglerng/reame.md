@@ -22,3 +22,13 @@ python3 manage.py migrate nanglerng             // (execute the SQL commands).
 python3 manage.py createsuperuser
 admin
 nanglerng0222
+
+
+# quill
+//pip install django-quill-editor
+settings.py
+INSTALLED_APPS = [
+    'django.contrib.admin',
+    ...
+    'django_quill',
+]
