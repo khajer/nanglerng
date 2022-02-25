@@ -14,7 +14,9 @@ python3 manage.py startapp polls
 
 
 # migrate database
-python3 manage.py migrate
+python3 manage.py makemigrations nanglerng      // (Create the migrations)
+python3 manage.py migrate nanglerng             // (execute the SQL commands). 
+
 
 # admin 
 python3 manage.py createsuperuser
