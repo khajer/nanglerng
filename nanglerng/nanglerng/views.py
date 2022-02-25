@@ -1,9 +1,12 @@
 from django.http import HttpResponse
 from django.template import loader
+from .models import Essay
 
 def index(request):
     template = loader.get_template('home/index.html')
-    context = {}
+    essay = Essay.objects.all()[0]
+    print(essay.imgCover)
+    context = {"essay":essay}
     return HttpResponse(template.render(context, request))
 
 def comEssay(request):
