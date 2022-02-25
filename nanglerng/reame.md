@@ -13,7 +13,10 @@ python3 manage.py runserver 8080
 python3 manage.py startapp polls
 
 
+# migrate database
+python3 manage.py migrate
 
 # admin 
 python3 manage.py createsuperuser
-
+admin
+nanglerng0222
