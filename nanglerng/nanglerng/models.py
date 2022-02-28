@@ -15,6 +15,9 @@ class Aboutus(models.Model):
 
 class TypePost(models.Model):
     typename = models.CharField(max_length=200)
+    def __str__(self):
+        return self.typename
+
 
 class Post(models.Model):
     title = models.CharField(max_length=200)
@@ -27,14 +30,17 @@ class Post(models.Model):
     culture = models.CharField(max_length=200)
     author = models.CharField(max_length=200)
     contribute = models.CharField(max_length=200)
-    main_flag = models.BooleanField(default=False)
+    mainFlag = models.BooleanField(default=False)
     createAt = models.DateTimeField(auto_now_add=True)
+    def __str__(self):
+        mainFlg = "*" if self.mainFlag else ""
+        return " ["+self.typePost.typename+"] "+self.title + " (" +mainFlg+")"
 
 class PostImage(models.Model):
     image = models.FileField(upload_to='media/%Y/%m/%d/')
     post = models.ForeignKey(Post, on_delete=models.CASCADE)
 
-
 class Tags(models.Model):
     word = models.CharField(max_length=200)
     post = models.ForeignKey(Post, on_delete=models.CASCADE)
+
