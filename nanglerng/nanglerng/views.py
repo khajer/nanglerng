@@ -1,6 +1,6 @@
 from django.http import HttpResponse
 from django.template import loader
-from .models import Essay
+from .models import Essay, Aboutus
 
 def index(request):
     template = loader.get_template('home/index.html')
@@ -46,7 +46,8 @@ def articleDetail(request, articleId=0):
 
 def aboutus(request):
     template = loader.get_template('aboutus/index.html')
-    context = {}
+    aboutus = Aboutus.objects.all()[0]    
+    context = {'aboutus':aboutus}    
     return HttpResponse(template.render(context, request))
 
 def tags(request):
