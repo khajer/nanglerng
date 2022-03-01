@@ -10,11 +10,16 @@ admin.site.register(Tags)
 
 @admin.register(Post)
 class PostAdmin(admin.ModelAdmin):
-    list_display = ("title", "typePost", "createAt")    
+    list_display = ("title", "typePost", "createAt", "show_mainpage")    
+    def show_mainpage(self, obj):
+        return "show" if obj.mainFlag else ""
 
 @admin.register(PostImage)
 class PostImageAdmin(admin.ModelAdmin):
-    list_display = ("post", "image")
+    list_display = ("post", "get_post_image", "image")
+    def get_post_image(self, obj):
+        return obj.post.typePost
+   
 
 @admin.register(Essay)
 class EssayAdmin(admin.ModelAdmin):
