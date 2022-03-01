@@ -17,24 +17,16 @@
                 <div id="content_text">                    
                     <div id="left_center_column">
                         <div>
-                            <div class="title_text">Title</div>
+                            <div class="title_text">{{article.title}}</div>
                             <div>
-                                If you are connected but behind a firewall, check that Firefox has permission to access the Web
-                                detail detail detail detaildetail detaildetail detaildetail detaildetail detaildetail detaildetail detail
-                                If you are connected but behind a firewall, check that Firefox has permission to access the Web
-                                detail detail detail detaildetail detaildetail detaildetail detaildetail detaildetail detaildetail detail
-                                If you are connected but behind a firewall, check that Firefox has permission to access the Web
-                                detail detail detail detaildetail detaildetail detaildetail detaildetail detaildetail detaildetail detail
-                                If you are connected but behind a firewall, check that Firefox has permission to access the Web
-                                detail detail detail detaildetail detaildetail detaildetail detaildetail detaildetail detaildetail detail
-                                If you are connected but behind a firewall, check that Firefox has permission to access the Web
+                                {{article.rawHtmlData.html|safe}}
                             </div>
                         </div>
                     </div>
                     <div id="right_column">
-                        <div class="title_text">Culture</div>
+                        <div class="title_text"> {{article.culture}}</div>
                         <div>สถานที่กอไก่</div>
-                        <div>นักเขียนกอไก่</div>
+                        <div>{{article.author}}</div>
                         <div>12/06/2021</div>                        
                     </div>
                 </div>

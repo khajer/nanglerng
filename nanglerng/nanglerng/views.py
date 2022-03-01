@@ -50,7 +50,10 @@ def article(request):
 
 def articleDetail(request, articleId=0):
     template = loader.get_template('article/detail.html')
-    context = {}
+    articles = Post.objects.all().filter(id=articleId)
+    context = {
+        "article":articles[0]
+    }
     return HttpResponse(template.render(context, request))
 
 def aboutus(request):

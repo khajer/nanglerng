@@ -20,7 +20,6 @@ class TypePost(models.Model):
     def __str__(self):
         return self.typename
 
-
 class Post(models.Model):
     title = models.CharField(max_length=200)
     imgCover = models.FileField(upload_to='media/%Y/%m/%d/', blank=True)
