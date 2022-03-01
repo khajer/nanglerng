@@ -1,17 +1,26 @@
 from django.http import HttpResponse
 from django.template import loader
-from .models import Essay, Aboutus
+from .models import Essay, Aboutus, Post
 
 def index(request):
     template = loader.get_template('home/index.html')
     essay = Essay.objects.all()[0]    
-    context = {'essay':essay}
+    whatsons = Post.objects.all().filter(mainFlag=True, typePost="1")
+    # locations = Post.objects.all().filter(mainFlag=True, typePost="2")
+    location = Post.objects.all().filter(mainFlag=True, typePost="2")[0]
+    articles = Post.objects.all().filter(mainFlag=True, typePost="3")
+    context = {
+        'essay': essay, 
+        'whatsons': whatsons,
+        'location': location,
+        'articles': articles
+    }
     return HttpResponse(template.render(context, request))
 
 def comEssay(request):
     template = loader.get_template('community/essay.html')
     essay = Essay.objects.all()[0]    
-    context = {'essay':essay}
+    context = {'essay': essay}
     return HttpResponse(template.render(context, request))
 
 def comTimeline(request, eventId=0):

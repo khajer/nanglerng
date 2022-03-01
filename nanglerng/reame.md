@@ -17,6 +17,14 @@ python3 manage.py startapp polls
 python3 manage.py makemigrations nanglerng      // (Create the migrations)
 python3 manage.py migrate nanglerng             // (execute the SQL commands). 
 
+# query 
+python3 manage.py shell
+`
+from nanglerng.models import Post
+Post.objects.all()
+Post.objects.all().filter(mainFlag=True)
+`
+
 
 # admin 
 python3 manage.py createsuperuser
