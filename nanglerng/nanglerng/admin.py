@@ -16,10 +16,11 @@ class PostAdmin(admin.ModelAdmin):
 
 @admin.register(PostImage)
 class PostImageAdmin(admin.ModelAdmin):
-    list_display = ("post", "get_post_image", "image")
+    list_display = ("post", "get_post_image", "image", "show_mainpage")
     def get_post_image(self, obj):
         return obj.post.typePost
-   
+    def show_mainpage(self, obj):
+        return "show" if obj.post.mainFlag else ""
 
 @admin.register(Essay)
 class EssayAdmin(admin.ModelAdmin):
