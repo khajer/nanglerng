@@ -2,7 +2,7 @@ from django.db import models
 from django_quill.fields import QuillField
 
 class Essay(models.Model):
-    imgCover = models.FileField(upload_to='media/%Y/%m/%d/')
+    imgCover = models.FileField(upload_to='media/%Y/%m/%d/', blank=True)
     txtIntro = models.CharField(max_length=200)
     rawHtmlData = QuillField()
     author = models.CharField(max_length=200)
@@ -23,6 +23,7 @@ class TypePost(models.Model):
 
 class Post(models.Model):
     title = models.CharField(max_length=200)
+    imgCover = models.FileField(upload_to='media/%Y/%m/%d/', blank=True)
     typePost = models.ForeignKey(TypePost, on_delete=models.CASCADE)
     eventTime = models.CharField(max_length=200)    
     lat = models.DecimalField(max_digits=9, decimal_places=6)
