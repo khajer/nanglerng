@@ -7,6 +7,8 @@ class Essay(models.Model):
     rawHtmlData = QuillField()
     author = models.CharField(max_length=200)
     createAt = models.DateTimeField(auto_now_add=True)
+    def __str__(self):
+        return self.txtIntro
 
 class Aboutus(models.Model):
     rawHtmlData = QuillField()
@@ -32,17 +34,14 @@ class Post(models.Model):
     contribute = models.CharField(max_length=200)
     mainFlag = models.BooleanField(default=False)
     createAt = models.DateTimeField(auto_now_add=True)
-    # def __str__(self):
-    #     mainFlg = " *" if self.mainFlag else ""
-    #     return " ["+self.typePost.typename+"] "+self.title +mainFlg
+    def __str__(self):
+        return self.title
+    class Meta:
+        ordering = ["-createAt"]
 
 class PostImage(models.Model):
     image = models.FileField(upload_to='media/%Y/%m/%d/')
-    post = models.ForeignKey(Post, on_delete=models.CASCADE)
-    # def __str__(self):        
-    #     fileImg = '<img src="'+self.image.name+'" width="64" height="64">'
-    #     fileImg = self.image.name
-    #     return self.post.title+" : "+ fileImg
+    post = models.ForeignKey(Post, on_delete=models.CASCADE)    
 
 class Tags(models.Model):
     word = models.CharField(max_length=200)
