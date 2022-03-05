@@ -24,7 +24,7 @@
             </div>
             <div>
                 <div class="title_text">
-                    นางเลิ้งเป็นชุมชนเก่าแก่ดึกดำบรรพ์มาแต่โบราณกาลนางเลิ้งเป็นชุมชนเก่าแก่
+                    {{event.title}}
                 </div>
                 <div id="content_text">
                     <div id="left_column">                        
@@ -47,17 +47,9 @@
                     </div>
                     <div id="center_column">
                         <div>
-                            <div class="title_text">Title</div>
+                            <div class="title_text">{{event.title}}</div>
                             <div>
-                                If you are connected but behind a firewall, check that Firefox has permission to access the Web
-                                detail detail detail detaildetail detaildetail detaildetail detaildetail detaildetail detaildetail detail
-                                If you are connected but behind a firewall, check that Firefox has permission to access the Web
-                                detail detail detail detaildetail detaildetail detaildetail detaildetail detaildetail detaildetail detail
-                                If you are connected but behind a firewall, check that Firefox has permission to access the Web
-                                detail detail detail detaildetail detaildetail detaildetail detaildetail detaildetail detaildetail detail
-                                If you are connected but behind a firewall, check that Firefox has permission to access the Web
-                                detail detail detail detaildetail detaildetail detaildetail detaildetail detaildetail detaildetail detail
-                                If you are connected but behind a firewall, check that Firefox has permission to access the Web
+                                {{event.rawHtmlData.html|safe }}
                             </div>
                         </div>
                         

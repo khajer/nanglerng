@@ -1,13 +1,13 @@
 from django.http import HttpResponse
 from django.template import loader
-from .models import Essay, Aboutus, Post
+from .models import Essay, Aboutus, Post, TypePost
 
 def index(request):
     template = loader.get_template('home/index.html')
     essay = Essay.objects.all()[0]    
     whatsons = Post.objects.all().filter(mainFlag=True, typePost="1")
     # locations = Post.objects.all().filter(mainFlag=True, typePost="2")
-    location = Post.objects.all().filter(mainFlag=True, typePost="2")[0]
+    location = Post.objects.all().filter(mainFlag=True, typePost="2").order_by('id').reverse()[0]
     articles = Post.objects.all().filter(mainFlag=True, typePost="3")
     context = {
         'essay': essay, 
@@ -25,7 +25,20 @@ def comEssay(request):
 
 def comTimeline(request, eventId=0):
     template = loader.get_template('community/timeline.html')
-    context = {}
+    typePost = TypePost.objects.filter(typename="Event")[0]
+    events = Post.objects.all().filter(mainFlag=True, typePost=typePost.id).order_by('id').reverse()
+
+    event = None
+    if eventId == 0:
+        event = events[0]
+    else:
+        event = list(filter(lambda e: (e.id == eventId), events))[0]
+    
+    context = {
+        "events": events,
+        "event": event
+
+    }
     return HttpResponse(template.render(context, request))
 
 def comMap(request):

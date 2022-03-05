@@ -39,7 +39,7 @@
                                             {% else %}
                                             <div><img src="{% static 'images/example.png' %}" width="100%"></div>
                                             {% endif %}                                            
-                                            <div>{{ timeline.desc }}</div>
+                                            <div>{{ timeline.title }}</div>
                                         </a>
                                     </div>
                                 {% endfor %}                            
@@ -58,7 +58,7 @@
                                 {% else %}
                                 <div ><img src="{% static 'images/example.png' %}" width="100%" height="40%"></div>
                                 {% endif %}
-                                <div>{{location.desc}}</div>
+                                <div>{{location.title}}</div>
                                 <div class="more"><a href="community/map">read more</a></div>
                             </a>
                         {% endif %}                            
@@ -79,7 +79,7 @@
                                     {% else %}
                                     <div><img src="{% static 'images/example.png' %}" width="100%"></div>
                                     {% endif %}
-                                    <div>{{article.desc}}</div>
+                                    <div>{{article.title}}</div>
                                 </a>
                             </div>
                             {% endfor %}
