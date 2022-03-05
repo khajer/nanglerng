@@ -17,28 +17,14 @@
                 });
                                
                 const image = "{% static 'images/marker.png' %}";
-                var dataMarker = [{
-                    position:{ lat: 13.7592027, lng: 100.5098457 },
-                    label: "test1",
-                    locId: 1,
-                },{
-                    position:{ lat: 13.7581027, lng: 100.5089457 },
-                    label: "test2",
-                    locId: 2,
-                },{
-                    position:{ lat: 13.7521327, lng: 100.5110257 },
-                    label: "test3",
-                    locId: 3,
-                },{
-                    position:{ lat: 13.7511327, lng: 100.5019257 },
-                    label: "test4",
-                    locId: 3,
-                },{
-                    position:{ lat: 13.7591327, lng: 100.5029257 },
-                    label: "test5",
-                    locId: 3,
-                }];
-
+                var dataMarker = [];
+                {% for loc in locations %}
+                    dataMarker.push({
+                        position:{ lat: {{loc.lat}}, lng: {{loc.lon}} },
+                        label: "{{loc.title}}",
+                        locId: {{loc.id}},
+                    })
+                {% endfor %}
                 dataMarker.forEach(e=>{
                     const marker = new google.maps.Marker({
                         position: e.position,
@@ -53,13 +39,6 @@
                     });
                 })
             }    
-            
-            function focusLocation(objLoc){
-                console.log(objLoc);
-                map.setZoom(20);
-                map.setCenter({lat:objLoc.lat, lng:objLoc.lng});
-            }
-
         </script>    
 
     </head>
@@ -89,19 +68,12 @@
                 
                 <div id="content_text">
                     <div id="left_column">                        
-                        <div>buildings</div>
+                        <div>รายการสถานที่</div>                        
                         <ul class="event">                            
-                            <li class="event-item"><a href="#" onClick="focusLocation({ lat: 13.7581027, lng: 100.5089457 })">1. Lorem Ipsum is simply dummy text of </a></li>
-                            <li class="event-item"><a href="#" onClick="focusLocation({ lat: 13.7581027, lng: 100.5089457 })">2. Lorem Ipsum is simply dummy text of </a></li>
-                        </ul>
-                        <div>Ghost</div>
-                        <ul class="event">                            
-                            <li class="event-item"><a href="#" onClick="focusLocation({ lat: 13.7581027, lng: 100.5189457 })">1. Lorem Ipsum is simply dummy text of </a></li>
-                            <li class="event-item"><a href="#" onClick="focusLocation({ lat: 13.7581027, lng: 100.5289457 })">2. Lorem Ipsum is simply dummy text of </a></li>
-                            <li class="event-item"><a href="#" onClick="focusLocation({ lat: 13.7581027, lng: 100.5389457 })">3. Lorem Ipsum is simply dummy text of </a></li>
-                            <li class="event-item"><a href="#" onClick="focusLocation({ lat: 13.7581027, lng: 100.5489457 })">4. Lorem Ipsum is simply dummy text of </a></li>
-                            <li class="event-item"><a href="#" onClick="focusLocation({ lat: 13.7581027, lng: 100.5589457 })">5. Lorem Ipsum is simply dummy text of </a></li>
-                        </ul>
+                            {% for loc in locations %}
+                            <li class="event-item"><a href="map/{{loc.id}}">{{loc.title}}</a></li>                            
+                            {% endfor %}
+                        </ul>                        
                     </div>
                     <div id="center_right_column">                        
                         <div class="slide">
@@ -111,54 +83,6 @@
                                 async
                             ></script>
                         </div>
-                        <!-- <div id="detail_map" class="slide">
-                            <div id="map"></div>
-                            <div id="center_column">
-                                <div class="title_text">Salaochalermthai</div>
-                                <div class="image"><img src="img.png"></div>
-                                <div class="title_text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum</div>
-                                <div class="spacer"></div>                                
-                                <div class="title_text">Related events</div>                                
-                                <div class="b-list">
-                                    <div class="llist">                                
-                                        <div class="headcard">
-                                            <div class="headcard-left">20/20/21</div>
-                                            <div class="headcard-right">location B</div>
-                                        </div>                                
-                                        <div><img src="img.png" width="100%"></div>
-                                        <div>desc</div>                            
-                                    </div>
-                                    <div class="llist">
-                                        <div class="headcard">
-                                            <div class="headcard-left">20/20/21</div>
-                                            <div class="headcard-right">location A</div>
-                                        </div>                                
-                                        <div><img src="img.png" width="100%"></div>
-                                        <div>desc</div>
-                                    
-                                    </div>                            
-                                </div>
-                                <div class="title_text">Related articles</div>                                
-                                <div class="b-list">
-                                    <div class="llist">                                
-                                        <div class="headcard">
-                                            <div class="headcard-left">20/20/21</div>
-                                            <div class="headcard-right">location B</div>
-                                        </div>                                
-                                        <div><img src="img.png" width="100%"></div>
-                                        <div>desc</div>                            
-                                    </div>
-                                    <div class="llist">
-                                        <div class="headcard">
-                                            <div class="headcard-left">20/20/21</div>
-                                            <div class="headcard-right">location A</div>
-                                        </div>                                
-                                        <div><img src="img.png" width="100%"></div>
-                                        <div>desc</div>                                    
-                                    </div>                            
-                                </div>
-                            </div>                                                        
-                        </div>                       -->
                     </div>                    
                 </div>
             </div>   

@@ -42,7 +42,13 @@ def comTimeline(request, eventId=0):
 
 def comMap(request):
     template = loader.get_template('community/map.html')
-    context = {}
+    typePost = TypePost.objects.filter(typename="Location")[0]
+    print(typePost)
+    locations = Post.objects.all().filter(typePost=typePost.id).order_by('id').reverse()
+    print(locations)
+    context = {
+        "locations":locations
+    }
     return HttpResponse(template.render(context, request))
 
 def comMapLoc(request, locId=0):
