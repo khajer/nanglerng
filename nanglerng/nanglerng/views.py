@@ -42,10 +42,8 @@ def comTimeline(request, eventId=0):
 
 def comMap(request):
     template = loader.get_template('community/map.html')
-    typePost = TypePost.objects.filter(typename="Location")[0]
-    print(typePost)
-    locations = Post.objects.all().filter(typePost=typePost.id).order_by('id').reverse()
-    print(locations)
+    typePost = TypePost.objects.filter(typename="Location")[0]    
+    locations = Post.objects.all().filter(typePost=typePost.id).order_by('id').reverse()    
     context = {
         "locations":locations
     }
@@ -53,7 +51,13 @@ def comMap(request):
 
 def comMapLoc(request, locId=0):
     template = loader.get_template('community/mapLoc.html')
-    context = {}
+    typePost = TypePost.objects.filter(typename="Location")[0]    
+    locations = Post.objects.all().filter(typePost=typePost.id).order_by('id').reverse()
+    location = list(filter(lambda e: (e.id == locId), locations))[0]
+    context = {
+        "locations": locations,
+        "location": location
+    }
     return HttpResponse(template.render(context, request))
 
 def whatsOn(request):
