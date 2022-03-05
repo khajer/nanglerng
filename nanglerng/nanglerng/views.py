@@ -58,12 +58,17 @@ def whatsOn(request):
 
 def article(request):
     template = loader.get_template('article/index.html')
-    context = {}
+    typePost = TypePost.objects.filter(typename="Article")[0]
+    articles = Post.objects.all().filter(mainFlag=True, typePost=typePost.id).order_by('id').reverse()
+    context = {
+        "articles":articles
+    }
     return HttpResponse(template.render(context, request))
 
 def articleDetail(request, articleId=0):
     template = loader.get_template('article/detail.html')
-    context = {}
+    article = Post.objects.get(id=articleId)
+    context = {"article":article}
     return HttpResponse(template.render(context, request))
 
 def aboutus(request):
