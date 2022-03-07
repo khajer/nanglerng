@@ -1,0 +1,69 @@
+{% load static %}
+{% block right_content %}        
+<div class="content-box">
+    <div class="bb">
+        <div class="head-left-box">What's on</div>
+        <div class="b-list">
+            {% if whatsons %}                            
+                {% for timeline in whatsons %}
+                    <div class="llist">
+                        <a href="community/timeline/{{timeline.id}}" class="text-detail-right">
+                            <div class="headcard">
+                                <div class="headcard-left">{{timeline.eventTime}}</div>
+                                <div class="headcard-right">location A</div>
+                            </div>
+                            {% if timeline.imgCover != "" %}   
+                            <div><img src="media/{{ timeline.imgCover }}" width="100%"></div>
+                            {% else %}
+                            <div><img src="{% static 'images/example.png' %}" width="100%"></div>
+                            {% endif %}                                            
+                            <div>{{ timeline.title }}</div>
+                        </a>
+                    </div>
+                {% endfor %}                            
+            {% else %}
+            {% endif %}                            
+        </div>
+        <div class="more"><a href="/whatson">see all events</a></div>                        
+    </div>
+
+    <div  class="bb">
+        <div class="head-left-box">Get to know nanglerng</div>
+        {% if location %}
+            <a href="community/map/{{location.id}}"  class="text-detail-right">
+                {% if location.imgCover != "" %}
+                <div ><img src="media/{{ location.imgCover }}" width="100%" height="40%"></div>
+                {% else %}
+                <div ><img src="{% static 'images/example.png' %}" width="100%" height="40%"></div>
+                {% endif %}
+                <div>{{location.title}}</div>
+                <div class="more"><a href="community/map">read more</a></div>
+            </a>
+        {% endif %}                            
+    </div>
+    <div class="bb">
+        <div class="head-left-box">Article</div>
+        <div class="b-list"> 
+        {% if articles %}                            
+            {% for article in articles %}
+            <div class="llist">
+                <a href="/article/{{ article.id }}" class="text-detail-right">
+                    <div class="headcard">
+                        <div class="headcard-left">{{article.culture}}</div>
+                        <div class="headcard-right">{{article.contribute}}</div>
+                    </div>
+                    {% if article.imgCover != "" %}
+                    <div><img src="media/{{ article.imgCover }}" width="100%"></div>
+                    {% else %}
+                    <div><img src="{% static 'images/example.png' %}" width="100%"></div>
+                    {% endif %}
+                    <div>{{article.title}}</div>
+                </a>
+            </div>
+            {% endfor %}
+        {% endif %}                            
+        </div>
+        <div class="more"><a href="/article">see all article</a></div>
+    </div>                    
+</div>
+{% endblock right_content %}
