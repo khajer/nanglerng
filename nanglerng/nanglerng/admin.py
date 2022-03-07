@@ -17,6 +17,15 @@ class PostAdmin(admin.ModelAdmin):
     
     def show_mainpage(self, obj):
         return "show" if obj.mainFlag else ""
+    
+    def get_form(self, request, obj=None, **kwargs):
+        form = super().get_form(request, obj, **kwargs)
+        form.base_fields["rawHtmlData"].label = "Content:"
+        form.base_fields["imgCover"].label = "Image Cover:"
+        form.base_fields["typePost"].label = "Type:"
+        form.base_fields["mainFlag"].label = "Show MainPage"
+        form.base_fields["desc"].label = "Short Description"
+        return form
         
 
 @admin.register(PostImage)
@@ -32,7 +41,7 @@ class EssayAdmin(admin.ModelAdmin):
     def get_form(self, request, obj=None, **kwargs):
         form = super().get_form(request, obj, **kwargs)
         form.base_fields["txtIntro"].label = "Text Intro:"
-        form.base_fields["rawHtmlData"].label = "text:"
+        form.base_fields["rawHtmlData"].label = "Content:"
         form.base_fields["imgCover"].label = "Image Cover:"
         return form
 
