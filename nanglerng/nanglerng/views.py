@@ -80,15 +80,8 @@ def article(request):
 
 def articleDetail(request, articleId=0):
     template = loader.get_template('article/detail.html')
-<<<<<<< HEAD
-    articles = Post.objects.all().filter(id=articleId)
-    context = {
-        "article":articles[0]
-    }
-=======
     article = Post.objects.get(id=articleId)
     context = {"article":article}
->>>>>>> 427eb6708cda7d1c146c414cac46d3b9d99b9d46
     return HttpResponse(template.render(context, request))
 
 def aboutus(request):
