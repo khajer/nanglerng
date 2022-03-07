@@ -25,7 +25,7 @@ class PostImageAdmin(admin.ModelAdmin):
     def get_post_image(self, obj):
         return obj.post.typePost
     def show_mainpage(self, obj):
-        return "show" if obj.post.mainFlag else ""
+        return "Y" if obj.post.mainFlag else ""
 
 @admin.register(Essay)
 class EssayAdmin(admin.ModelAdmin):
