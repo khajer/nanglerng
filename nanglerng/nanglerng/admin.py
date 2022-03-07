@@ -2,7 +2,6 @@ from django.contrib import admin
 
 from .models import Essay, Post, PostImage, Aboutus, TypePost, Tags
 
-# admin.site.register(Essay)
 admin.site.register(TypePost)
 
 admin.site.register(Aboutus)
@@ -30,4 +29,10 @@ class PostImageAdmin(admin.ModelAdmin):
 
 @admin.register(Essay)
 class EssayAdmin(admin.ModelAdmin):
-    pass 
+    def get_form(self, request, obj=None, **kwargs):
+        form = super().get_form(request, obj, **kwargs)
+        form.base_fields["txtIntro"].label = "Text Intro:"
+        form.base_fields["rawHtmlData"].label = "text:"
+        form.base_fields["imgCover"].label = "Image Cover:"
+        return form
+
