@@ -10,9 +10,15 @@ admin.site.register(Tags)
 
 @admin.register(Post)
 class PostAdmin(admin.ModelAdmin):
-    list_display = ("title", "typePost", "createAt", "show_mainpage")    
+    list_display = ("title", "typePost", "show_mainpage", "createAt",)    
+    list_filter = ("typePost", )
+    ordering = ('-createAt',)
+    search_fields = ("title", )
+    list_per_page = 20
+    
     def show_mainpage(self, obj):
         return "show" if obj.mainFlag else ""
+        
 
 @admin.register(PostImage)
 class PostImageAdmin(admin.ModelAdmin):
