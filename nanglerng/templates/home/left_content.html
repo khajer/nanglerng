@@ -1,0 +1,14 @@
+{% load static %}
+{% block left_content %}        
+<div class="main-image-left">
+    {% if essay %}
+    <a href="/community/essay"><img src="media/{{ essay.imgCover }}" width="100%" height="100%"></a>
+    <div class="label_img">{{ essay.txtIntro }} <a href="/community/essay"> read more </a></div>
+    {% else %}
+    <a href="/community/essay"><img src="{% static 'images/example.png' %}" width="100%" height="100%"></a>
+    <div class="label_img"> <a href="/community/essay"> read more</a></div>
+    {% endif %}
+</div>
+{% endblock left_content %}
+
+
