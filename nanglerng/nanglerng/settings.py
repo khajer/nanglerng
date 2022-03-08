@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'nanglerng',
     'fontawesomefree',
     'django_quill',
+    'taggit'
 ]
 
 MIDDLEWARE = [

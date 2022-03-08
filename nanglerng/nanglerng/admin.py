@@ -1,11 +1,11 @@
 from django.contrib import admin
 
-from .models import Essay, Post, PostImage, Aboutus, TypePost, Tags
+from .models import Essay, Post, PostImage, Aboutus, TypePost
 
 admin.site.register(TypePost)
 
 admin.site.register(Aboutus)
-admin.site.register(Tags)
+# admin.site.register(Tags)
 
 @admin.register(Post)
 class PostAdmin(admin.ModelAdmin):

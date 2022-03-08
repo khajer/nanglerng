@@ -1,5 +1,7 @@
 from django.db import models
 from django_quill.fields import QuillField
+from taggit.managers import TaggableManager
+
 
 class Essay(models.Model):
     imgCover = models.FileField(upload_to='media/%Y/%m/%d/', blank=True)
@@ -20,9 +22,6 @@ class TypePost(models.Model):
     def __str__(self):
         return self.typename
 
-class Tags(models.Model):
-    tag = models.CharField(max_length=200)
-
 class Post(models.Model):
     title = models.CharField(max_length=200)
     imgCover = models.FileField(upload_to='media/%Y/%m/%d/', blank=True)
@@ -37,7 +36,8 @@ class Post(models.Model):
     contribute = models.CharField(max_length=200)
     mainFlag = models.BooleanField(default=False)
     createAt = models.DateTimeField(auto_now_add=True)
-    tags = models.ManyToManyField(Tags)
+    tags = TaggableManager()
+    
     def __str__(self):
         return self.title
     class Meta:
