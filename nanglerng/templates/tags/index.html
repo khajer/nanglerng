@@ -16,34 +16,33 @@
                 <div class="title_text">
                     Tags
                 </div>
-                <div class="b-list">
-
-                </div>
+                {%if tags %}
+                    {%for tag in tags %}
+                    <a href="/tags/{{tag.name}}">{{tag.name}}</a>
+                    {% endfor %}
+                {%endif%}
+                
+                {% if articles %}                
                 <div class="title_text">
                     Articles
-                </div>
+                </div>                
                 <div class="b-list">
-                    <a href="article/1">
+                    {%for article in articles %}
+                    <a href="/article/{{article.id}}">
                         <div class="w-on-img-list">                                
                             <div class="headcard">
-                                <div class="headcard-left">Culture</div>
-                                <div class="headcard-right">Contributor B</div>
+                                <div class="headcard-left">{{article.culture}}</div>
+                                <div class="headcard-right">{{article.contribute}}</div>
                             </div>                                
-                            <div><img src="{% static 'images/example.png' %}" width="100%"></div>
-                            <div>desc</div>                            
+                            <div><img src="/media/{{ article.imgCover }}" width="100%"></div>
+                            <div>{{article.title}}</div>                            
                         </div>
                     </a>
-                    <a href="article/1">
-                        <div class="w-on-img-list">                                
-                            <div class="headcard">
-                                <div class="headcard-left">Culture</div>
-                                <div class="headcard-right">Contributor B</div>
-                            </div>                                
-                            <div><img src="{% static 'images/example.png' %}" width="100%"></div>
-                            <div>desc</div>                            
-                        </div>
-                    </a>
+                    {% endfor %}                    
                 </div> 
+                {% endif %}
+
+                {% if events %}      
                 <div class="title_text">
                     Event
                 </div>
@@ -68,7 +67,35 @@
                             <div>desc</div>                            
                         </div>
                     </a>
-                </div>                
+                </div>   
+                {% endif %}   
+                {% if locations %}      
+                <div class="title_text">
+                    Timeline
+                </div>
+                <div class="b-list">
+                    <a href="community/timeline/1">
+                        <div class="w-on-img-list">                                
+                            <div class="headcard">
+                                <div class="headcard-left">Culture</div>
+                                <div class="headcard-right">Contributor B</div>
+                            </div>                                
+                            <div><img src="{% static 'images/example.png' %}" width="100%"></div>
+                            <div>desc</div>                            
+                        </div>
+                    </a>
+                    <a href="community/timeline/1">
+                        <div class="w-on-img-list">                                
+                            <div class="headcard">
+                                <div class="headcard-left">Culture</div>
+                                <div class="headcard-right">Contributor B</div>
+                            </div>                                
+                            <div><img src="{% static 'images/example.png' %}" width="100%"></div>
+                            <div>desc</div>                            
+                        </div>
+                    </a>
+                </div>   
+                {% endif %}             
             </div>
             <div id="footer">
               {% include "project/footer.html" %} 

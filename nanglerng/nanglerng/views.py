@@ -1,6 +1,7 @@
 from django.http import HttpResponse
 from django.template import loader
 from .models import Essay, Aboutus, Post, TypePost
+from taggit.models import Tag
 
 def index(request):
     template = loader.get_template('home/index.html')
@@ -74,23 +75,43 @@ def article(request):
     typePost = TypePost.objects.filter(typename="Article")[0]
     articles = Post.objects.all().filter(typePost=typePost.id).order_by('id').reverse()
     context = {
-        "articles":articles
+        "articles": articles
     }
     return HttpResponse(template.render(context, request))
 
 def articleDetail(request, articleId=0):
     template = loader.get_template('article/detail.html')
     article = Post.objects.get(id=articleId)
-    context = {"article":article}
+    context = {"article": article}
     return HttpResponse(template.render(context, request))
 
 def aboutus(request):
     template = loader.get_template('aboutus/index.html')
     aboutus = Aboutus.objects.all()[0]    
-    context = {'aboutus':aboutus}    
+    context = {'aboutus': aboutus}    
     return HttpResponse(template.render(context, request))
 
 def tags(request):
     template = loader.get_template('tags/index.html')
+    tags = Tag.objects.all()
+    context = {'tags': tags}
+    return HttpResponse(template.render(context, request))
+
+def tagDetail(request, tagName=""):
+    template = loader.get_template('tags/index.html')
+    tags = Tag.objects.all()
     context = {}
+    if tagName == "":
+        context = {'tags': tags}
+    else:
+        events = Post.objects.filter(tags__name__in=[tagName], typePost=1)        
+        locations = Post.objects.filter(tags__name__in=[tagName], typePost=2)
+        articles = Post.objects.filter(tags__name__in=[tagName], typePost=3)
+        context = {
+            'tags': tags,
+            'events': events, 
+            'locations': locations, 
+            'articles': articles
+        }
+    
     return HttpResponse(template.render(context, request))

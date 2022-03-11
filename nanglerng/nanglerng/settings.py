@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'django_quill',
     'taggit'
 ]
+TAGGIT_CASE_INSENSITIVE = True
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

@@ -35,4 +35,5 @@ urlpatterns = [
     path('article/<int:articleId>', views.articleDetail, name='articleDetail'),
     path('aboutus', views.aboutus, name='about'),
     path('tags', views.tags, name='tags'),
+    path('tags/<str:tagName>', views.tagDetail, name='tagDetail'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
