@@ -4,27 +4,32 @@
         {% load static %}
         <script src="{% static 'fontawesomefree/js/all.min.js' %}"></script>
         <link rel="stylesheet" type="text/css" href="{% static 'css/m1.css' %}">   
-         <script src="{% static 'js/toggle_menu.js' %}"></script> 
+        <script src="{% static 'js/toggle_menu.js' %}"></script> 
+        <link rel="stylesheet" type="text/css" href="{% static 'css/home.css' %}">           
     </head>
-    <body>
-        
-        <div id="content">
-            {% include "project/header.html" %} 
-            {% block header %}{% endblock %}        
-
-            <div class="column">
-                {% include "home/left_content.html" %} 
-                {% block left_content %}{% endblock %}        
+    <body>        
+        <div class="wrapper">
+            <div class="header">
+                {% include "project/header.html" %} 
+                {% block header %}{% endblock %}        
             </div>
-            <div class="column">
-                {% include "home/right_content.html" %} 
-                {% block right_content %}{% endblock %}        
-            </div>
-            {% include "project/footer.html" %} 
+            <div class="content">
+                <div class="content-left">
+                    {% include "home/left_content.html" %} 
+                    {% block left_content %}{% endblock %}        
+                </div>
+                <div class="content-right">
+                    <div class="scroll-y">
+                        {% include "home/right_content.html" %} 
+                        {% block right_content %}{% endblock %} 
+                    </div>
+                </div>                
+            </div>            
+            <div class="footer">
+                {% include "project/footer.html" %} 
             {% block footer %}{{ section.title }}{% endblock %}
+            </div>
         </div>
-        
-        
     </body>
 </html>
 
