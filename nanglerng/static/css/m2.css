@@ -1,6 +1,7 @@
 body{
     margin: 0 auto;
-    padding: 6px;
+    padding: 0;
+    width: 1024px;    
 }
 #header {
     position: relative;
