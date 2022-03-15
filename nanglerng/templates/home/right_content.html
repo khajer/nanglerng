@@ -13,9 +13,9 @@
                                 <div class="headcard-right">location A</div>
                             </div>
                             {% if timeline.imgCover != "" %}   
-                            <div><img src="media/{{ timeline.imgCover }}" width="100%"></div>
+                            <div><img src="media/{{ timeline.imgCover }}" class="img-right-home"></div>
                             {% else %}
-                            <div><img src="{% static 'images/example.png' %}" width="100%"></div>
+                            <div><img src="{% static 'images/example.png' %}" class="img-right-home"></div>
                             {% endif %}                                            
                             <div>{{ timeline.title }}</div>
                         </a>
@@ -53,9 +53,9 @@
                         <div class="headcard-right">{{article.contribute}}</div>
                     </div>
                     {% if article.imgCover != "" %}
-                    <div><img src="media/{{ article.imgCover }}" width="100%"></div>
+                    <div><img src="media/{{ article.imgCover }}" class="img-right-home"></div>
                     {% else %}
-                    <div><img src="{% static 'images/example.png' %}" width="100%"></div>
+                    <div><img src="{% static 'images/example.png' %}" class="img-right-home"></div>
                     {% endif %}
                     <div>{{article.title}}</div>
                 </a>

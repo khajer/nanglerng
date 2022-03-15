@@ -27,3 +27,8 @@
     height: 100%;
     overflow: auto;
 }
+.img-right-home{
+    width: 236px;
+    height: 167px;
+    /* object-fit: cover; */
+}
