@@ -3,12 +3,16 @@ from django.template import loader
 from .models import Essay, Aboutus, Post, TypePost
 from taggit.models import Tag
 
+TYPE_ARTICLE = "3"
+TYPE_LOCATION = "2"
+TYPE_EVENT = "1"
+
 def index(request):
     template = loader.get_template('home/index.html')
     essay = Essay.objects.all()[0]    
-    whatsons = Post.objects.all().filter(mainFlag=True, typePost="1")    
-    location = Post.objects.all().filter(mainFlag=True, typePost="2").order_by('id').reverse()[0]
-    articles = Post.objects.all().filter(mainFlag=True, typePost="3")
+    whatsons = Post.objects.all().filter(mainFlag = True, typePost = TYPE_EVENT)    
+    location = Post.objects.all().filter(mainFlag = True, typePost = TYPE_LOCATION).order_by('id').reverse()[0]
+    articles = Post.objects.all().filter(mainFlag = True, typePost = TYPE_ARTICLE)
     context = {
         'essay': essay, 
         'whatsons': whatsons,
@@ -54,9 +58,18 @@ def comMapLoc(request, locId=0):
     typePost = TypePost.objects.filter(typename="Location")[0]    
     locations = Post.objects.all().filter(typePost=typePost.id).order_by('id').reverse()
     location = list(filter(lambda e: (e.id == locId), locations))[0]
+    
+    articles = Post.objects.all().filter(parent=location.id, typePost = TYPE_ARTICLE).order_by('id').reverse()
+    events = Post.objects.all().filter(parent=location.id, typePost = TYPE_EVENT).order_by('id').reverse()
+
+    print(articles)
+    print(events)
+    
     context = {
         "locations": locations,
-        "location": location
+        "location": location,
+        "events": events,
+        "articles": articles
     }
     return HttpResponse(template.render(context, request))
 
@@ -71,7 +84,7 @@ def whatsOn(request):
 
 def article(request):
     template = loader.get_template('article/index.html')
-    typePost = TypePost.objects.filter(typename="Article")[0]
+    typePost = TypePost.objects.filter(typename = "Article")[0]
     articles = Post.objects.all().filter(typePost=typePost.id).order_by('id').reverse()
     context = {
         "articles": articles
@@ -103,9 +116,10 @@ def tagDetail(request, tagName=""):
     if tagName == "":
         context = {'tags': tags}
     else:
-        events = Post.objects.filter(tags__name__in=[tagName], typePost=1)        
-        locations = Post.objects.filter(tags__name__in=[tagName], typePost=2)
-        articles = Post.objects.filter(tags__name__in=[tagName], typePost=3)
+        events = Post.objects.filter(tags__name__in=[tagName], typePost=TYPE_EVENT)        
+        locations = Post.objects.filter(tags__name__in=[tagName], typePost=TYPE_LOCATION)
+        articles = Post.objects.filter(tags__name__in=[tagName], typePost=TYPE_ARTICLE)
+        
         context = {
             'tags': tags,
             'events': events, 

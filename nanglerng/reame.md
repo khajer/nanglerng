@@ -50,3 +50,4 @@ tags = Tag.objects.all()
 
 from nanglerng.models import Post
 posts = Post.objects.filter(tags__name__in=["tagName"])
+posts = Post.objects.filter(typePost="1")
