@@ -70,31 +70,44 @@
                                     <script src="{% static 'js/image_slide.js' %}"></script>
                                 </div>
                                 <div class="title_text">{{location.rawHtmlData.html | safe}}</div>
-                                <div class="spacer"></div>                                
+                                <div class="spacer"></div>
+                                
+                                {% if events %} 
                                 <div class="title_text">Related Events</div>                                
-                                <div class="b-list">                                    
+                                <div class="b-list">
+                                    {% for event in events %}                                    
                                     <div class="llist">
                                         <a href="/community/timeline/1">  
                                             <div class="headcard">
-                                                <div class="headcard-left">20/20/21</div>
-                                                <div class="headcard-right">location A</div>
+                                                <div class="headcard-left">{{event.eventTime}}</div>
+                                                <div class="headcard-right">{{event.culture}}</div>
                                             </div>                                
                                             <div><img src="{% static 'images/example.png' %}" width="100%"></div>
-                                            <div>desc</div>
+                                            <div>{{event.title}}</div>
                                         </a>
-                                    </div>                            
-                                    <div class="llist">
-                                        <a href="/community/timeline/1">  
-                                            <div class="headcard">
-                                                <div class="headcard-left">20/20/21</div>
-                                                <div class="headcard-right">location A</div>
-                                            </div>                                
-                                            <div><img src="{% static 'images/example.png' %}" width="100%"></div>
-                                            <div>desc</div>
-                                        </a>
-                                    </div>                                                                
+                                    </div>
+                                    {% endfor %}                                    
                                 </div>
+                                {% endif %}       
+                                {% if articles %} 
                                 <div class="title_text">Related Articles</div>                                
+                                <div class="b-list">
+                                    {% for article in articles %}                                    
+                                    <div class="llist">
+                                        <a href="/community/timeline/1">  
+                                            <div class="headcard">
+                                                <div class="headcard-left">{{article.eventTime}}</div>
+                                                <div class="headcard-right">{{article.culture}}</div>
+                                            </div>                                
+                                            <div><img src="{% static 'images/example.png' %}" width="100%"></div>
+                                            <div>{{article.title}}</div>
+                                        </a>
+                                    </div>
+                                    {% endfor %}                                    
+                                </div>
+                                {% endif %}     
+
+                                <!-- <div class="title_text">Related Articles</div>                                
                                 <div class="b-list">                                    
                                     <div class="llist">                                
                                         <a href="/article/1">
@@ -116,7 +129,8 @@
                                             <div>desc</div>
                                         </a>
                                     </div>                          
-                                </div>
+                                </div> -->
+                                
                             </div>                                                        
                         </div>                      
                     </div>                    

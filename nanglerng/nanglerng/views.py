@@ -62,9 +62,6 @@ def comMapLoc(request, locId=0):
     articles = Post.objects.all().filter(parent=location.id, typePost = TYPE_ARTICLE).order_by('id').reverse()
     events = Post.objects.all().filter(parent=location.id, typePost = TYPE_EVENT).order_by('id').reverse()
 
-    print(articles)
-    print(events)
-    
     context = {
         "locations": locations,
         "location": location,
