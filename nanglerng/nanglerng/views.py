@@ -6,8 +6,7 @@ from taggit.models import Tag
 def index(request):
     template = loader.get_template('home/index.html')
     essay = Essay.objects.all()[0]    
-    whatsons = Post.objects.all().filter(mainFlag=True, typePost="1")
-    # locations = Post.objects.all().filter(mainFlag=True, typePost="2")
+    whatsons = Post.objects.all().filter(mainFlag=True, typePost="1")    
     location = Post.objects.all().filter(mainFlag=True, typePost="2").order_by('id').reverse()[0]
     articles = Post.objects.all().filter(mainFlag=True, typePost="3")
     context = {

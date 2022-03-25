@@ -37,6 +37,7 @@ class Post(models.Model):
     mainFlag = models.BooleanField(default=False)
     createAt = models.DateTimeField(auto_now_add=True)
     tags = TaggableManager()
+    parent = models.ForeignKey("self", on_delete=models.CASCADE, null=True)
     
     def __str__(self):
         return self.title
@@ -46,5 +47,3 @@ class Post(models.Model):
 class PostImage(models.Model):
     image = models.FileField(upload_to='media/%Y/%m/%d/')
     post = models.ForeignKey(Post, on_delete=models.CASCADE)    
-
-

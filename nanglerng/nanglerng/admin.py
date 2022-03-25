@@ -25,6 +25,8 @@ class PostAdmin(admin.ModelAdmin):
         form.base_fields["typePost"].label = "Type:"
         form.base_fields["mainFlag"].label = "Show MainPage"
         form.base_fields["desc"].label = "Short Description"
+        form.base_fields["parent"].queryset = Post.objects.filter(typePost="2")
+        form.base_fields["parent"].label = "Base Location"
         return form
         
 
