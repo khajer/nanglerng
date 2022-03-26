@@ -1,6 +1,6 @@
 from django.http import HttpResponse
 from django.template import loader
-from .models import Essay, Aboutus, Post, TypePost
+from .models import Essay, Aboutus, Post, TypePost, PostImage
 from taggit.models import Tag
 
 TYPE_ARTICLE = "3"
@@ -38,9 +38,12 @@ def comTimeline(request, eventId=0):
     else:
         event = list(filter(lambda e: (e.id == eventId), events))[0]
     
+    postImgs = PostImage.objects.all().filter(post=event.id)
+
     context = {
         "events": events,
-        "event": event
+        "event": event,
+        "postImgs": postImgs
     }
     return HttpResponse(template.render(context, request))
 
@@ -59,12 +62,15 @@ def comMapLoc(request, locId=0):
     locations = Post.objects.all().filter(typePost=typePost.id).order_by('id').reverse()
     location = list(filter(lambda e: (e.id == locId), locations))[0]
     
+    postImgs = PostImage.objects.all().filter(post=location.id)
+    
     articles = Post.objects.all().filter(parent=location.id, typePost = TYPE_ARTICLE).order_by('id').reverse()
     events = Post.objects.all().filter(parent=location.id, typePost = TYPE_EVENT).order_by('id').reverse()
 
     context = {
         "locations": locations,
         "location": location,
+        "postImgs": postImgs,
         "events": events,
         "articles": articles
     }

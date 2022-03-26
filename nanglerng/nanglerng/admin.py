@@ -32,11 +32,11 @@ class PostAdmin(admin.ModelAdmin):
 
 @admin.register(PostImage)
 class PostImageAdmin(admin.ModelAdmin):
-    list_display = ("post", "get_post_image", "image", "show_mainpage")
+    list_display = ("post", "get_post_image", "image")
     def get_post_image(self, obj):
         return obj.post.typePost
-    def show_mainpage(self, obj):
-        return "Y" if obj.post.mainFlag else ""
+    # def show_mainpage(self, obj):
+    #     return "Y" if obj.post.mainFlag else ""
 
 @admin.register(Essay)
 class EssayAdmin(admin.ModelAdmin):
