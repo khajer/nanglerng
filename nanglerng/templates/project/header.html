@@ -2,8 +2,12 @@
 <div id="header">
     {% load static %}
         <ul class="menu ">
-            <li class="menu-item"><a href="/">
-                <div><img src = "{% static 'images/logo.svg' %}" width="18px" height="18px" /></div>
+            <li class="menu-item" id="menu-page">                                        
+                <div class="logo-menu">
+                    <a href="/"><img class="img-logo" src="{% static 'images/logo.svg' %}" /></a>                
+                </div>
+            </li>
+            <li class="menu-item">
                 <div id="sub-menu-title">
                     <div id="list-community">
                         <a href="/community/essay">Eassy</a>
