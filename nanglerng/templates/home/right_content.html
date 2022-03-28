@@ -16,31 +16,32 @@
                             <div><img src="media/{{ timeline.imgCover }}" class="img-right-home"></div>
                             {% else %}
                             <div><img src="{% static 'images/example.png' %}" class="img-right-home"></div>
-                            {% endif %}                                            
-                            <div class="label-title">{{ timeline.title }}</div>
+                            {% endif %}                                                                        
+                            <div class="label-title">{{timeline.title| slice:"0:52"}} {%if timeline.title|length > 52 %}...{%endif%}</div>
                         </a>
                     </div>
                 {% endfor %}                            
             {% else %}
             {% endif %}                            
         </div>
-        <div class="more"><a href="/whatson">see all events -> </a></div>                        
+        <div class="more"><a href="/whatson">see all events <i class="fa-solid fa-arrow-right"></i> </a></div>                        
     </div>
-
+    <div class="hr"></div>
     <div  class="bb">
         <div class="head-left-box">Get to know nanglerng</div>
         {% if location %}
             <a href="community/map/{{location.id}}"  class="text-detail-right">
                 {% if location.imgCover != "" %}
-                <div ><img src="media/{{ location.imgCover }}" width="100%" height="40%"></div>
+                <div class="border-img-map"><img class="img-map" src="media/{{ location.imgCover }}"></div>
                 {% else %}
-                <div ><img src="{% static 'images/example.png' %}" width="100%" height="40%"></div>
+                <div class="border-img-map"><img src="{% static 'images/example.png' %}" width="100%" height="40%"></div>
                 {% endif %}
                 <div class="label-title">{{location.title}}</div>
-                <div class="more"><a href="community/map">read more</a></div>
+                <div class="more"><a href="community/map">read more <i class="fa-solid fa-arrow-right"></i></a></div>
             </a>
         {% endif %}                            
     </div>
+    <div class="hr"></div>
     <div class="bb">
         <div class="head-left-box">Article</div>
         <div class="b-list"> 
@@ -57,13 +58,13 @@
                     {% else %}
                     <div><img src="{% static 'images/example.png' %}" class="img-right-home"></div>
                     {% endif %}
-                    <div>{{article.title}}</div>
+                    <div class="label-title">{{article.title| slice:"0:52"}} {%if article.title|length > 52 %}...{%endif%}</div>
                 </a>
             </div>
             {% endfor %}
         {% endif %}                            
         </div>
-        <div class="more"><a href="/article">see all article</a></div>
+        <div class="more"><a href="/article">see all articles <i class="fa-solid fa-arrow-right"></i></a></div>
     </div>                    
 </div>
 {% endblock right_content %}
