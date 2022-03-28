@@ -58,7 +58,7 @@
                     {% else %}
                     <div><img src="{% static 'images/example.png' %}" class="img-right-home"></div>
                     {% endif %}
-                    <div class="label-title">{{article.title| slice:"0:52"}} {%if article.title|length > 52 %}...{%endif%}</div>
+                    <div class="label-title">{{article.title| slice:"0:54"}} {%if article.title|length > 52 %}...{%endif%}</div>
                 </a>
             </div>
             {% endfor %}
