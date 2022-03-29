@@ -1,0 +1,27 @@
+#title-text{
+    padding: 20px 0 20px 0;
+}
+
+#content-text{
+    display: flex;
+    flex-direction: row;
+}
+
+#left_column{
+    width: 360px;
+}
+
+#center_column {
+    width: 600px;
+    padding-left: 60px;
+  }
+
+  .title_text{
+      font-size: 20px;
+      line-height: 32px;
+      font-weight: bold;
+  }
+
+  .right_column{
+      font-size: 20px;
+  }
