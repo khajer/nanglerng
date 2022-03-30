@@ -28,7 +28,17 @@ ul.event{
 li.event-item{                
     color: #0000FF;
 }
-#left_center_column{
-    width: 80%;
+.left-content{
+    width: 840px;
 }
-
+.right-content{
+    width: 380px;
+}
+.main-content{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.tag-right{
+    display: inline;
+}
