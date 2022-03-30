@@ -1,35 +1,47 @@
 <html>
     <head>
         <title>NANGLERNG COMMUNITY</title>
-        {% load static %}
+        {% load static %}        
         <script src="{% static 'fontawesomefree/js/all.min.js' %}"></script>
-        <link rel="stylesheet" type="text/css" href="{% static 'css/m2.css' %}">
-        <link href="{% static 'fontawesomefree/css/all.min.css' %}" rel="stylesheet" type="text/css">
-        <script src="{% static 'js/toggle_menu.js' %}"></script>         
+        <link rel="stylesheet" type="text/css" href="{% static 'css/home.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'css/essay.css' %}">
+        <link href="https://cdn.jsdelivr.net/gh/lazywasabi/thai-web-fonts@6/fonts/NotoSansThaiLooped/NotoSansThaiLooped.css" rel="stylesheet" />
+        <style>
+            @font-face {
+                font-family: 'NeueBit';
+                src: url("{% static 'css/fonts/NeueBit - Regular/NeueBit-Regular.woff2' %}") format('woff2');
+                font-style: normal;
+                font-weight: 100;
+                font-display: swap;
+            }
+
+        </style>
+         <script src="{% static 'js/toggle_menu.js' %}"></script> 
     </head>
     <body>
         {% include "project/header.html" %}         
         {% block header %}{% endblock %}
-        <div id="content">            
+        
+        <div id="content">
             <div>                
                 <div class="content_text">
-                    <div id="dataHtml">
-                        {% if aboutus %}
-                            {{ aboutus.rawHtmlData.html|safe }}
-                        {% else %}
-                            data not found
-                        {% endif %}
-                    </div>
+                    {% if aboutus %}
+                    <div id="rawDataHtml">
+                        {{ aboutus.rawHtmlData.html| safe }}
+                    </div>        
+                    {% else %}
+                        data not found
+                    {% endif %}
                 </div>
                 <div class="social_text">
-                    facebook twitter
+                    <a href=""><i class="fa-brands fa-facebook"></i></a> &nbsp; 
+                    <a href=""><i class="fa-brands fa-twitter"></i></a>                    
                 </div>
-                <div id="footer">
-                    {% include "project/footer.html" %} 
-                    {% block footer %}{% endblock %}
-                </div>
+                {% include "project/footer.html" %} 
+                {% block footer %}{% endblock %}
             </div>
         </div>    
     </body>
+
 </html>
 
