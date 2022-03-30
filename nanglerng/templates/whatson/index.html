@@ -3,43 +3,57 @@
         <title>NANGLERNG COMMUNITY</title>
         {% load static %}
         <script src="{% static 'fontawesomefree/js/all.min.js' %}"></script>
-        <link rel="stylesheet" type="text/css" href="{% static 'css/m5.css' %}">  
+        <link rel="stylesheet" type="text/css" href="{% static 'css/whatson.css' %}">  
         <link href="{% static 'fontawesomefree/css/all.min.css' %}" rel="stylesheet" type="text/css">        
         <script src="{% static 'js/toggle_menu.js' %}"></script> 
+        <link rel="stylesheet" type="text/css" href="{% static 'css/home.css' %}">                   
+        <link href="https://cdn.jsdelivr.net/gh/lazywasabi/thai-web-fonts@6/fonts/NotoSansThaiLooped/NotoSansThaiLooped.css" rel="stylesheet" />
+        <style>
+            @font-face {
+                font-family: 'NeueBit';
+                src: url("{% static 'css/fonts/NeueBit - Regular/NeueBit-Regular.woff2' %}") format('woff2');
+                font-style: normal;
+                font-weight: 100;
+                font-display: swap;
+            }
+        </style>
     </head>
     <body>
-        {% include "project/header.html" %}         
-        {% block header %}{% endblock %}
-        <div id="content">            
-            <div class="w-on">
-                <div class="title_text">
-                    What's On
+        <div class="wrapper">
+            <div class="header">
+                {% include "project/header.html" %} 
+                {% block header %}{% endblock %}        
+            </div>
+            <div class="main-content">
+                <div class="box-center">
+                    <div class="head-left-box">What's on</div>        
+                    <div class="list-whatson">
+                        {%for e in events %}
+                        <a href="community/timeline/1">
+                            <div class="w-on-img-list">                                
+                                
+                                <div class="headcard-left">{{e.eventTime}}</div>
+                                <div class="headcard-right">{{e.contribute}}</div>
+                                
+                                {% if e.imgCover != "" %}   
+                                <div><img class="img-cover" src="media/{{ e.imgCover }}"></div>
+                                {% else %}
+                                <div><img class="img-cover" src="{% static 'images/example.png' %}"></div>
+                                {% endif %}                                            
+                                <div>{{e.title}}</div>                            
+                            </div>                    
+                        </a>
+                        {% endfor %}
+                    </div>   
                 </div>
-                <div class="b-list">
-                    {%for e in events %}
-
-                    <a href="community/timeline/1">
-                        <div class="w-on-img-list">                                
-                            <div class="headcard">
-                                <div class="headcard-left">20/20/21</div>
-                                <div class="headcard-right">location B</div>
-                            </div>                                
-                            {% if e.imgCover != "" %}   
-                            <div><img src="media/{{ e.imgCover }}" width="100%"></div>
-                            {% else %}
-                            <div><img src="{% static 'images/example.png' %}" width="100%"></div>
-                            {% endif %}                                            
-                            <div>{{e.title}}</div>                            
-                        </div>                    
-                    </a>
-                    {% endfor %}
-                </div>                
-            </div>
-            <div id="footer">
+                
+            </div>            
+            <div class="footer">
                 {% include "project/footer.html" %} 
-                {% block footer %}{% endblock %}
+            {% block footer %}{{ section.title }}{% endblock %}
             </div>
-        </div>    
+        </div>
+        
     </body>
 </html>
 
