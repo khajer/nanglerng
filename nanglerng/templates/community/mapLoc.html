@@ -40,17 +40,9 @@
                     <div class="spacer"></div>
                 </div>
             </div>
-            <div>
-                <div class="title_text">
-                    นางเลิ้งเป็นชุมชนเก่าแก่ดึกดำบรรพ์มาแต่โบราณกาลนางเลิ้งเป็นชุมชนเก่าแก่
-                </div>
-                <div class="pad-10">
-                    <div class="social-icon-map">
-                        <i class="fa-brands fa-facebook"></i> <i class="fa-brands fa-twitter"></i>
-                    </div>
-                </div>                
-                <div id="content_text">
-                    <div id="left_column">                        
+            <div>            
+                <div id="content-text">
+                    <div id="left-column">                        
                         <div>รายการสถานที่</div>                        
                         <ul class="event">                            
                             {% for loc in locations %}
@@ -58,70 +50,76 @@
                             {% endfor %}
                         </ul>                        
                     </div>
-                    <div id="center_right_column">                                                
-                        <div id="detail_map">
-                            <div id="center_column">
-                                <div><a href="/community/map">back to map</a></div>
-                                <div class="title_text">{{location.title}}</div>
-                                
-                                {% if postImgs %}
-                                <div class="image">
-                                    <div class="slidercontainer">  
-                                        {% for img in postImgs %}
+                    <div id="center-column">   
+                        <div><a href="/community/map">back to map</a></div>
+                        <div class="title_text">{{location.title}}</div>
+                        
+                        {% if postImgs %}
+                        <div class="image">
+                            <div class="slidercontainer">  
+                                {% for img in postImgs %}
 
-                                        <div class="showSlide fade">  
-                                            <img src="/media/{{ img.image }}" width="100%"/>  
-                                            <div class="content"></div>  
-                                        </div>
-                                        {% endfor %}
-                                        <!-- Navigation arrows -->  
-                                        <a class="left" onclick="nextSlide(-1)">❮</a>  
-                                        <a class="right" onclick="nextSlide(1)">❯</a>  
-                                    </div>  
-                                    <script src="{% static 'js/image_slide.js' %}"></script>
+                                <div class="showSlide fade">  
+                                    <img src="/media/{{ img.image }}" width="100%"/>  
+                                    <div class="content"></div>  
                                 </div>
-                                {% endif %}
+                                {% endfor %}
+                                <!-- Navigation arrows -->  
+                                <a class="left" onclick="nextSlide(-1)">❮</a>  
+                                <a class="right" onclick="nextSlide(1)">❯</a>  
+                            </div>  
+                            <script src="{% static 'js/image_slide.js' %}"></script>
+                        </div>
+                        {% endif %}
 
 
-                                <div class="title_text">{{location.rawHtmlData.html | safe}}</div>
-                                <div class="spacer"></div>
-                                
-                                {% if events %} 
-                                <div class="title_text">Related Events</div>                                
-                                <div class="b-list">
-                                    {% for event in events %}                                    
-                                    <div class="llist">
-                                        <a href="/community/timeline/1">  
-                                            <div class="headcard">
-                                                <div class="headcard-left">{{event.eventTime}}</div>
-                                                <div class="headcard-right">{{event.culture}}</div>
-                                            </div>                                
-                                            <div><img src="/media/{{ event.imgCover }}" width="100%"></div>
-                                            <div>{{event.title}}</div>
-                                        </a>
-                                    </div>
-                                    {% endfor %}                                    
-                                </div>
-                                {% endif %}       
-                                {% if articles %} 
-                                <div class="title_text">Related Articles</div>                                
-                                <div class="b-list">
-                                    {% for article in articles %}                                    
-                                    <div class="llist">
-                                        <a href="/community/timeline/1">  
-                                            <div class="headcard">
-                                                <div class="headcard-left">{{article.eventTime}}</div>
-                                                <div class="headcard-right">{{article.culture}}</div>
-                                            </div>                                
-                                            <div><img src="/media/{{ article.imgCover }}" width="100%"></div>
-                                            <div>{{article.title}}</div>
-                                        </a>
-                                    </div>
-                                    {% endfor %}                                    
-                                </div>
-                                {% endif %}     
-                            </div>                                                        
-                        </div>                      
+                        <div class="title_text">{{location.rawHtmlData.html | safe}}</div>
+                        <div class="spacer"></div>
+                        
+                        {% if events %} 
+                        <div class="title_text">Related Events</div>                                
+                        <div class="relate-list">
+                            {% for event in events %}                                    
+                            <div class="relate-list-box">
+                                <a href="/community/timeline/{{event.id}}">  
+                                    <div class="headcard">
+                                        <div class="headcard-left">{{event.eventTime}}</div>
+                                        <div class="headcard-right">{{event.culture}}</div>
+                                    </div>                                
+                                    <div><img class="imgCover" src="/media/{{ event.imgCover }}"></div>
+                                    <div>{{event.title}}</div>
+                                </a>
+                            </div>
+                            {% endfor %}                                    
+                        </div>
+                        {% endif %}       
+                        {% if articles %} 
+                        <div class="title_text">Related Articles</div>                                
+                        <div class="relate-list">
+                            {% for article in articles %}                                    
+                            <div class="relate-list-box">
+                                <a href="/article/{{article.id}}">  
+                                    <div class="headcard">
+                                        <div class="headcard-left">{{article.eventTime}}</div>
+                                        <div class="headcard-right">{{article.culture}}</div>
+                                    </div>                                
+                                    <div><img class="imgCover" src="/media/{{ article.imgCover }}"></div>
+                                    <div>{{article.title}}</div>
+                                </a>
+                            </div>
+                            {% endfor %}                                    
+                        </div>
+                        {% endif %}                       
+                    </div>
+                    <div id="right-column">
+                        <i class="fa-brands fa-facebook"></i> &nbsp; &nbsp; <i class="fa-brands fa-twitter"></i>
+                        <div>{{loc.eventTime}}</div>
+                        {%if loc.parent %}
+                        <div><a href="/community/map/{{loc.parent.id}}">{{event.parent}}</a></div>
+                        {% endif %}
+                        {% for tag in loc.tags.all %}
+                            <div class="tag-right"><a href="/tags/{{tag.name}}">*{{tag.name}}</a></div>
+                        {% endfor %}
                     </div>                    
                 </div>
             </div>   
@@ -129,7 +127,6 @@
                 {% include "project/footer.html" %} 
                 {% block footer %}{% endblock %}
             </div>
-        </div>
-        
+        </div>        
     </body>
 </html>

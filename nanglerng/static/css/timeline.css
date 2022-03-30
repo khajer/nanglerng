@@ -46,3 +46,19 @@ li.event-item{
     line-height: 32px;
     font-size: 20px;
 }
+
+.relate-list{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.relate-list-box{
+    width: 280px;
+    height: 254px;
+}
+.imgCover{
+    width: 280px;
+    height: 142px;
+}
