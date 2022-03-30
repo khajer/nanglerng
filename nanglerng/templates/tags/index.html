@@ -48,7 +48,7 @@
                                 <div class="headcard-right">{{article.contribute}}</div>
                                 
                                 {% if article.imgCover != "" %}   
-                                <div><img class="img-cover" src="media/{{ article.imgCover }}"></div>
+                                <div><img class="img-cover" src="/media/{{ article.imgCover }}"></div>
                                 {% else %}
                                 <div><img class="img-cover" src="{% static 'images/example.png' %}"></div>
                                 {% endif %}                                            
@@ -71,7 +71,7 @@
                                 <div class="headcard-right">{{event.contribute}}</div>
                                 
                                 {% if event.imgCover != "" %}   
-                                <div><img class="img-cover" src="media/{{ event.imgCover }}"></div>
+                                <div><img class="img-cover" src="/media/{{ event.imgCover }}"></div>
                                 {% else %}
                                 <div><img class="img-cover" src="{% static 'images/example.png' %}"></div>
                                 {% endif %}                                            
