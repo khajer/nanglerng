@@ -3,105 +3,94 @@
         <title>NANGLERNG COMMUNITY</title>        
         {% load static %}
         <script src="{% static 'fontawesomefree/js/all.min.js' %}"></script>
-        <link rel="stylesheet" type="text/css" href="{% static 'css/m5.css' %}">
         <link rel="stylesheet" type="text/css" href="{% static 'css/tags.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'css/whatson.css' %}">
+        {% load static %}        
+        <script src="{% static 'fontawesomefree/js/all.min.js' %}"></script>
+        <link rel="stylesheet" type="text/css" href="{% static 'css/home.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'css/essay.css' %}">
+        <link href="https://cdn.jsdelivr.net/gh/lazywasabi/thai-web-fonts@6/fonts/NotoSansThaiLooped/NotoSansThaiLooped.css" rel="stylesheet" />
+        <style>
+            @font-face {
+                font-family: 'NeueBit';
+                src: url("{% static 'css/fonts/NeueBit - Regular/NeueBit-Regular.woff2' %}") format('woff2');
+                font-style: normal;
+                font-weight: 100;
+                font-display: swap;
+            }
+
+        </style>
          <script src="{% static 'js/toggle_menu.js' %}"></script> 
     </head>
     <body>
-        {% include "project/header.html" %}         
-        {% block header %}{% endblock %}
-
-        <div id="content">            
-            <div class="w-on">
-                <div class="title_text">
-                    Tags
-                </div>
+        <div class="wrapper">
+            <div class="header">
+                {% include "project/header.html" %} 
+                {% block header %}{% endblock %}        
+            </div>
+            <div class="main-content">                
                 {%if tags %}
+                    <div class="title_text">*Tags</div>
                     {%for tag in tags %}
-                    <a href="/tags/{{tag.name}}">{{tag.name}}</a>
+                    <a href="/tags/{{tag.name}}">*{{tag.name}} &nbsp;</a>
                     {% endfor %}
-                {%endif%}
-                
-                {% if articles %}                
-                <div class="title_text">
-                    Articles
-                </div>                
-                <div class="b-list">
-                    {%for article in articles %}
-                    <a href="/article/{{article.id}}">
-                        <div class="w-on-img-list">                                
-                            <div class="headcard">
-                                <div class="headcard-left">{{article.culture}}</div>
-                                <div class="headcard-right">{{article.contribute}}</div>
-                            </div>                                
-                            <div><img src="/media/{{ article.imgCover }}" width="100%"></div>
-                            <div>{{article.title}}</div>                            
-                        </div>
-                    </a>
-                    {% endfor %}                    
-                </div> 
+                    <div class="hr-tags"></div>
                 {% endif %}
 
+                {% if articles %}      
+                <div class="box-center">
+                    <div class="head-box">Articles</div>        
+                    <div class="list-whatson">
+                        {%for article in articles %}
+                        <a href="/article/{{article.id}}">
+                            <div class="w-on-img-list">                                
+                                <div class="headcard-left">{{article.culture}}</div>
+                                <div class="headcard-right">{{article.contribute}}</div>
+                                
+                                {% if article.imgCover != "" %}   
+                                <div><img class="img-cover" src="media/{{ article.imgCover }}"></div>
+                                {% else %}
+                                <div><img class="img-cover" src="{% static 'images/example.png' %}"></div>
+                                {% endif %}                                            
+                                <div>{{article.title}}</div>                            
+                            </div>                    
+                        </a>
+                        {% endfor %}
+                    </div>   
+                </div>
+                {% endif %}
                 {% if events %}      
-                <div class="title_text">
-                    Event
+                <div class="box-center">
+                    <div class="head-box">Events</div>        
+                    <div class="list-whatson">
+                        {%for event in events %}
+                        <a href="/timeline/{{article.id}}">
+                            <div class="w-on-img-list">                                
+                                
+                                <div class="headcard-left">{{event.culture}}</div>
+                                <div class="headcard-right">{{event.contribute}}</div>
+                                
+                                {% if event.imgCover != "" %}   
+                                <div><img class="img-cover" src="media/{{ event.imgCover }}"></div>
+                                {% else %}
+                                <div><img class="img-cover" src="{% static 'images/example.png' %}"></div>
+                                {% endif %}                                            
+                                <div>{{event.title}}</div>                            
+                            </div>                    
+                        </a>
+                        {% endfor %}
+                    </div>   
                 </div>
-                <div class="b-list">
-                    <a href="community/timeline/1">
-                        <div class="w-on-img-list">                                
-                            <div class="headcard">
-                                <div class="headcard-left">Culture</div>
-                                <div class="headcard-right">Contributor B</div>
-                            </div>                                
-                            <div><img src="{% static 'images/example.png' %}" width="100%"></div>
-                            <div>desc</div>                            
-                        </div>
-                    </a>
-                    <a href="community/timeline/1">
-                        <div class="w-on-img-list">                                
-                            <div class="headcard">
-                                <div class="headcard-left">Culture</div>
-                                <div class="headcard-right">Contributor B</div>
-                            </div>                                
-                            <div><img src="{% static 'images/example.png' %}" width="100%"></div>
-                            <div>desc</div>                            
-                        </div>
-                    </a>
-                </div>   
-                {% endif %}   
-                {% if locations %}      
-                <div class="title_text">
-                    Timeline
-                </div>
-                <div class="b-list">
-                    <a href="community/timeline/1">
-                        <div class="w-on-img-list">                                
-                            <div class="headcard">
-                                <div class="headcard-left">Culture</div>
-                                <div class="headcard-right">Contributor B</div>
-                            </div>                                
-                            <div><img src="{% static 'images/example.png' %}" width="100%"></div>
-                            <div>desc</div>                            
-                        </div>
-                    </a>
-                    <a href="community/timeline/1">
-                        <div class="w-on-img-list">                                
-                            <div class="headcard">
-                                <div class="headcard-left">Culture</div>
-                                <div class="headcard-right">Contributor B</div>
-                            </div>                                
-                            <div><img src="{% static 'images/example.png' %}" width="100%"></div>
-                            <div>desc</div>                            
-                        </div>
-                    </a>
-                </div>   
-                {% endif %}             
+                {% endif %}      
+                
+            </div>            
+            <div class="footer">
+                {% include "project/footer.html" %} 
+            {% block footer %}{{ section.title }}{% endblock %}
             </div>
-            <div id="footer">
-              {% include "project/footer.html" %} 
-                {% block footer %}{% endblock %}
-            </div>
-        </div>    
+        </div>
+
+        
     </body>
 </html>
 

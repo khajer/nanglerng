@@ -33,4 +33,18 @@ li.tab-active{
 .w-on-img-list{
     width: 300px;
 }
-
+.main-content{
+    width: 960px;
+    margin: 0 auto;
+}
+.hr-tags{
+    margin-top: 20px;
+    border-top: 1px solid #EB297B;
+}
+.head-box{
+    font-size: 48px;
+    font-family: 'NeueBit', Courier, monospace;
+    font-weight: bold;
+    height: 64px;  
+    padding-top: 20px;
+}   
