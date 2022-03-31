@@ -20,9 +20,6 @@
         </div>
         <div class="mini-hamberger">
             <a href="#" onclick="showLinkPopup()"><img src="{% static 'images/gg_menu.svg' %}" /></a>
-        </div> 
-        <div id="mini-menu" class="mini-menu">
-            <a href="#" onclick="hidePopupMiniMenu()">close</a>
         </div>       
     </div>
     <div id="sub-menu-title">
@@ -35,5 +32,29 @@
         </div>
     </div>
 </div>
+
+<div id="mini-menu" class="mini-menu">
+    <div class="head-mini-menu"><a class ="btn-close link-mini" href="#" onclick="hidePopupMiniMenu()"><i class="fa-solid fa-xmark"></i></a></div>
+    <ul class="menu-mini">
+        <li>
+            <div class="link-menu-main">
+                <a class ="link-mini" href="#" onclick="openSubMenuMobile()">Nanglerng community</a>
+                <div class="txt-expands"><i class="fa-solid fa-angle-down"></i></div>
+            </div>
+            <div id="sub-menu">
+                <ul class="menu-mini sub-menu">
+                    <li><div class="link-menu-main"><a class ="link-mini" href="/community/essay">Eassy</a></div></li>
+                    <li><div class="link-menu-main"><a class ="link-mini" href="/community/timeline">Timeline</a></div></li>
+                    <li><div class="link-menu-main"><a class ="link-mini" href="/community/map">Maps</a></div></li>
+                </ul>
+            </div>
+        </li>
+        <li><div class="link-menu-main"><a class ="link-mini" href="/whatson">What’s on</a></div></li>
+        <li><div class="link-menu-main"><a class ="link-mini" href="/article">Articles</a></div></li>
+        <li><div class="link-menu-main"><a class ="link-mini" href="/aboutus">About us</a></div></li>
+    </ul>
+    <div class="link-menu-main btn-close mini-tags"><a class ="link-mini" href="/tags">Tag*</a></div>
+</div> 
+
 {% endblock header %}
 

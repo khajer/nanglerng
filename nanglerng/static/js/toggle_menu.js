@@ -17,3 +17,12 @@ function showLinkPopup(){
 function hidePopupMiniMenu(){
     document.getElementById("mini-menu").style.display = "none";
 }
+
+function openSubMenuMobile(){
+    if(document.getElementById("sub-menu").style.display === "inline"){        
+        document.getElementById("sub-menu").style.display = "none";
+    }else{        
+        document.getElementById("sub-menu").style.display = "inline";
+        document.getElementById("sub-menu").style.background = "#EB297B";
+    }
+}

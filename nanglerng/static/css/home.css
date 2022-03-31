@@ -233,9 +233,55 @@ li.menu-item {
     background: #0000FF; 
 
 }
+a.link-mini{
+    color: #fff;
+}
+ul.menu-mini{
+    list-style-type: none;
+    font-size: 52px;
+    line-height: 80px;
+    margin: 0;
+    padding-left: 0px;
+}
+
+
+ul.menu-mini.li.a{
+    color: #fff;
+}
 .tag-main-right{
     display: block;
 }
+
+ul.mini-menu li.a{
+    color: #fff;
+}
+.sub-menu{
+    background-color: #EB297B;
+}
+.btn-close{
+    font-size: 52px;
+    line-height: 80px;
+    padding: 30px 30px 0 0;
+}
+.head-mini-menu{
+    width: 100%;
+    text-align: right;   
+}
+.link-menu-main{
+    color: #fff;
+    padding: 10px 0 10px 30px;
+}
+.mini-tags{
+    padding-top: 80px;
+}
+.txt-expands{
+    float: right;
+    padding: 20px 30px 0 0;
+}
+#sub-menu{
+    display: none;
+}
+
 /* responsive  */
 /* iphone 10, 11, 12 pro */
 @media only screen and (min-device-width: 375px) 
