@@ -7,11 +7,7 @@ function openSubmenu(){
 }
 
 function showLinkPopup(){    
-    if(document.getElementById("mini-menu").style.display === "inline"){        
-        document.getElementById("mini-menu").style.display = "none";
-    }else{        
-        document.getElementById("mini-menu").style.display = "inline";
-    }
+    document.getElementById("mini-menu").style.display = "inline";
 }
 
 function hidePopupMiniMenu(){
@@ -25,4 +21,12 @@ function openSubMenuMobile(){
         document.getElementById("sub-menu").style.display = "inline";
         document.getElementById("sub-menu").style.background = "#EB297B";
     }
+}
+
+function showEventList(){    
+    document.getElementById("list-event-menu").style.display = "inline";
+    document.getElementById("list-event-menu").style.background = "#4F4F4F";
+}
+function hidePopupListEvent(){
+    document.getElementById("list-event-menu").style.display = "none";
 }

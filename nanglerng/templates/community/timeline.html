@@ -63,6 +63,7 @@
                         {% endif %}                                     
                     </div>
                     <div id="right-column">
+                        <div class="hr-line-resonsive"></div>
                         <i class="fa-brands fa-facebook"></i> &nbsp; &nbsp; <i class="fa-brands fa-twitter"></i>
                         <div>{{event.eventTime}}</div>
                         {%if event.parent %}
@@ -78,8 +79,32 @@
                 {% include "project/footer.html" %} 
                 {% block footer %}{% endblock %}
             </div>
+            <div id="list-timeline">
+                <div class="list-event">
+                    <a href="#" onclick="showEventList()">
+                        Select Events
+                        <div class="arrow-up"><i class="fa-solid fa-angle-up"></i></div>
+                    </a>
+                </div>
+            </div>
         </div>
         
+        <div id="list-event-menu" class="mini-menu">
+            <div class="head-mini-menu">
+                <a class ="btn-close link-mini" href="#" onclick="hidePopupListEvent()">
+                    <i class="fa-solid fa-xmark"></i>
+                </a>
+            </div>
+            <div class="event-link-list-mini">
+                <div class="">เหตุการณ์ทั้งหมด</div>
+                <ul class="event-link-list-item">    
+                    {% for e in events %}          
+                    <li class="event-item-mini"><a href="/community/timeline/{{e.id}}">{{e.title}}</a></li>
+                    {% endfor %}                            
+                </ul> 
+            </div>
+
+        </div> 
     </body>
 </html>
 
