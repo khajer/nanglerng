@@ -19,8 +19,11 @@
             <a href="/tags"><i class="fa-solid fa-asterisk"></i> tags</a>
         </div>
         <div class="mini-hamberger">
-            <img src="{% static 'images/gg_menu.svg' %}" />
-        </div>        
+            <a href="#" onclick="showLinkPopup()"><img src="{% static 'images/gg_menu.svg' %}" /></a>
+        </div> 
+        <div id="mini-menu" class="mini-menu">
+            <a href="#" onclick="hidePopupMiniMenu()">close</a>
+        </div>       
     </div>
     <div id="sub-menu-title">
         <div id="list-community">
