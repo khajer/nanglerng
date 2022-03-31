@@ -115,8 +115,7 @@ li.menu-item {
 }
 #sub-menu-title{                
     background: #0000FF;
-    width: 100%;
-    /* display: inline-block; */
+    width: 100%;    
     display: none;
     position: absolute;                
     height: 80px;
@@ -177,6 +176,7 @@ li.menu-item {
 .logo-menu{
     height: 100%;
     width: 100%;
+    padding: 20px 0 0 20px;
     align-content: center;
 }
 
@@ -219,13 +219,17 @@ li.menu-item {
 }
 .mini-hamberger{
     display: none;
+    padding: 20px 20px 0 0;
 }
 .tag-main-right{
     display: block;
 }
 /* responsive  */
-/* iphone 10, 11 */
-@media (min-width: 576px){
+/* iphone 10, 11, 12 pro */
+@media only screen and (min-device-width: 375px) 
+    and (max-device-width: 812px) 
+    and (-webkit-min-device-pixel-ratio: 3) {
+        
     body{
         width: 100%;    
     }
