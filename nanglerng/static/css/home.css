@@ -225,11 +225,7 @@ li.menu-item {
 }
 /* responsive  */
 /* iphone 10, 11 */
-
-@media only screen 
-    and (device-width : 375px) 
-    and (device-height : 812px) 
-    and (-webkit-device-pixel-ratio : 3) {
+@media (min-width: 576px){
     body{
         width: 100%;    
     }
@@ -345,4 +341,3 @@ li.menu-item {
         font-size: 14px;
     }
 } 
-
