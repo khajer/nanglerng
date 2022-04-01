@@ -30,3 +30,12 @@ function showEventList(){
 function hidePopupListEvent(){
     document.getElementById("list-event-menu").style.display = "none";
 }
+
+function showListMap(){    
+    document.getElementById("list-map-menu").style.display = "inline";
+    document.getElementById("list-map-menu").style.background = "#4F4F4F";
+}
+
+function hidePopupListMap(){
+    document.getElementById("list-map-menu").style.display = "none";
+}

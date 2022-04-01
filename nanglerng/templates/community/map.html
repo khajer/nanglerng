@@ -99,8 +99,30 @@
                 {% include "project/footer.html" %} 
                 {% block footer %}{% endblock %}
             </div>
+            <div id="list-map">
+                <div class="list-event">
+                    <a href="#" onclick="showListMap()">
+                        Directory
+                        <div class="arrow-up"><i class="fa-solid fa-angle-up"></i></div>
+                    </a>
+                </div>
+            </div>
         </div>
-        
+        <div id="list-map-menu" class="mini-menu">
+            <div class="head-mini-menu">
+                <a class ="btn-close link-mini" href="#" onclick="hidePopupListMap()">
+                    <i class="fa-solid fa-xmark"></i>
+                </a>
+            </div>
+            <div class="event-link-list-mini">
+                <div>รายการสถานที่</div>                        
+                <ul class="event">                            
+                    {% for loc in locations %}
+                    <li class="event-item-mini"><a href="map/{{loc.id}}">{{loc.title}}</a></li>                            
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
     </body>
 </html>
 
