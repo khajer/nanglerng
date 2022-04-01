@@ -45,9 +45,13 @@ li.event-item{
 @media only screen and (min-device-width: 375px) 
     and (max-device-width: 812px) 
     and (-webkit-min-device-pixel-ratio: 3) {
-
+        
+    .wrapper{
+        display: flex;
+    }
     .main-content{
         display: flex;
         flex-direction: column;
+        margin: 0 auto;
     }
 }
