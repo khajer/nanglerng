@@ -16,7 +16,12 @@
         </ul>
     <div class="text-right">
         <div class="tag-main-right">
-            <a class="text-right" href="/tags"><i class="fa-solid fa-asterisk"></i> tags</a>
+            <a class="text-right" href="/tags">
+                <span class="star-size">
+                    <i class="fa-solid fa-asterisk"></i>
+                </span>
+                 tags
+            </a>
         </div>
         <div class="mini-hamberger">
             <a href="#" onclick="showLinkPopup()"><img src="{% static 'images/gg_menu.svg' %}" /></a>
@@ -25,7 +30,7 @@
     <div id="sub-menu-title">
         <div id="list-community">
             <ul class="menu">
-                <li class="menu-item"><a href="/community/essay">Eassy</a></li>
+                <li class="menu-item"><a href="/community/essay">Our stories</a></li>
                 <li class="menu-item"><a href="/community/timeline">Timeline</a></li>
                 <li class="menu-item"><a href="/community/map">Maps</a></li>
             </ul>
@@ -57,7 +62,7 @@
         <li><div class="link-menu-main"><a class ="link-mini" href="/article">Articles</a></div></li>
         <li><div class="link-menu-main"><a class ="link-mini" href="/aboutus">About us</a></div></li>
     </ul>
-    <div class="link-menu-main btn-close mini-tags"><a class ="link-mini" href="/tags">Tag*</a></div>
+    <div class="link-menu-main btn-close mini-tags"><a class ="link-mini" href="/tags">* Tag</a></div>
 </div> 
 
 {% endblock header %}

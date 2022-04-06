@@ -6,13 +6,18 @@ body{
 a {
     text-decoration: none;
 }
+.img-cover{
+    width:"100%";
+    height:"100%";
+    object-fit: cover;
+}
 #header {
     position: relative;
     width: 100%;
-    line-height: 52px;
+    line-height: 64px;
     border: 0;
+    font-weight: 100;
     font-family:'NeueBit', Courier, monospace;
-    font-weight: bold;
 }
 #header a{
     color: #333333;
@@ -84,12 +89,12 @@ a.text-right{
 }
 .llist{
     width: 290px;
-    height: 262px;
+    height: 290px;
     font-size: 20px;
     line-height: 32px;
 }
 .footer-box{
-    line-height: 80px;
+    line-height: 64px;
 }
 .footer-tradmark{
     float: left;
@@ -102,6 +107,10 @@ a.text-right{
     color: #333333;
 }
 
+.link-facebook{
+    color: #000;
+    text-decoration: underline;
+}
 .headcard{
     height: 40px;
     line-height: 40px;
@@ -118,7 +127,7 @@ a.text-right{
     width: 100%;    
     display: none;
     position: absolute;                
-    height: 80px;
+    height: 64px;
     z-index: 2;
 }
 #sub-menu-title a{
@@ -128,13 +137,11 @@ a.text-right{
 .head-left-box{
     font-size: 48px;
     font-family:'NeueBit', Courier, monospace;
-    font-weight: bold;
-    height: 64px;
 }
 
 
 #list-community{
-    padding-left: 122px;
+    padding-left: 80px;
     font-size: 32px;
 }
            
@@ -169,7 +176,7 @@ a.text-right{
 }
 .img-right-home{
     width: 290px;
-    height: 142px;
+    height: 170px;
     object-fit: cover;
 
 }
@@ -204,8 +211,8 @@ a.text-right{
 }
 
 .img-map{
-    width: 570px;
-    height: 190px;
+    width: 634px;
+    height: 200px;
 }
 .border-img-map{
     width: 623px;
@@ -283,8 +290,33 @@ ul.mini-menu li.a{
 .img-home{
     height: 52px;
     width: 52px;
+    padding: 6px 0 0 0;
+}
+.star-size{
+    font-size: 20px;
+    color:#0000FF;
 }
 
+.map-loc-show{
+    width: 634px;
+    height: 200px;
+    position: relative;
+    
+    text-align: center;
+    color: white;
+}
+.img-map{
+    width: 100%;
+    height: 100%;
+}
+.txt-center-map{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 42px;
+    font-weight: bold;
+}
 /* responsive  */
 /* iphone 10, 11, 12 pro */
 @media only screen and (min-device-width: 375px) 
@@ -303,7 +335,7 @@ ul.mini-menu li.a{
         /* height: 80px; */
     }
     .logo-menu{
-        padding: 20px 0 0 20px;
+        padding: 20px 0 20px 20px
     }
     .img-home{
         width: 47px;
@@ -402,7 +434,6 @@ ul.mini-menu li.a{
         margin: 0 auto;
     }
     .footer-tradmark{
-
         font-size: 14px;
     }
     .footer-social{
