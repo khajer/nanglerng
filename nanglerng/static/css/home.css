@@ -5,6 +5,7 @@ body{
 }
 a {
     text-decoration: none;
+    color: #000;
 }
 .img-cover{
     width:"100%";
@@ -137,6 +138,8 @@ a.text-right{
 .head-left-box{
     font-size: 48px;
     font-family:'NeueBit', Courier, monospace;
+    
+    padding-bottom: 10px;
 }
 
 
@@ -204,6 +207,7 @@ a.text-right{
     color: #333;
     font-size: 20px;
     line-height: 32px;
+    padding-top: 10px;
 }
 .hr{    
     height: 4px;
