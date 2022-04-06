@@ -14,8 +14,14 @@
                 src: url("{% static 'css/fonts/NeueBit-Bold/NeueBit-Bold.woff2' %}") format('woff2');
                 font-style: normal;
                 font-display: swap;
+            }       
+            .eventlink{
+                color: #00f;
+                text-decoration: underline;
             }
-
+            .tagname{
+                color: #00f;
+            }     
         </style>
          <script src="{% static 'js/toggle_menu.js' %}"></script> 
     </head>
@@ -29,9 +35,9 @@
                 </div>
                 <div class="tab-comunity">
                     <ul class="menu-comunity">
-                        <li class="menu-item tab-border "><a href="/community/essay">Essays</a></li>
+                        <li class="menu-item tab-border "><a href="/community/essay">Our stories</a></li>
                         <li class="menu-item tab-border tab-active">Timeline</li>
-                        <li class="menu-item tab-border"><a href="/community/map">Map</a></li>
+                        <li class="menu-item tab-border"><a href="/community/map">Maps</a></li>
                     </ul>
                     <div class="spacer"></div>
                 </div>
@@ -63,13 +69,12 @@
                     </div>
                     <div id="right-column">
                         <div class="hr-line-resonsive"></div>
-                        <i class="fa-brands fa-facebook"></i> &nbsp; &nbsp; <i class="fa-brands fa-twitter"></i>
                         <div>{{event.eventTime}}</div>
                         {%if event.parent %}
-                        <div><a href="/community/map/{{event.parent.id}}">{{event.parent}}</a></div>
+                        <div>Location : <a class="eventlink" href="/community/map/{{event.parent.id}}">{{event.parent}}</a></div>
                         {% endif %}
                         {% for tag in event.tags.all %}
-                            <div class="tag-right"><a href="/tags/{{tag.name}}">*{{tag.name}}</a></div>
+                            <div class="tag-right"><a class="tagname" href="/tags/{{tag.name}}">*{{tag.name}}</a></div>
                         {% endfor %}
                     </div>
                 </div>

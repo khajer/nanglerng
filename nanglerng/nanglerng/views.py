@@ -30,11 +30,12 @@ def comEssay(request):
 def comTimeline(request, eventId=0):
     template = loader.get_template('community/timeline.html')
     typePost = TypePost.objects.filter(typename="Event")[0]
-    events = Post.objects.all().filter(mainFlag=True, typePost=typePost.id).order_by('id').reverse()
-
+    
+    events = Post.objects.all().filter(typePost=typePost.id).order_by('id').reverse()
+    print(events)
     event = None
     if eventId == 0:
-        event = events[0]
+        event = events[0]   
     else:
         event = list(filter(lambda e: (e.id == eventId), events))[0]
     
@@ -45,6 +46,8 @@ def comTimeline(request, eventId=0):
         "event": event,
         "postImgs": postImgs
     }
+    print(events)
+    print(event)
     return HttpResponse(template.render(context, request))
 
 def comMap(request):
@@ -79,7 +82,7 @@ def comMapLoc(request, locId=0):
 def whatsOn(request):
     template = loader.get_template('whatson/index.html')
     typePost = TypePost.objects.filter(typename="Event")[0]
-    events = Post.objects.all().filter(typePost=typePost.id).order_by('id').reverse()
+    events = Post.objects.all().filter(activeEvent=True, typePost=typePost.id).order_by('id').reverse()
     context = {
         "events": events
     }

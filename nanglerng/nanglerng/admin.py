@@ -9,13 +9,16 @@ admin.site.register(Aboutus)
 
 @admin.register(Post)
 class PostAdmin(admin.ModelAdmin):
-    list_display = ("title", "typePost", "show_mainpage", "createAt",)    
+    list_display = ("title", "typePost", "mainpage", "whatson", "createAt",)    
     list_filter = ("typePost", )
     ordering = ('-createAt',)
     search_fields = ("title", )
     list_per_page = 20
+
+    def whatson(self, obj):
+        return "show" if obj.activeEvent else ""
     
-    def show_mainpage(self, obj):
+    def mainpage(self, obj):
         return "show" if obj.mainFlag else ""
     
     def get_form(self, request, obj=None, **kwargs):
@@ -27,6 +30,8 @@ class PostAdmin(admin.ModelAdmin):
         form.base_fields["desc"].label = "Short Description"
         form.base_fields["parent"].queryset = Post.objects.filter(typePost="2")
         form.base_fields["parent"].label = "Base Location"
+        form.base_fields["activeEvent"].label = "whats'on"
+        
         return form
         
 

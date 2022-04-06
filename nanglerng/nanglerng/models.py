@@ -35,9 +35,10 @@ class Post(models.Model):
     author = models.CharField(max_length=200)
     contribute = models.CharField(max_length=200)
     mainFlag = models.BooleanField(default=False)
+    activeEvent = models.BooleanField(default=False)
     createAt = models.DateTimeField(auto_now_add=True)
     tags = TaggableManager()
-    parent = models.ForeignKey("self", on_delete=models.CASCADE, null=True)
+    parent = models.ForeignKey("self", on_delete=models.CASCADE, null=True, blank=True)
     
     def __str__(self):
         return self.title

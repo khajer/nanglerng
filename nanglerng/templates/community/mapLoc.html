@@ -32,9 +32,9 @@
                 </div>
                 <div class="tab-comunity">
                     <ul class="menu-comunity">
-                        <li class="menu-item tab-border"><a href="/community/essay">Essays</a></li>
+                        <li class="menu-item tab-border"><a href="/community/essay">Our stories</a></li>
                         <li class="menu-item tab-border"><a href="/community/timeline">Timeline</a></li>
-                        <li class="menu-item tab-border tab-active">Map</li>
+                        <li class="menu-item tab-border tab-active">Maps</li>
                     </ul>
                     <div class="spacer"></div>
                 </div>
@@ -50,8 +50,8 @@
                         </ul>                        
                     </div>
                     <div id="center-column">   
-                        <div><a href="/community/map">back to map</a></div>
-                        <div class="title_text">{{location.title}}</div>
+                        <div><a class="back-map" href="/community/map">back to map</a></div>
+                        <div class="title-text">{{location.title}}</div>
                         
                         {% if postImgs %}
                         <div class="image">
@@ -110,8 +110,7 @@
                         </div>
                         {% endif %}                       
                     </div>
-                    <div id="right-column">
-                        <i class="fa-brands fa-facebook"></i> &nbsp; &nbsp; <i class="fa-brands fa-twitter"></i>
+                    <div id="right-column">                        
                         <div>{{loc.eventTime}}</div>
                         {%if loc.parent %}
                         <div><a href="/community/map/{{loc.parent.id}}">{{event.parent}}</a></div>
