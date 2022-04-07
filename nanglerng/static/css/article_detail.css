@@ -42,6 +42,15 @@ li.event-item{
 .tag-right{
     display: inline;
 }
+.eventlink {
+    color: #00f;
+    text-decoration: underline;
+}
+
+.tagname {
+    color: #00f;
+  }
+
 @media only screen and (min-device-width: 375px) 
     and (max-device-width: 812px) 
     and (-webkit-min-device-pixel-ratio: 3) {

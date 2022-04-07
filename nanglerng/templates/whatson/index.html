@@ -32,7 +32,7 @@
                             <div class="w-on-img-list">                                
                                 
                                 <div class="headcard-left">{{e.eventTime}}</div>
-                                <div class="headcard-right">{{e.contribute}}</div>                                
+                                <div class="headcard-right"></div>                                
                                 {% if e.imgCover != "" %}   
                                 <div><img class="img-cover" src="media/{{ e.imgCover }}"></div>
                                 {% else %}
@@ -46,9 +46,9 @@
                 </div>
                 
             </div>            
-            <div class="footer">
+            <div class="footer bottom-footer">
                 {% include "project/footer.html" %} 
-            {% block footer %}{{ section.title }}{% endblock %}
+                {% block footer %}{{ section.title }}{% endblock %}
             </div>
         </div>
         

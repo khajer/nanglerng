@@ -32,7 +32,6 @@ def comTimeline(request, eventId=0):
     typePost = TypePost.objects.filter(typename="Event")[0]
     
     events = Post.objects.all().filter(typePost=typePost.id).order_by('id').reverse()
-    print(events)
     event = None
     if eventId == 0:
         event = events[0]   
@@ -46,8 +45,6 @@ def comTimeline(request, eventId=0):
         "event": event,
         "postImgs": postImgs
     }
-    print(events)
-    print(event)
     return HttpResponse(template.render(context, request))
 
 def comMap(request):

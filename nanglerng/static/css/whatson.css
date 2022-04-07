@@ -144,13 +144,22 @@ li.tab-active{
 }
 .img-cover{
     width: 290px;
-    height: 142px;
-}.list-whatson{
+    height: 225px;
+}
+.list-whatson{
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-between;
 
+}
+.bottom-footer{
+    bottom: 0;
+    position: absolute;
+}
+.footer{
+    width: 1440px;
+    background-color: #fff;
 }
 
 

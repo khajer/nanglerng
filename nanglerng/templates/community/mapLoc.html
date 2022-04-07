@@ -50,9 +50,11 @@
                         </ul>                        
                     </div>
                     <div id="center-column">   
-                        <div><a class="back-map" href="/community/map">back to map</a></div>
+                        <div><a class="back-map" href="/community/map"><i class="fa-solid fa-arrow-left"></i> back to map</a></div>
                         <div class="title-text">{{location.title}}</div>
-                        
+
+                        <div class="title_text">{{location.rawHtmlData.html | safe}}</div>
+
                         {% if postImgs %}
                         <div class="image">
                             <div class="slidercontainer">  
@@ -70,22 +72,18 @@
                             <script src="{% static 'js/image_slide.js' %}"></script>
                         </div>
                         {% endif %}
-
-
-                        <div class="title_text">{{location.rawHtmlData.html | safe}}</div>
-                        <div class="spacer"></div>
                         
                         {% if events %} 
-                        <div class="title_text">Related Events</div>                                
-                        <div class="relate-list">
+                        <div class="other-link-text">Related Events</div>                                
+                        <div class="relate-list space-other">
                             {% for event in events %}                                    
-                            <div class="relate-list-box">
+                            <div class="other-item-box">
                                 <a href="/community/timeline/{{event.id}}">  
                                     <div class="headcard">
                                         <div class="headcard-left">{{event.eventTime}}</div>
-                                        <div class="headcard-right">{{event.culture}}</div>
+                                        <div class="headcard-right"></div>
                                     </div>                                
-                                    <div><img class="imgCover" src="/media/{{ event.imgCover }}"></div>
+                                    <div><img class="img-relate" src="/media/{{ event.imgCover }}"></div>
                                     <div>{{event.title}}</div>
                                 </a>
                             </div>
@@ -93,16 +91,16 @@
                         </div>
                         {% endif %}       
                         {% if articles %} 
-                        <div class="title_text">Related Articles</div>                                
-                        <div class="relate-list">
+                        <div class="other-link-text">Related Articles</div>                                
+                        <div class="relate-list space-other">
                             {% for article in articles %}                                    
-                            <div class="relate-list-box">
+                            <div class="other-item-box">
                                 <a href="/article/{{article.id}}">  
                                     <div class="headcard">
                                         <div class="headcard-left">{{article.eventTime}}</div>
                                         <div class="headcard-right">{{article.culture}}</div>
                                     </div>                                
-                                    <div><img class="imgCover" src="/media/{{ article.imgCover }}"></div>
+                                    <div><img class="img-relate" src="/media/{{ article.imgCover }}"></div>
                                     <div>{{article.title}}</div>
                                 </a>
                             </div>
@@ -113,7 +111,7 @@
                     <div id="right-column">                        
                         <div>{{loc.eventTime}}</div>
                         {%if loc.parent %}
-                        <div><a href="/community/map/{{loc.parent.id}}">{{event.parent}}</a></div>
+                        <div>Location : <a class="eventlink" href="/community/map/{{loc.parent.id}}">{{loc.parent}}</a></div>
                         {% endif %}
                         {% for tag in loc.tags.all %}
                             <div class="tag-right"><a href="/tags/{{tag.name}}">*{{tag.name}}</a></div>

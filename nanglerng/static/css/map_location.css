@@ -1,3 +1,29 @@
 .back-map{
-    padding: 10px 0 10px 0;
+    text-decoration: underline;
+    font-style: italic;
+    font-size: 14px;
+}
+
+.other-link-text{
+    border-top: 1px solid #EB297B;
+    padding-top: 20px;
+    font-size: 36px;
+    line-height: 36px;
+    font-weight: bold;
+}
+
+.image{
+    padding: 20px 0 20px 0;
+}
+
+.img-relate{
+    width: 290px;
+    height: 225px;
+}
+
+.other-item-box{
+    width: 290px;    
+}
+.space-other{
+    padding: 0 0 20px 0;
 }

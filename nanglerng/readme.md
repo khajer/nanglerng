@@ -25,7 +25,6 @@ Post.objects.all()
 Post.objects.all().filter(mainFlag=True)
 `
 
-
 # admin 
 python3 manage.py createsuperuser
 admin

@@ -36,8 +36,13 @@
                     <div class="title_text">{{article.culture}}</div>
                         <div>{{article.author}}</div>
                         <div>{{article.eventTime}}</div>
+                        
+                        {%if article.parent %}
+                        <div>Location : <a class="eventlink" href="/community/map/{{article.parent.id}}">{{article.parent}}</a></div>
+                        {% endif %}
+
                         {% for tag in article.tags.all %}
-                            <div class="tag-right"><a href="/tags/{{tag.name}}">*{{tag.name}}</a></div>
+                            <div class="tag-right"><a class="tagname" href="/tags/{{tag.name}}">*{{tag.name}}</a></div>
                         {% endfor %}
                 </div>
             </div>            
