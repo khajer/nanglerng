@@ -189,4 +189,18 @@ li.tab-active{
         height: 240px;
         object-fit: cover;
     }
+    .bottom-footer{
+        bottom: unset;
+        position: unset;
+        
+    }
+    .w-on-img-list{
+        font-size: 40px;
+        line-height: 50px;
+        height: unset;
+    }
+    .img-cover{
+        width: 100%;
+        height: 520;
+    }
 }

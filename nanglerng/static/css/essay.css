@@ -58,6 +58,33 @@ li.tab-active{
     body{
         width: 100%;    
     }
+
+    .title_text{
+        clear: both;
+        padding: 20px 0 0 0;
+    }
+    .text-title-show{
+        font-size: 40px;
+        line-height: 50px;
+        height:unset;
+        padding: 0 0 20px 0;
+    }
+    .community-tab-menu{
+        height:unset;
+    }
+    .tab-comunity{
+        height: 64px;
+    }
+    ul.menu-comunity{
+        font-size: 60px;
+    }
+    li.tab-border{
+        width: 240px;
+    }
+    .title_text{
+        font-size: 40px;
+        line-height: 50px;
+    }
     .wrapper{
         width: 100%;
         display: block;
@@ -172,11 +199,5 @@ li.tab-active{
         width: 882px;
         margin: 0 auto;
     }
-    .footer-tradmark{
-
-        font-size: 14px;
-    }
-    .footer-social{
-        font-size: 14px;
-    }
+    
 } 
