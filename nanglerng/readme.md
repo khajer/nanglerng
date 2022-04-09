@@ -50,3 +50,7 @@ tags = Tag.objects.all()
 from nanglerng.models import Post
 posts = Post.objects.filter(tags__name__in=["tagName"])
 posts = Post.objects.filter(typePost="1")
+
+# migrate database
+python3 manage.py makemigrations nanglerng      // (Create the migrations)
+python3 manage.py migrate nanglerng             // (execute the SQL commands). 

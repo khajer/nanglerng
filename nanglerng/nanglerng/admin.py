@@ -30,7 +30,7 @@ class PostAdmin(admin.ModelAdmin):
         form.base_fields["desc"].label = "Short Description"
         form.base_fields["parent"].queryset = Post.objects.filter(typePost="2")
         form.base_fields["parent"].label = "Base Location"
-        form.base_fields["activeEvent"].label = "whats'on"
+        form.base_fields["activeEvent"].label = "whats'on"        
         
         return form
         
