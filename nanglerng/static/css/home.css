@@ -241,6 +241,7 @@ a.text-right{
     overflow: auto;
     z-index: 10;
     background: #0000FF; 
+    font-family: 'NeueBit', Courier, monospace;
 
 }
 a.link-mini{
@@ -248,7 +249,7 @@ a.link-mini{
 }
 ul.menu-mini{
     list-style-type: none;
-    font-size: 52px;
+    font-size: 72px;
     line-height: 80px;
     margin: 0;
     padding-left: 0px;
@@ -269,7 +270,7 @@ ul.mini-menu li.a{
     background-color: #EB297B;
 }
 .btn-close{
-    font-size: 52px;
+    font-size: 72px;
     line-height: 80px;
     padding: 30px 30px 0 0;
 }
@@ -309,10 +310,7 @@ ul.mini-menu li.a{
     text-align: center;
     color: white;
 }
-.img-map{
-    width: 100%;
-    height: 100%;
-}
+
 .txt-center-map{
     position: absolute;
     top: 50%;
@@ -329,6 +327,11 @@ ul.mini-menu li.a{
         
     body{
         width: 100%;    
+    }
+
+    .text-essay-title{
+        font-size: 40px;
+        line-height: 50px;
     }
     .wrapper{
         width: 100%;
@@ -379,16 +382,25 @@ ul.mini-menu li.a{
         background-color: #0000FF;
         color: #fff;
         width: 882px;           
-        height: 132px;
+        height: 200px;
         left: 0;
         position: relative;
         margin: 0 auto;
-        bottom: 200px;
+        bottom: 260px;
     }
     .head-left-box{
+        font-size: 60px;
         padding-top: 20px;
     }
 
+    .headcard-left{
+        padding: 10px 0 10px 0;
+    }
+    .label-title{
+        font-size: 40px;
+        line-height: 50px;
+        height: unset;
+    }
     .content-right{
         width: 100%;
     }
@@ -404,9 +416,12 @@ ul.mini-menu li.a{
     .llist{
         width: 80%;
         margin: 0 auto;
-        font-size: 20px;
-        line-height: 32px;
-        height: 340px;
+        font-size: 40px;
+        line-height: 50px;
+        height: unset;
+    }
+    .txt-center-map{
+        font-size: 60px;
     }
 
     .scroll-y{
@@ -414,7 +429,7 @@ ul.mini-menu li.a{
     }
     .img-right-home{
         width: 100%;
-        height: 240px;        
+        height: 450px;        
         object-fit: cover;
     }
     .border-img-map{
@@ -425,22 +440,31 @@ ul.mini-menu li.a{
         height: 300px;
         /* text-align: center; */
     }
+    .more {
+        
+        font-size: 40px;
+        line-height: 50px;
+    }
 
-
+    .map-loc-show{
+        width: 100%;
+        height: 400px;
+    }
     .img-map{
-        width: 800px;
-        height: 200px;
+        width: 100%;
+        height: 400px;
     }
 
     .footer{
         display: block;
         width: 882px;
         margin: 0 auto;
+
     }
     .footer-tradmark{
-        font-size: 14px;
+        font-size: 24px;
     }
     .footer-social{
-        font-size: 14px;
+        font-size: 24px;
     }
 } 
