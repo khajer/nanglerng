@@ -175,8 +175,7 @@ li.tab-active{
     .list-whatson{
         flex-direction: column;
     }
-    .w-on-img-list{
-        
+    .w-on-img-list{        
         width: 80%;
         margin: 0 auto;
         font-size: 20px;
