@@ -30,8 +30,8 @@
                         {%for article in articles %}
                         <a href="/article/{{article.id}}">
                             <div class="w-on-img-list">                                                                
-                                <div class="headcard-left">{{article.eventTime}}</div>
-                                <div class="headcard-right">{{article.contribute}}</div>                                
+                                <div class="headcard-left">{{article.category}}</div>
+                                <div class="headcard-right">{{article.contributor}}</div>                                
                                 {% if article.imgCover != "" %}   
                                 <div><img class="img-cover" src="media/{{ article.imgCover }}"></div>
                                 {% else %}

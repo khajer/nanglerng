@@ -27,16 +27,14 @@
             </div>
             <div class="main-content">
                 <div class="left-content">
-                    <div class="title_text">{{article.title}}</div>
+                    <div class="title-text">{{article.title}}</div>
                     <div>
                         {{article.rawHtmlData.html| safe}}
                     </div>
                 </div>
                 <div class="right-content">
-                    <div class="title_text">{{article.culture}}</div>
-                        <div>{{article.author}}</div>
-                        <div>{{article.eventTime}}</div>
-                        
+                    <div class="title_text">{{article.category}}</div>
+                        <div>{{article.contributor}}</div>
                         {%if article.parent %}
                         <div>Location : <a class="eventlink" href="/community/map/{{article.parent.id}}">{{article.parent}}</a></div>
                         {% endif %}
