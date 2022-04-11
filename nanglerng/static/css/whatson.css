@@ -154,10 +154,7 @@ li.tab-active{
     justify-content: space-between;
 
 }
-.bottom-footer{
-    bottom: 0;
-    position: absolute;
-}
+
 .footer{
     width: 1440px;
     background-color: #fff;
@@ -189,11 +186,7 @@ li.tab-active{
         height: 240px;
         object-fit: cover;
     }
-    .bottom-footer{
-        bottom: unset;
-        position: unset;
-        
-    }
+    
     .w-on-img-list{
         font-size: 40px;
         line-height: 50px;
