@@ -6,6 +6,7 @@
         <link rel="stylesheet" type="text/css" href="{% static 'css/whatson.css' %}">  
         <link href="{% static 'fontawesomefree/css/all.min.css' %}" rel="stylesheet" type="text/css">        
         <script src="{% static 'js/toggle_menu.js' %}"></script> 
+        <script src="{% static 'js/footer_botttom.js' %}"></script>
         <link rel="stylesheet" type="text/css" href="{% static 'css/home.css' %}">                   
         <link href="https://cdn.jsdelivr.net/gh/lazywasabi/thai-web-fonts@6/fonts/NotoSansThaiLooped/NotoSansThaiLooped.css" rel="stylesheet" />
         <style>
@@ -17,13 +18,13 @@
             }
         </style>
     </head>
-    <body>
+    <body onload="resizeContentMain()">
         <div class="wrapper">
             <div class="header">
                 {% include "project/header.html" %} 
                 {% block header %}{% endblock %}        
             </div>
-            <div class="main-content">
+            <div class="main-content" id="main-content">
                 <div class="box-center">
                     <div class="head-left-box">Articles</div>        
                     <div class="list-whatson">
