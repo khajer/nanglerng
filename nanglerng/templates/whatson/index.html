@@ -20,7 +20,7 @@
     </head>
     <body onload="resizeContentMain()">
         <div class="wrapper">
-            <div class="header">
+            <div class="header" id="normal-header">
                 {% include "project/header.html" %} 
                 {% block header %}{% endblock %}        
             </div>
@@ -28,28 +28,26 @@
                 <div class="box-center">
                     <div class="head-left-box">What's on</div>        
                     <div class="list-whatson">
-                        {%for e in events %}
-                        <a href="community/timeline/{{e.id}}">
-                            <div class="w-on-img-list">                                
-                                
-                                <div class="headcard-left">{{e.eventTime}}</div>
+                        {%for event in events %}
+                        <a href="/event/{{event.id}}">
+                            <div class="w-on-img-list">                                                                
+                                <div class="headcard-left">{{event.eventTime}}</div>
                                 <div class="headcard-right"></div>                                
-                                {% if e.imgCover != "" %}   
-                                <div><img class="img-cover" src="media/{{ e.imgCover }}"></div>
+                                {% if event.imgCover != "" %}   
+                                <div><img class="img-cover" src="media/{{ event.imgCover }}"></div>
                                 {% else %}
                                 <div><img class="img-cover" src="{% static 'images/example.png' %}"></div>
                                 {% endif %}                                            
-                                <div>{{e.title}}</div>                            
+                                <div>{{event.title}}</div>                            
                             </div>                    
                         </a>
                         {% endfor %}
                     </div>   
-                </div>
-                
+                </div>                
             </div>            
-            <div class="footer">
+            <div class="footer" id="footer">
                 {% include "project/footer.html" %} 
-                {% block footer %}{{ section.title }}{% endblock %}
+            {% block footer %}{{ section.title }}{% endblock %}
             </div>
         </div>
         
