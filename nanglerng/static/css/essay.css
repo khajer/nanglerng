@@ -5,7 +5,7 @@ body{
 }
 .community-tab-menu{
     width: 100%;
-    height: 168px;
+    height: 80px;
 }
 .text-title-show{
     padding-top: 26px;
@@ -49,6 +49,9 @@ li.tab-active{
 .tagname{
     color: #00f;
 }   
+.tab-comunity-mini{
+    display: none;
+}
 
 
 @media only screen and (min-device-width: 375px) 
@@ -73,7 +76,29 @@ li.tab-active{
         height:unset;
     }
     .tab-comunity{
-        height: 64px;
+        display: none;
+    }
+    .tab-comunity-mini{
+        font-family: 'NeueBit', Courier, monospace;
+        display: flex;
+        font-size: 72px;
+        width: 100%;
+        padding-bottom: 20px;
+    }
+    
+    .tab-com-mini-item{
+        width: 33%;
+        text-align: center;
+        font-size: 72px;
+        line-height: 72px;
+        border: 1px solid #000;
+        background-color: #0000FF;
+        color: #fff;
+        padding: 20px;
+    }
+    .tab-item-link{
+        background-color: #fff;
+        color: #000;
     }
     ul.menu-comunity{
         font-size: 60px;
@@ -92,14 +117,7 @@ li.tab-active{
     .header{
         width: 100%;
         height: 80px;
-    }
-    .logo-menu{
-        padding: 20px 0 0 20px;
-    }
-    .img-home{
-        width: 47px;
-        height: 52px;
-    }
+    }    
     .menu-item.lst-menu{
         display: none;
     }
@@ -134,8 +152,9 @@ li.tab-active{
         width: 100%;
     }
     .content_text{        
-        font-size: 40px;
-        line-height: 50px;
+        font-size: 46px;
+        line-height: 80px;
+        font-weight: 300;        
     }
     .label-img{
         background-color: #0000FF;
