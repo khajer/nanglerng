@@ -467,12 +467,16 @@ ul.mini-menu li.a{
         display: block;
         width: 882px;
         margin: 0 auto;
+        padding-top: 120px;
 
     }
     .footer-tradmark{
-        font-size: 20px;
+        font-size: 52px;
+        line-height: 60px;
     }
     .footer-social{
-        font-size: 20px;
+        font-size: 52px;
+        line-height: 60px;
+        float: unset;
     }
 } 
