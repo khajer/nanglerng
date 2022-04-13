@@ -7,6 +7,7 @@
         <link rel="stylesheet" type="text/css" href="{% static 'css/whatson.css' %}">
         {% load static %}        
         <script src="{% static 'fontawesomefree/js/all.min.js' %}"></script>
+        <script src="{% static 'js/footer_botttom.js' %}"></script>
         <link rel="stylesheet" type="text/css" href="{% static 'css/home.css' %}">
         <link rel="stylesheet" type="text/css" href="{% static 'css/essay.css' %}">
         <link href="https://cdn.jsdelivr.net/gh/lazywasabi/thai-web-fonts@6/fonts/NotoSansThaiLooped/NotoSansThaiLooped.css" rel="stylesheet" />
@@ -21,13 +22,13 @@
         </style>
          <script src="{% static 'js/toggle_menu.js' %}"></script> 
     </head>
-    <body>
+    <body onload="resizeContentMain()">
         <div class="wrapper">
-            <div class="header">
+            <div class="header" id="normal-header">
                 {% include "project/header.html" %} 
                 {% block header %}{% endblock %}        
             </div>
-            <div class="main-content">                
+            <div class="main-content" id="main-content">
                 {%if tags %}
                     <div class="title_text">*Tags</div>
                     {%for tag in tags %}
@@ -43,15 +44,15 @@
                         {%for article in articles %}
                         <a href="/article/{{article.id}}">
                             <div class="w-on-img-list">                                
-                                <div class="headcard-left">{{article.culture}}</div>
-                                <div class="headcard-right">{{article.contribute}}</div>
+                                <div class="headcard-left">{{article.category}}</div>
+                                <div class="headcard-right">{{article.contributor}}</div>
                                 
                                 {% if article.imgCover != "" %}   
                                 <div><img class="img-cover" src="/media/{{ article.imgCover }}"></div>
                                 {% else %}
                                 <div><img class="img-cover" src="{% static 'images/example.png' %}"></div>
                                 {% endif %}                                            
-                                <div>{{article.title}}</div>                            
+                                <div class="label-title">{{article.title}}</div>                            
                             </div>                    
                         </a>
                         {% endfor %}
@@ -66,15 +67,15 @@
                         <a href="/community/timeline/{{event.id}}">
                             <div class="w-on-img-list">                                
                                 
-                                <div class="headcard-left">{{event.culture}}</div>
-                                <div class="headcard-right">{{event.contribute}}</div>
+                                <div class="headcard-left">{{event.eventTime}}</div>
+                                <div class="headcard-right"></div>
                                 
                                 {% if event.imgCover != "" %}   
                                 <div><img class="img-cover" src="/media/{{ event.imgCover }}"></div>
                                 {% else %}
                                 <div><img class="img-cover" src="{% static 'images/example.png' %}"></div>
                                 {% endif %}                                            
-                                <div>{{event.title}}</div>                            
+                                <div class="label-title">{{event.title}}</div>                            
                             </div>                    
                         </a>
                         {% endfor %}
@@ -83,7 +84,7 @@
                 {% endif %}      
                 
             </div>            
-            <div class="footer">
+            <div class="footer" id="footer">
                 {% include "project/footer.html" %} 
             {% block footer %}{{ section.title }}{% endblock %}
             </div>
