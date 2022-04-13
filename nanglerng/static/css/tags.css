@@ -23,6 +23,9 @@ li.tab-active{
 .title_text{
     padding: 20px 0 20px 0;
 }
+.tag-title{
+    font-size: 20px;
+}
 .social_text{
     padding: 10px 0 10px 0;
 }

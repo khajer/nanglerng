@@ -32,7 +32,7 @@
                 {%if tags %}
                     <div class="head-left-box">*Tags</div>        
                     {%for tag in tags %}
-                    <a href="/tags/{{tag.name}}">*{{tag.name}} &nbsp;</a>
+                    <a class="tag-title" href="/tags/{{tag.name}}">*{{tag.name}} &nbsp;</a>
                     {% endfor %}
                     <div class="hr-tags"></div>
                 {% endif %}
