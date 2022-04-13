@@ -398,6 +398,9 @@ ul.mini-menu li.a{
     .headcard-left{
         padding: 10px 0 10px 0;
     }
+    .headcard-right{
+        padding: 10px 0 10px 0;
+    }
     .label-title{
         font-size: 52px;
         line-height: 60px;
