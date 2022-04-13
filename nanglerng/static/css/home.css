@@ -342,8 +342,8 @@ ul.mini-menu li.a{
         padding: 20px 0 20px 20px
     }
     .img-home{
-        width: 47px;
-        height: 52px;
+        width: 110px;
+        height: 110px;
     }
     .menu-item.lst-menu{
         display: none;
@@ -355,7 +355,12 @@ ul.mini-menu li.a{
         display: none;
     }
     .mini-hamberger{
-        display: block;
+        display: block;   
+        padding-top: 25px;     
+    }
+    .ham-logo{
+        width: 100px;
+        height: 100px;
     }
     #class{
         padding: 10px;
