@@ -134,7 +134,7 @@ li.event-item-mini{
     #content-text{
         flex-direction: column;
         clear: both;
-        padding: 20px 0 0 0;
+        padding: 20px 0 40px 0;
         font-size: 40px;
         line-height: 50px;
     }
