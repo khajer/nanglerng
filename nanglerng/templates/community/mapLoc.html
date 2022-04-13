@@ -35,6 +35,7 @@
                     </ul>
                     <div class="spacer"></div>
                 </div>
+                
             </div>
             <div>            
                 <div id="content-text">
@@ -47,10 +48,9 @@
                         </ul>                        
                     </div>
                     <div id="center-column">   
-                        <div><a class="back-map" href="/community/map"><i class="fa-solid fa-arrow-left"></i> back to map</a></div>
+                        <div class="link-back"><a class="back-map" href="/community/map"><i class="fa-solid fa-arrow-left"></i> back to map</a></div>
                         <div class="title-text">{{location.title}}</div>
-
-                        <div class="title_text">{{location.rawHtmlData.html | safe}}</div>
+                        <div class="title_text content-raw">{{location.rawHtmlData.html | safe}}</div>
 
                         {% if postImgs %}
                         <div class="image">
@@ -71,7 +71,32 @@
                         {% endif %}
                         
                         {% if events %} 
-                        <div class="other-link-text">Related Events</div>                                
+                        <div class="bb">
+                            <div class="head-left-box">Related Events</div>
+                            <div class="b-list">
+                                {% if events %}                            
+                                    {% for timeline in events %}
+                                        <div class="llist">
+                                            <a href="/community/timeline/{{timeline.id}}" class="text-detail-right">
+                                                <div class="headcard">
+                                                    <div class="headcard-left">{{timeline.eventTime}}</div>
+                                                    <div class="headcard-right"></div>
+                                                </div>
+                                                {% if timeline.imgCover != "" %}   
+                                                <div><img src="/media/{{ timeline.imgCover }}" class="img-right-home"></div>
+                                                {% else %}
+                                                <div><img src="{% static 'images/example.png' %}" class="img-right-home"></div>
+                                                {% endif %}                                                                        
+                                                <div class="label-title">{{timeline.title| slice:"0:52"}} {%if timeline.title|length > 52 %}...{%endif%}</div>
+                                            </a>
+                                        </div>
+                                    {% endfor %}                            
+                                {% else %}
+                                {% endif %}                            
+                            </div>                            
+                        </div>
+                        <div class="space-div"></div>
+                        <!-- <div class="other-link-text">Related Events</div>                                
                         <div class="relate-list space-other">
                             {% for event in events %}                                    
                             <div class="other-item-box">
@@ -85,10 +110,34 @@
                                 </a>
                             </div>
                             {% endfor %}                                    
-                        </div>
+                        </div> -->
                         {% endif %}       
                         {% if articles %} 
-                        <div class="other-link-text">Related Articles</div>                                
+                        <div class="bb">
+                            <div class="head-left-box">Related Articles</div>
+                            <div class="b-list">
+                                {% if events %}                            
+                                    {% for article in articles %}
+                                        <div class="llist">
+                                            <a href="/community/article/{{article.id}}" class="text-detail-right">
+                                                <div class="headcard">
+                                                    <div class="headcard-left">{{article.category}}</div>
+                                                    <div class="headcard-right">{{article.contributor}}</div>
+                                                </div>
+                                                {% if article.imgCover != "" %}   
+                                                <div><img src="/media/{{ article.imgCover }}" class="img-right-home"></div>
+                                                {% else %}
+                                                <div><img src="{% static 'images/example.png' %}" class="img-right-home"></div>
+                                                {% endif %}                                                                        
+                                                <div class="label-title">{{article.title| slice:"0:52"}} {%if timeline.title|length > 52 %}...{%endif%}</div>
+                                            </a>
+                                        </div>
+                                    {% endfor %}                            
+                                {% else %}
+                                {% endif %}                            
+                            </div>                            
+                        </div>
+                        <!-- <div class="other-link-text">Related Articles</div>                                
                         <div class="relate-list space-other">
                             {% for article in articles %}                                    
                             <div class="other-item-box">
@@ -102,7 +151,7 @@
                                 </a>
                             </div>
                             {% endfor %}                                    
-                        </div>
+                        </div> -->
                         {% endif %}                       
                     </div>
                     <div id="right-column">                        

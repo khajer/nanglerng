@@ -56,6 +56,18 @@ li.event-item{
     font-weight: bold;
     padding: 10px 0 20px 0;
 }
+.rawhtml{
+    font-family: 'Noto Sans Thai Looped', sans-serif;
+    font-size: 46px;
+    line-height: 80px;
+    font-weight: 300;
+}
+
+.right-content{
+    font-size: 46px;
+    line-height: 80px;
+    font-weight: 300;
+}
 
 @media only screen and (min-device-width: 375px) 
     and (max-device-width: 812px) 
@@ -68,5 +80,16 @@ li.event-item{
         display: flex;
         flex-direction: column;
         margin: 0 auto;
+    }
+    .title-text {
+        font-size: 72px;
+        line-height: 72px;
+        font-weight: bold;        
+        padding: 10px 0 20px 0;
+    }
+    .rawhtml{
+        font-size: 46px;
+        line-height: 80px;
+        font-weight: 300;
     }
 }

@@ -65,6 +65,8 @@ li.tab-active{
     .title_text{
         clear: both;
         padding: 20px 0 0 0;
+        font-size: 40px;
+        line-height: 50px;
     }
     .text-title-show{
         font-size: 40px;
@@ -105,11 +107,7 @@ li.tab-active{
     }
     li.tab-border{
         width: 240px;
-    }
-    .title_text{
-        font-size: 40px;
-        line-height: 50px;
-    }
+    }    
     .wrapper{
         width: 100%;
         display: block;
