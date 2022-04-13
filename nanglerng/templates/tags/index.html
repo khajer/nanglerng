@@ -24,17 +24,19 @@
     </head>
     <body onload="resizeContentMain()">
         <div class="wrapper">
-            <div class="header" id="normal-header">
+            <div class="header-tag" id="normal-header">
                 {% include "project/header.html" %} 
                 {% block header %}{% endblock %}        
             </div>
             <div class="main-content" id="main-content">
                 {%if tags %}
                     <div class="head-left-box">*Tags</div>        
-                    {%for tag in tags %}
-                    <a class="tag-title" href="/tags/{{tag.name}}">*{{tag.name}} &nbsp;</a>
-                    {% endfor %}
-                    <div class="hr-tags"></div>
+                    <div class="tag-list">
+                        {%for tag in tags %}
+                        <a class="tag-title" href="/tags/{{tag.name}}">*{{tag.name}} &nbsp;</a>
+                        {% endfor %}
+                        <div class="hr-tags"></div>
+                    </div>
                 {% endif %}
 
                 {% if articles %}      

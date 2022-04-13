@@ -23,9 +23,7 @@ li.tab-active{
 .title_text{
     padding: 20px 0 20px 0;
 }
-.tag-title{
-    font-size: 20px;
-}
+
 .social_text{
     padding: 10px 0 10px 0;
 }
@@ -50,4 +48,26 @@ li.tab-active{
     font-weight: bold;
     height: 64px;  
     padding-top: 20px;
-}   
+}  
+.tag-title{
+    font-size: 20px;
+}
+
+@media only screen and (min-device-width: 375px) 
+    and (max-device-width: 812px) 
+    and (-webkit-min-device-pixel-ratio: 3) {
+    .header-tag{
+        width: 100%;
+        height: unset;
+    }
+    .tag-title{
+        font-size: 40px;
+    }
+    .head-box{
+        font-size: 100px;
+        font-weight: unset;
+        padding-top: 40px;
+        height: 64px;  
+    }
+    
+}
