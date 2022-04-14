@@ -31,8 +31,12 @@ body{
 }
 
 #right-column{
-    font-size: 20px;
-    width: 320px;
+    width: 320px; 
+    font-size: 18px;
+    line-height: 36x;
+    font-weight: 300;
+    font-family: 'Noto Sans Thai Looped', sans-serif;
+    padding-top: 32px;
 }
 
 .tag-right{
@@ -106,7 +110,7 @@ li.event-item-mini{
 @media only screen and (min-device-width: 375px) 
     and (max-device-width: 812px) 
     and (-webkit-min-device-pixel-ratio: 3) {
-        
+    
     body{
         width: 100%;
         margin: 0 auto;
@@ -136,6 +140,8 @@ li.event-item-mini{
         line-height: 80px;
         font-weight: 300;
         padding-bottom: 120px;
+        padding-top: 0;
+        
         font-family: 'Noto Sans Thai Looped', sans-serif;
     }
     #content-text{
