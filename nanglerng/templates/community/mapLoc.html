@@ -50,7 +50,7 @@
                     <div id="center-column">   
                         <div class="link-back"><a class="back-map" href="/community/map"><i class="fa-solid fa-arrow-left"></i> back to map</a></div>
                         <div class="title-text">{{location.title}}</div>
-                        <div class="title_text content-raw">{{location.rawHtmlData.html | safe}}</div>
+                        <div id="rawDataHtml" class="content-raw">{{location.rawHtmlData.html | safe}}</div>
 
                         {% if postImgs %}
                         <div class="image">
@@ -96,21 +96,6 @@
                             </div>                            
                         </div>
                         <div class="space-div"></div>
-                        <!-- <div class="other-link-text">Related Events</div>                                
-                        <div class="relate-list space-other">
-                            {% for event in events %}                                    
-                            <div class="other-item-box">
-                                <a href="/community/timeline/{{event.id}}">  
-                                    <div class="headcard">
-                                        <div class="headcard-left">{{event.eventTime}}</div>
-                                        <div class="headcard-right"></div>
-                                    </div>                                
-                                    <div><img class="img-relate" src="/media/{{ event.imgCover }}"></div>
-                                    <div>{{event.title}}</div>
-                                </a>
-                            </div>
-                            {% endfor %}                                    
-                        </div> -->
                         {% endif %}       
                         {% if articles %} 
                         <div class="bb">
@@ -136,22 +121,7 @@
                                 {% else %}
                                 {% endif %}                            
                             </div>                            
-                        </div>
-                        <!-- <div class="other-link-text">Related Articles</div>                                
-                        <div class="relate-list space-other">
-                            {% for article in articles %}                                    
-                            <div class="other-item-box">
-                                <a href="/article/{{article.id}}">  
-                                    <div class="headcard">
-                                        <div class="headcard-left">{{article.eventTime}}</div>
-                                        <div class="headcard-right">{{article.culture}}</div>
-                                    </div>                                
-                                    <div><img class="img-relate" src="/media/{{ article.imgCover }}"></div>
-                                    <div>{{article.title}}</div>
-                                </a>
-                            </div>
-                            {% endfor %}                                    
-                        </div> -->
+                        </div>                        
                         {% endif %}                       
                     </div>
                     <div id="right-column">                        

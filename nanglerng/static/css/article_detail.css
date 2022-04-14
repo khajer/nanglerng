@@ -52,14 +52,14 @@ li.event-item{
 }
 .title-text{
     font-size: 36px;
-    line-height: 36px;
+    line-height: 50px;
     font-weight: bold;
     padding: 10px 0 20px 0;
 }
 .rawhtml{
     font-family: 'Noto Sans Thai Looped', sans-serif;
-    font-size: 46px;
-    line-height: 80px;
+    font-size: 18px;
+    line-height: 36x;
     font-weight: 300;
 }
 
@@ -83,7 +83,7 @@ li.event-item{
     }
     .title-text {
         font-size: 72px;
-        line-height: 72px;
+        line-height: 90px;
         font-weight: bold;        
         padding: 10px 0 20px 0;
     }

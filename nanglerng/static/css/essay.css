@@ -52,7 +52,12 @@ li.tab-active{
 .tab-comunity-mini{
     display: none;
 }
-
+#rawDataHtml{     
+    font-family: 'Noto Sans Thai Looped', sans-serif;
+    font-size: 18px;
+    line-height: 36x;
+    font-weight: 300;
+}
 
 @media only screen and (min-device-width: 375px) 
     and (max-device-width: 812px) 
@@ -60,6 +65,11 @@ li.tab-active{
         
     body{
         width: 100%;    
+    }
+    #rawDataHtml{     
+        font-size: 46px;
+        line-height: 80px;
+        font-weight: 300;
     }
 
     .title_text{
