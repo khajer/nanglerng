@@ -7,6 +7,7 @@
         <link rel="stylesheet" type="text/css" href="{% static 'css/home.css' %}">   
         <link rel="stylesheet" type="text/css" href="{% static 'css/essay.css' %}">   
         <link rel="stylesheet" type="text/css" href="{% static 'css/timeline.css' %}">
+
         <link href="{% static 'fontawesomefree/css/all.min.css' %}" rel="stylesheet" type="text/css">        
         <link href="https://cdn.jsdelivr.net/gh/lazywasabi/thai-web-fonts@6/fonts/NotoSansThaiLooped/NotoSansThaiLooped.css" rel="stylesheet" />
         <style>
@@ -17,43 +18,27 @@
                 font-display: swap;
             }
 
+            .marker {
+                background-image: url('{% static "images/marker1.png" %}');
+                background-size: cover;
+                width: 24px;
+                height: 24px;                
+                cursor: pointer;
+            }
+
+            .mapboxgl-popup {
+                max-width: 200px;
+            }
+
+            .mapboxgl-popup-content {
+                text-align: center;
+                font-family: 'Noto Sans Thai Looped', sans-serif;
+            }
         </style>
         <script src="{% static 'js/toggle_menu.js' %}"></script>    
-        <script>
-            var map;
-            function initMap() {                
-                const nanglerng = { lat: 13.7591027, lng: 100.5099457 };
 
-                map = new google.maps.Map(document.getElementById("map"), {
-                    zoom: 15,
-                    center: nanglerng,
-                });
-                               
-                const image = "{% static 'images/marker.png' %}";
-                var dataMarker = [];
-                {% for loc in locations %}
-                    dataMarker.push({
-                        position:{ lat: {{loc.lat}}, lng: {{loc.lon}} },
-                        label: "{{loc.title}}",
-                        locId: {{loc.id}},
-                    })
-                {% endfor %}
-                dataMarker.forEach(e=>{
-                    const marker = new google.maps.Marker({
-                        position: e.position,
-                        map: map,
-                        label:e.label,
-                        icon: image,
-                        locId: e.locId
-                    });
-                    marker.addListener("click", () => {
-                        console.log(marker.locId);
-                        window.location.assign("/community/map/"+marker.locId)
-                    });
-                })
-                console.log("test");
-            }    
-        </script>    
+        <script src='https://api.mapbox.com/mapbox-gl-js/v2.8.1/mapbox-gl.js'></script>
+        <link href='https://api.mapbox.com/mapbox-gl-js/v2.8.1/mapbox-gl.css' rel='stylesheet' />
 
     </head>
     <body>
@@ -87,11 +72,58 @@
                     </div>
                     <div id="center-right-column">                        
                         <div class="slide">
-                            <div id="map"></div>
-                            <script
-                                src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCy41h4x-3qDCWMMH7QDST4Xm2VQJVKd7o&callback=initMap&libraries=&v=weekly"
-                                async
-                            ></script>
+                            <div id='map'></div>
+                            <script>
+                            mapboxgl.accessToken = 'pk.eyJ1IjoidmlqY2hpa2EiLCJhIjoiY2wxeDhvdGVuMDBnMDNibzBjMHp5eHRidCJ9.6y9zbNrJwo3PEEBlF6jDgQ';
+                            const map = new mapboxgl.Map({
+                                container: 'map', // container ID
+                                style: 'mapbox://styles/vijchika/cl1xbwfok001y15o6lmgft97m', // style URL
+                                center: [100.5102008, 13.7583271], // starting position [lng, lat]
+                                zoom: 16 // starting zoom
+                            });
+                            
+                            features = [];
+                            
+                            {% for loc in locations %}                                
+                                features.push({
+                                    type: 'Feature',
+                                    geometry: {
+                                        type: 'Point',
+                                        coordinates: [{{loc.lon}}, {{loc.lat}}]
+                                    },
+                                    properties: {
+                                        title: '{{loc.title}}',
+                                        id: {{loc.id}}
+                                    }
+                                });
+                            {% endfor %}
+                            
+                            const geojson = {
+                                type: 'FeatureCollection',
+                                features: features
+                            };
+
+                            // add markers to map
+                            for (const feature of geojson.features) {
+                                // create a HTML element for each feature
+                                const el = document.createElement('div');
+                                el.className = 'marker';
+
+                                // make a marker for each feature and add to the map
+                                let mk = new mapboxgl.Marker(el).setLngLat(feature.geometry.coordinates).setPopup(
+                                    new mapboxgl.Popup({ offset: 25 }) // add popups
+                                    .setHTML(
+                                        `<h1>
+                                            <a href="/community/map/${feature.properties.id}">
+                                                ${feature.properties.title}
+                                            </a>
+                                        </h1>
+                                        `
+                                    )
+                                )
+                                .addTo(map);
+                            }
+                            </script>
                         </div>
                     </div>                    
                 </div>
