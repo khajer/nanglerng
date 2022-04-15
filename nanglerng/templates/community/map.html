@@ -35,6 +35,14 @@
                 text-align: center;
                 font-family: 'Noto Sans Thai Looped', sans-serif;
             }
+            @media only screen and (min-device-width: 375px) 
+            and (max-device-width: 812px) 
+            and (-webkit-min-device-pixel-ratio: 3) {
+                .marker {
+                    width: 48px;
+                    height: 48px;
+                }
+            }
         </style>
         <script src="{% static 'js/toggle_menu.js' %}"></script>    
 
