@@ -31,7 +31,7 @@ def comTimeline(request, eventId=0):
     template = loader.get_template('community/timeline.html')
     typePost = TypePost.objects.filter(typename="Event")[0]
     
-    events = Post.objects.all().filter(typePost=typePost.id).order_by('id').reverse()
+    events = Post.objects.all().filter(typePost=typePost.id)
     event = None
     if eventId == 0:
         event = events[0]   

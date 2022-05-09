@@ -48,12 +48,18 @@
             <div>
                 <div id="content-text">
                     <div id="left-column">
-                        <div class="title-left">เหตุการณ์ทั้งหมด</div>
-                        <ul class="event">    
-                            {% for e in events %}          
-                            <li class="event-item"><a href="/community/timeline/{{e.id}}">{{e.title}}</a></li>
-                            {% endfor %}                            
-                        </ul>                        
+                        
+                        <div class="">                            
+                            {% regroup events|dictsortreversed:"eventDateTime" by eventDateTime.year as eventsYear %}
+                            {% for ev in eventsYear %}                            
+                            <ul class="event">    
+                                <div class="title-left">{{ev.grouper}}</div>
+                                {% for e in ev.list %}          
+                                <li class="event-item"><a href="/community/timeline/{{e.id}}">{{e.title}}</a></li>
+                                {% endfor %}                            
+                            </ul>  
+                            {% endfor %}
+                        </div>
                     </div>
                     <div id="center-column">
                         <div>
@@ -102,13 +108,15 @@
                     <i class="fa-solid fa-xmark"></i>
                 </a>
             </div>
-            <div class="event-link-list-mini">
-                <div class="">เหตุการณ์ทั้งหมด</div>
+            <div class="event-link-list-mini">                                  
+                {% for ev in eventsYear %}                                            
+                <div class="">{{ev.grouper}}</div>
                 <ul class="event-link-list-item">    
-                    {% for e in events %}          
+                    {% for e in ev.list %}          
                     <li class="event-item-mini"><a href="/community/timeline/{{e.id}}">{{e.title}}</a></li>
                     {% endfor %}                            
-                </ul> 
+                </ul>                 
+                {% endfor %}                
             </div>
         </div> 
     </body>

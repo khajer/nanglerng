@@ -27,6 +27,7 @@ class Post(models.Model):
     imgCover = models.FileField(upload_to='media/%Y/%m/%d/', blank=True)
     typePost = models.ForeignKey(TypePost, on_delete=models.CASCADE)
     eventTime = models.CharField(max_length=200)    
+    eventDateTime = models.DateField(null=True, blank=True)
     lat = models.DecimalField(max_digits=22, decimal_places=16, blank=True, null=True)
     lon = models.DecimalField(max_digits=22, decimal_places=16, blank=True, null=True)
     desc = models.TextField()
