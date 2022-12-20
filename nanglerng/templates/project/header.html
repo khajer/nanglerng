@@ -1,0 +1,68 @@
+{% block header %}
+<div id="header">
+    {% load static %}
+        <ul class="menu ">
+            <li class="menu-item" id="menu-page">                                        
+                <div class="logo-menu">
+                    <a href="/"><img class="img-home" src="{% static 'images/logo.svg' %}" /></a>                
+                </div>
+            </li>            
+            <li class="menu-item lst-menu" id="menu-page">                                        
+                <div><a href="#" onclick="openSubmenu()">Nanglerng community</a></div>                  
+            </li>
+            <li class="menu-item lst-menu"><a href="/whatson">What’s on</a></li>
+            <li class="menu-item lst-menu"><a href="/article">Articles</a></li>
+            <li class="menu-item lst-menu"><a href="/aboutus">About us</a></li>
+        </ul>
+    <div class="text-right">
+        <div class="tag-main-right">
+            <a class="text-right" href="/tags">
+                <span class="star-size">
+                    <i class="fa-solid fa-asterisk"></i>
+                </span>
+                 tags
+            </a>
+        </div>
+        <div class="mini-hamberger">
+            <a href="#" onclick="showLinkPopup()"><img class="ham-logo" src="{% static 'images/gg_menu.svg' %}" /></a>
+        </div>       
+    </div>
+    <div id="sub-menu-title">
+        <div id="list-community">
+            <ul class="menu">
+                <li class="menu-item"><a href="/community/essay">Our stories</a></li>
+                <li class="menu-item"><a href="/community/timeline">Timeline</a></li>
+                <li class="menu-item"><a href="/community/map">Maps</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div id="mini-menu" class="mini-menu">
+    <div class="head-mini-menu">
+        <a class ="btn-close link-mini" href="#" onclick="hidePopupMiniMenu()">
+            <i class="fa-solid fa-xmark"></i>
+        </a>
+    </div>
+    <ul class="menu-mini">
+        <li>
+            <div class="link-menu-main">
+                Nanglerng community
+            </div>
+            <div id="sub-menu">
+                <ul class="menu-mini sub-menu">
+                    <li><div class="link-menu-main"><a class ="link-mini" href="/community/essay">&nbsp;&nbsp;&nbsp;&nbsp;Our stories</a></div></li>
+                    <li><div class="link-menu-main"><a class ="link-mini" href="/community/timeline">&nbsp;&nbsp;&nbsp;&nbsp;Timeline</a></div></li>
+                    <li><div class="link-menu-main"><a class ="link-mini" href="/community/map">&nbsp;&nbsp;&nbsp;&nbsp;Maps</a></div></li>
+                </ul>
+            </div>
+        </li>
+        <li><div class="link-menu-main"><a class ="link-mini" href="/whatson">What’s on</a></div></li>
+        <li><div class="link-menu-main"><a class ="link-mini" href="/article">Articles</a></div></li>
+        <li><div class="link-menu-main"><a class ="link-mini" href="/aboutus">About us</a></div></li>
+    </ul>
+    <div class="link-menu-main btn-close mini-tags"><a class ="link-mini" href="/tags">* tags</a></div>
+</div> 
+
+{% endblock header %}
+

@@ -1,0 +1,45 @@
+<html>
+    <head>
+        <title>Nanglerng Community Lab</title>
+        {% load static %}
+        <link rel="shortcut icon" type="image/png" href="{% static 'favicon.ico' %}"/>
+        <script src="{% static 'fontawesomefree/js/all.min.js' %}"></script>        
+        <script src="{% static 'js/toggle_menu.js' %}"></script>         
+        <link rel="stylesheet" type="text/css" href="{% static 'css/home.css' %}">                   
+        <link href="https://cdn.jsdelivr.net/gh/lazywasabi/thai-web-fonts@6/fonts/NotoSansThaiLooped/NotoSansThaiLooped.css" rel="stylesheet" />
+        <style>
+            @font-face {
+                font-family: 'NeueBit';
+                src: url("{% static 'css/fonts/NeueBit-Bold/NeueBit-Bold.woff2' %}") format('woff2');
+                font-style: normal;
+                font-display: swap;
+            }
+
+        </style>
+    </head>
+    <body>        
+        <div class="wrapper">
+            <div class="header">
+                {% include "project/header.html" %} 
+                {% block header %}{% endblock %}        
+            </div>
+            <div class="content">
+                <div class="content-left">
+                    {% include "home/left_content.html" %} 
+                    {% block left_content %}{% endblock %}        
+                </div>
+                <div class="content-right">
+                    <div class="scroll-y">
+                        {% include "home/right_content.html" %} 
+                        {% block right_content %}{% endblock %} 
+                    </div>
+                </div>                
+            </div>            
+            <div class="footer">
+                {% include "project/footer.html" %} 
+            {% block footer %}{{ section.title }}{% endblock %}
+            </div>
+        </div>
+    </body>
+</html>
+

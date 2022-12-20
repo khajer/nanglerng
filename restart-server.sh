@@ -1,0 +1,1 @@
+ssh ubuntu@ec2-54-251-220-210.ap-southeast-1.compute.amazonaws.com python3  ./nanglerng/manage.py runserver 0:8080    &

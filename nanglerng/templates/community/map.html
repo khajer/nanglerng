@@ -1,0 +1,170 @@
+<html>
+    <head>
+        <title>Nanglerng Community Lab</title>
+        {% load static %}
+        <link rel="shortcut icon" type="image/png" href="{% static 'favicon.ico' %}"/>
+        <script src="{% static 'fontawesomefree/js/all.min.js' %}"></script>
+        <link rel="stylesheet" type="text/css" href="{% static 'css/map.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'css/home.css' %}">   
+        <link rel="stylesheet" type="text/css" href="{% static 'css/essay.css' %}">   
+        <link rel="stylesheet" type="text/css" href="{% static 'css/timeline.css' %}">
+
+        <link href="{% static 'fontawesomefree/css/all.min.css' %}" rel="stylesheet" type="text/css">        
+        <link href="https://cdn.jsdelivr.net/gh/lazywasabi/thai-web-fonts@6/fonts/NotoSansThaiLooped/NotoSansThaiLooped.css" rel="stylesheet" />
+        <style>
+            @font-face {
+                font-family: 'NeueBit';
+                src: url("{% static 'css/fonts/NeueBit-Bold/NeueBit-Bold.woff2' %}") format('woff2');
+                font-style: normal;
+                font-display: swap;
+            }
+
+            .marker {
+                background-image: url('{% static "images/marker1.png" %}');
+                background-size: cover;
+                width: 24px;
+                height: 24px;                
+                cursor: pointer;
+            }
+
+            .mapboxgl-popup {
+                max-width: 200px;
+            }
+
+            .mapboxgl-popup-content {
+                text-align: center;
+                font-family: 'Noto Sans Thai Looped', sans-serif;
+            }
+            @media only screen and (min-device-width: 375px) 
+            and (max-device-width: 812px) 
+            and (-webkit-min-device-pixel-ratio: 3) {
+                .marker {
+                    width: 48px;
+                    height: 48px;
+                }
+            }
+        </style>
+        <script src="{% static 'js/toggle_menu.js' %}"></script>    
+
+        <script src='https://api.mapbox.com/mapbox-gl-js/v2.8.1/mapbox-gl.js'></script>
+        <link href='https://api.mapbox.com/mapbox-gl-js/v2.8.1/mapbox-gl.css' rel='stylesheet' />
+
+    </head>
+    <body>
+        {% include "project/header.html" %} 
+        {% block header %}{% endblock %}        
+        <div id="content">
+            <div class="community-tab-menu">                
+                <div class="tab-comunity">
+                    <ul class="menu-comunity">
+                        <li class="menu-item tab-border "><a href="/community/essay">Our stories</a></li>
+                        <li class="menu-item tab-border "><a href="/community/timeline">Timeline</a></li>
+                        <li class="menu-item tab-border tab-active">Maps</li>
+                    </ul>
+                    <div class="spacer"></div>
+                </div>
+                <div class="tab-comunity-mini">
+                    <div class="tab-com-mini-item tab-item-link"><a href="/community/essay">Our stories</a></div>
+                    <div class="tab-com-mini-item tab-item-link"><a href="/community/timeline">Timeline</a></div>
+                    <div class="tab-com-mini-item ">Maps</div>
+                </div>
+            </div>
+            <div>                
+                <div id="content-text">
+                    <div id="left-column">                        
+                        <div>รายการสถานที่</div>                        
+                        <ul class="event">                            
+                            {% for loc in locations %}
+                            <li class="event-item"><a href="map/{{loc.id}}">{{loc.title}}</a></li>                            
+                            {% endfor %}
+                        </ul>                        
+                    </div>
+                    <div id="center-right-column">                        
+                        <div class="slide">
+                            <div id='map'></div>
+                            <script>
+                            mapboxgl.accessToken = 'pk.eyJ1IjoidmlqY2hpa2EiLCJhIjoiY2wxeDhvdGVuMDBnMDNibzBjMHp5eHRidCJ9.6y9zbNrJwo3PEEBlF6jDgQ';
+                            const map = new mapboxgl.Map({
+                                container: 'map', // container ID
+                                style: 'mapbox://styles/vijchika/cl1xbwfok001y15o6lmgft97m', // style URL
+                                center: [100.5102008, 13.7583271], // starting position [lng, lat]
+                                zoom: 16 // starting zoom
+                            });
+                            
+                            features = [];
+                            
+                            {% for loc in locations %}                                
+                                features.push({
+                                    type: 'Feature',
+                                    geometry: {
+                                        type: 'Point',
+                                        coordinates: [{{loc.lon}}, {{loc.lat}}]
+                                    },
+                                    properties: {
+                                        title: '{{loc.title}}',
+                                        id: {{loc.id}}
+                                    }
+                                });
+                            {% endfor %}
+                            
+                            const geojson = {
+                                type: 'FeatureCollection',
+                                features: features
+                            };
+
+                            // add markers to map
+                            for (const feature of geojson.features) {
+                                // create a HTML element for each feature
+                                const el = document.createElement('div');
+                                el.className = 'marker';
+
+                                // make a marker for each feature and add to the map
+                                let mk = new mapboxgl.Marker(el).setLngLat(feature.geometry.coordinates).setPopup(
+                                    new mapboxgl.Popup({ offset: 25 }) // add popups
+                                    .setHTML(
+                                        `<h1>
+                                            <a href="/community/map/${feature.properties.id}">
+                                                ${feature.properties.title}
+                                            </a>
+                                        </h1>
+                                        `
+                                    )
+                                )
+                                .addTo(map);
+                            }
+                            </script>
+                        </div>
+                    </div>                    
+                </div>
+            </div>   
+            <div id="footer">
+                {% include "project/footer.html" %} 
+                {% block footer %}{% endblock %}
+            </div>
+            <div id="list-map">
+                <div class="list-event">
+                    <a href="#" onclick="showListMap()">
+                        Directory
+                        <div class="arrow-up"><i class="fa-solid fa-angle-up"></i></div>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div id="list-map-menu" class="mini-menu">
+            <div class="head-mini-menu">
+                <a class ="btn-close link-mini" href="#" onclick="hidePopupListMap()">
+                    <i class="fa-solid fa-xmark"></i>
+                </a>
+            </div>
+            <div class="event-link-list-mini">
+                <div>รายการสถานที่</div>                        
+                <ul class="event">                            
+                    {% for loc in locations %}
+                    <li class="event-item-mini"><a href="map/{{loc.id}}">{{loc.title}}</a></li>                            
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </body>
+</html>
+

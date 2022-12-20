@@ -1,0 +1,55 @@
+<html>
+    <head>
+        <title>Nanglerng Community Lab</title>
+        {% load static %}
+        <link rel="shortcut icon" type="image/png" href="{% static 'favicon.ico' %}"/>
+        <script src="{% static 'fontawesomefree/js/all.min.js' %}"></script>
+        <link rel="stylesheet" type="text/css" href="{% static 'css/home.css' %}">  
+        <link rel="stylesheet" type="text/css" href="{% static 'css/article_detail.css' %}">  
+        <link href="{% static 'fontawesomefree/css/all.min.css' %}" rel="stylesheet" type="text/css">
+        <script src="{% static 'js/toggle_menu.js' %}"></script> 
+                         
+        <link href="https://cdn.jsdelivr.net/gh/lazywasabi/thai-web-fonts@6/fonts/NotoSansThaiLooped/NotoSansThaiLooped.css" rel="stylesheet" />
+        <style>
+            @font-face {
+                font-family: 'NeueBit';
+                src: url("{% static 'css/fonts/NeueBit-Bold/NeueBit-Bold.woff2' %}") format('woff2');
+                font-style: normal;
+                font-display: swap;
+            }
+        </style>
+        
+    </head>
+    <body>
+        <div class="wrapper">
+            <div class="header">
+                {% include "project/header.html" %} 
+                {% block header %}{% endblock %}        
+            </div>
+            <div class="main-content">
+                <div class="left-content">
+                    <div class="title-text">{{article.title}}</div>
+                    <div class="rawhtml">
+                        {{article.rawHtmlData.html| safe}}
+                    </div>
+                </div>
+                <div class="right-content">
+                    <div class="title_text">{{article.category}}</div>
+                        <div>{{article.contributor}}</div>
+                        {%if article.parent %}
+                        <div>Location : <a class="eventlink" href="/community/map/{{article.parent.id}}">{{article.parent}}</a></div>
+                        {% endif %}
+
+                        {% for tag in article.tags.all %}
+                            <div class="tag-right"><a class="tagname" href="/tags/{{tag.name}}">*{{tag.name}}</a></div>
+                        {% endfor %}
+                </div>
+            </div>            
+            <div class="footer">
+                {% include "project/footer.html" %} 
+            {% block footer %}{{ section.title }}{% endblock %}
+            </div>
+        </div>
+    </body>
+</html>
+

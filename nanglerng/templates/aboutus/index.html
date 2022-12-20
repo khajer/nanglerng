@@ -1,0 +1,43 @@
+<html>
+    <head>
+        <title>Nanglerng Community Lab</title>
+        {% load static %}        
+        <link rel="shortcut icon" type="image/png" href="{% static 'favicon.ico' %}"/>
+        <script src="{% static 'fontawesomefree/js/all.min.js' %}"></script>
+        <link rel="stylesheet" type="text/css" href="{% static 'css/home.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'css/essay.css' %}">
+        <link href="https://cdn.jsdelivr.net/gh/lazywasabi/thai-web-fonts@6/fonts/NotoSansThaiLooped/NotoSansThaiLooped.css" rel="stylesheet" />
+        <style>
+            @font-face {
+                font-family: 'NeueBit';
+                src: url("{% static 'css/fonts/NeueBit-Bold/NeueBit-Bold.woff2' %}") format('woff2');
+                font-style: normal;
+                font-display: swap;
+            }
+
+        </style>
+         <script src="{% static 'js/toggle_menu.js' %}"></script> 
+    </head>
+    <body>
+        {% include "project/header.html" %}         
+        {% block header %}{% endblock %}
+        
+        <div id="content">
+            <div>                
+                <div class="content_text">
+                    {% if aboutus %}
+                    <div id="rawDataHtml">
+                        {{ aboutus.rawHtmlData.html| safe }}
+                    </div>        
+                    {% else %}
+                        data not found
+                    {% endif %}
+                </div>                
+                {% include "project/footer.html" %} 
+                {% block footer %}{% endblock %}
+            </div>
+        </div>    
+    </body>
+
+</html>
+

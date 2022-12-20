@@ -1,0 +1,230 @@
+body{
+    width: 1440px;
+    margin: 0 auto;
+    padding: 0;
+}
+.community-tab-menu{
+    width: 100%;
+    height: 80px;
+}
+.text-title-show{
+    padding-top: 26px;
+    height: 52px;
+    font-size: 20px;
+    line-height: 32px;
+}
+.tab-comunity{
+    height: 52px;
+    font-family: 'NeueBit', Courier, monospace;
+    
+}
+ul.menu-comunity {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    line-height: 52px;
+    font-size: 32px;
+    text-align: center;
+}
+li.tab-border{
+    width: 180px;
+    height: 100%;
+    border: 1px solid #000;
+    border-bottom: 0;
+    padding: 0 0 0 4px;
+}
+li.tab-active{
+    color: #fff;
+    background: #0000FF;
+}
+.spacer{
+    width: 100%;
+    border-top: 1px solid #000;
+}
+.eventlink{
+    color: #00f;
+    text-decoration: underline;
+}
+.tagname{
+    color: #00f;
+}   
+.tab-comunity-mini{
+    display: none;
+}
+#rawDataHtml{     
+    font-family: 'Noto Sans Thai Looped', sans-serif;
+    font-size: 18px;
+    line-height: 36x;
+    font-weight: 300;
+}
+
+@media only screen and (min-device-width: 375px) 
+    and (max-device-width: 812px) 
+    and (-webkit-min-device-pixel-ratio: 3) {
+        
+    body{
+        width: 100%;    
+    }
+    #rawDataHtml{     
+        font-size: 46px;
+        line-height: 80px;
+        font-weight: 300;
+    }
+
+    .title_text{
+        clear: both;
+        padding: 20px 0 0 0;
+        font-size: 40px;
+        line-height: 50px;
+    }
+    .text-title-show{
+        font-size: 40px;
+        line-height: 50px;
+        height:unset;
+        padding: 0 0 20px 0;
+    }
+    .community-tab-menu{
+        height:unset;
+    }
+    .tab-comunity{
+        display: none;
+    }
+    .tab-comunity-mini{
+        font-family: 'NeueBit', Courier, monospace;
+        display: flex;
+        font-size: 72px;
+        width: 100%;
+        padding-bottom: 20px;
+    }
+    
+    .tab-com-mini-item{
+        width: 33%;
+        text-align: center;
+        font-size: 72px;
+        line-height: 72px;
+        border: 1px solid #000;
+        background-color: #0000FF;
+        color: #fff;
+        padding: 20px;
+    }
+    .tab-item-link{
+        background-color: #fff;
+        color: #000;
+    }
+    ul.menu-comunity{
+        font-size: 60px;
+    }
+    li.tab-border{
+        width: 240px;
+    }    
+    .wrapper{
+        width: 100%;
+        display: block;
+    }
+    .header{
+        width: 100%;
+        height: 80px;
+    }    
+    .menu-item.lst-menu{
+        display: none;
+    }
+    .text-right.lst-menu{
+        display: none;
+    }    
+    .tag-main-right{
+        display: none;
+    }
+    .mini-hamberger{
+        display: block;
+    }
+    #class{
+        padding: 10px;
+    }
+    .content {        
+        overflow: unset;
+        flex-direction: column;
+    }
+    #content{
+        padding: 20px;
+    }
+    .content-left{        
+        width: 100%;
+    }
+    .main-image-left{
+        position: relative;
+        width: 100%;
+        height: 100%;
+    }
+    .center-text-box{
+        width: 100%;
+    }
+    .content_text{        
+        font-size: 46px;
+        line-height: 80px;
+        font-weight: 300;        
+    }
+    .label-img{
+        background-color: #0000FF;
+        color: #fff;
+        width: 882px;           
+        height: 132px;
+        left: 0;
+        position: relative;
+        margin: 0 auto;
+        bottom: 200px;
+    }
+    .head-left-box{
+        padding-top: 20px;
+    }
+
+    .content-right{
+        width: 100%;
+    }
+    .content-box {
+        width: 90%;
+        padding-left: 0;
+        margin: 0 auto;
+    }
+    .b-list{
+        display: block;
+        
+    }
+    .llist{
+        width: 80%;
+        margin: 0 auto;
+        font-size: 20px;
+        line-height: 32px;
+        height: 340px;
+    }
+
+    .scroll-y{
+        overflow: unset;
+    }
+    .img-right-home{
+        width: 100%;
+        height: 240px;        
+        object-fit: cover;
+    }
+    .border-img-map{
+        display: flex;
+        position: relative;
+        margin: 0 auto;
+        width: 100%;
+        height: 300px;
+        /* text-align: center; */
+    }
+
+
+    .img-map{
+        width: 800px;
+        height: 200px;
+    }
+
+    .footer{
+        display: block;
+        width: 882px;
+        margin: 0 auto;
+    }
+    
+} 

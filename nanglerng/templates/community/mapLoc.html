@@ -1,0 +1,145 @@
+<html>
+    <head>
+        <title>Nanglerng Community Lab</title>
+        {% load static %}
+        <link rel="shortcut icon" type="image/png" href="{% static 'favicon.ico' %}"/>
+        <script src="{% static 'fontawesomefree/js/all.min.js' %}"></script>
+        <link rel="stylesheet" type="text/css" href="{% static 'css/home.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'css/essay.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'css/timeline.css' %}">
+        
+        <link rel="stylesheet" type="text/css" href="{% static 'css/map_location.css' %}">   
+        <link rel="stylesheet" type="text/css" href="{% static 'css/image_slide.css' %}">
+        <link href="{% static 'fontawesomefree/css/all.min.css' %}" rel="stylesheet" type="text/css">        
+        <link href="https://cdn.jsdelivr.net/gh/lazywasabi/thai-web-fonts@6/fonts/NotoSansThaiLooped/NotoSansThaiLooped.css" rel="stylesheet" />
+        <style>
+            @font-face {
+                font-family: 'NeueBit';
+                src: url("{% static 'css/fonts/NeueBit-Bold/NeueBit-Bold.woff2' %}") format('woff2');
+                font-style: normal;
+                font-display: swap;
+            }
+
+        </style>
+        <script src="{% static 'js/toggle_menu.js' %}"></script>     
+    </head>
+    <body>
+        {% include "project/header.html" %} 
+        {% block header %}{% endblock %}        
+        <div id="content">
+            <div class="community-tab-menu">
+                <div class="tab-comunity">
+                    <ul class="menu-comunity">
+                        <li class="menu-item tab-border"><a href="/community/essay">Our stories</a></li>
+                        <li class="menu-item tab-border"><a href="/community/timeline">Timeline</a></li>
+                        <li class="menu-item tab-border tab-active">Maps</li>
+                    </ul>
+                    <div class="spacer"></div>
+                </div>
+                
+            </div>
+            <div>            
+                <div id="content-text">
+                    <div id="left-column">                        
+                        <div>รายการสถานที่</div>                        
+                        <ul class="event">                            
+                            {% for loc in locations %}
+                            <li class="event-item"><a href="../map/{{loc.id}}">{{loc.title}}</a></li>                            
+                            {% endfor %}
+                        </ul>                        
+                    </div>
+                    <div id="center-column">   
+                        <div class="link-back"><a class="back-map" href="/community/map"><i class="fa-solid fa-arrow-left"></i> back to map</a></div>
+                        <div class="title-text">{{location.title}}</div>
+                        <div id="rawDataHtml" class="content-raw">{{location.rawHtmlData.html | safe}}</div>
+
+                        {% if postImgs %}
+                        <div class="image">
+                            <div class="slidercontainer">  
+                                {% for img in postImgs %}
+
+                                <div class="showSlide fade">  
+                                    <img src="/media/{{ img.image }}" width="100%"/>  
+                                    <div class="content"></div>  
+                                </div>
+                                {% endfor %}
+                                <!-- Navigation arrows -->  
+                                <a class="left" onclick="nextSlide(-1)">❮</a>  
+                                <a class="right" onclick="nextSlide(1)">❯</a>  
+                            </div>  
+                            <script src="{% static 'js/image_slide.js' %}"></script>
+                        </div>
+                        {% endif %}
+                        
+                        {% if events %} 
+                        <div class="bb">
+                            <div class="head-left-box">Related Events</div>
+                            <div class="b-list">
+                                {% if events %}                            
+                                    {% for timeline in events %}
+                                        <div class="llist">
+                                            <a href="/community/timeline/{{timeline.id}}" class="text-detail-right">
+                                                <div class="headcard">
+                                                    <div class="headcard-left">{{timeline.eventTime}}</div>
+                                                    <div class="headcard-right"></div>
+                                                </div>
+                                                {% if timeline.imgCover != "" %}   
+                                                <div><img src="/media/{{ timeline.imgCover }}" class="img-right-home"></div>
+                                                {% else %}
+                                                <div><img src="{% static 'images/example.png' %}" class="img-right-home"></div>
+                                                {% endif %}                                                                        
+                                                <div class="label-title">{{timeline.title| slice:"0:52"}} {%if timeline.title|length > 52 %}...{%endif%}</div>
+                                            </a>
+                                        </div>
+                                    {% endfor %}                            
+                                {% else %}
+                                {% endif %}                            
+                            </div>                            
+                        </div>
+                        <div class="space-div"></div>
+                        {% endif %}       
+                        {% if articles %} 
+                        <div class="bb">
+                            <div class="head-left-box">Related Articles</div>
+                            <div class="b-list">
+                                {% if events %}                            
+                                    {% for article in articles %}
+                                        <div class="llist">
+                                            <a href="/article/{{article.id}}" class="text-detail-right">
+                                                <div class="headcard">
+                                                    <div class="headcard-left">{{article.category}}</div>
+                                                    <div class="headcard-right">{{article.contributor}}</div>
+                                                </div>
+                                                {% if article.imgCover != "" %}   
+                                                <div><img src="/media/{{ article.imgCover }}" class="img-right-home"></div>
+                                                {% else %}
+                                                <div><img src="{% static 'images/example.png' %}" class="img-right-home"></div>
+                                                {% endif %}                                                                        
+                                                <div class="label-title">{{article.title| slice:"0:52"}} {%if timeline.title|length > 52 %}...{%endif%}</div>
+                                            </a>
+                                        </div>
+                                    {% endfor %}                            
+                                {% else %}
+                                {% endif %}                            
+                            </div>                            
+                        </div>                        
+                        {% endif %}                       
+                    </div>
+                    <div id="right-column">                        
+                        <div>{{loc.eventTime}}</div>
+                        {%if loc.parent %}
+                        <div>Location : <a class="eventlink" href="/community/map/{{loc.parent.id}}">{{loc.parent}}</a></div>
+                        {% endif %}
+                        {% for tag in loc.tags.all %}
+                            <div class="tag-right"><a href="/tags/{{tag.name}}">*{{tag.name}}</a></div>
+                        {% endfor %}
+                    </div>                    
+                </div>
+            </div>   
+            <div id="footer">
+                {% include "project/footer.html" %} 
+                {% block footer %}{% endblock %}
+            </div>
+        </div>        
+    </body>
+</html>

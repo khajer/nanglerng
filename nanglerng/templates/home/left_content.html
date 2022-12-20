@@ -1,0 +1,17 @@
+{% load static %}
+{% block left_content %}        
+<div class="main-image-left">
+    {% if essay %}
+    <img class="img-cover" src="media/{{ essay.imgCover }}" width="100%" height="100%" />
+    <div class="center-text-box">
+        <div class="label-img">
+            <div class="text-essay-title">
+                {{ essay.txtIntro| slice:"0:120" }} ... <a href="/community/essay"> read more <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+        </div>    
+    </div>    
+    {% endif %}
+</div>
+{% endblock left_content %}
+
+

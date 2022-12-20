@@ -1,0 +1,124 @@
+<html>
+    <head>
+        <title>Nanglerng Community Lab</title>
+        {% load static %}
+        <link rel="shortcut icon" type="image/png" href="{% static 'favicon.ico' %}"/>
+        <script src="{% static 'fontawesomefree/js/all.min.js' %}"></script>
+        <link rel="stylesheet" type="text/css" href="{% static 'css/home.css' %}">   
+        <link rel="stylesheet" type="text/css" href="{% static 'css/essay.css' %}">   
+        <link rel="stylesheet" type="text/css" href="{% static 'css/timeline.css' %}">
+        <link href="{% static 'fontawesomefree/css/all.min.css' %}" rel="stylesheet" type="text/css">        
+        <link href="https://cdn.jsdelivr.net/gh/lazywasabi/thai-web-fonts@6/fonts/NotoSansThaiLooped/NotoSansThaiLooped.css" rel="stylesheet" />
+        <style>
+            @font-face {
+                font-family: 'NeueBit';
+                src: url("{% static 'css/fonts/NeueBit-Bold/NeueBit-Bold.woff2' %}") format('woff2');
+                font-style: normal;
+                font-display: swap;
+            }       
+            .eventlink{
+                color: #00f;
+                text-decoration: underline;
+            }
+            .tagname{
+                color: #00f;
+            }     
+        </style>
+         <script src="{% static 'js/toggle_menu.js' %}"></script> 
+    </head>
+    <body>
+        {% include "project/header.html" %}         
+        {% block header %}{% endblock %}
+        <div id="content">
+            <div class="community-tab-menu">                
+                <div class="tab-comunity">
+                    <ul class="menu-comunity">
+                        <li class="menu-item tab-border "><a href="/community/essay">Our stories</a></li>
+                        <li class="menu-item tab-border tab-active">Timeline</li>
+                        <li class="menu-item tab-border"><a href="/community/map">Maps</a></li>
+                    </ul>
+                    <div class="spacer"></div>
+                </div>
+                <div class="tab-comunity-mini">
+                    <div class="tab-com-mini-item tab-item-link"><a href="/community/essay">Our stories</a></div>
+                    <div class="tab-com-mini-item ">Timeline</div>
+                    <div class="tab-com-mini-item tab-item-link"><a href="/community/map">Maps</a></div>
+                </div>
+            </div>
+            <div>
+                <div id="content-text">
+                    <div id="left-column">
+                        
+                        <div class="">                            
+                            {% regroup events|dictsortreversed:"eventDateTime" by eventDateTime.year as eventsYear %}
+                            {% for ev in eventsYear %}                            
+                            <ul class="event">    
+                                <div class="title-left">{{ev.grouper}}</div>
+                                {% for e in ev.list %}          
+                                <li class="event-item"><a href="/community/timeline/{{e.id}}">{{e.title}}</a></li>
+                                {% endfor %}                            
+                            </ul>  
+                            {% endfor %}
+                        </div>
+                    </div>
+                    <div id="center-column">
+                        <div>
+                            <div class="title-text">{{event.title}}</div>
+                            <div id="rawDataHtml">
+                                {{event.rawHtmlData.html|safe }}
+                            </div>
+                        </div>                        
+                        {% if postImgs %}
+                        <div id="list-image">
+                            {% for img in postImgs %}
+                            <div class="image"><img src="/media/{{ img.image }}" width="100%"></div>                            
+                            {% endfor %}
+                        </div>           
+                        {% endif %}                                     
+                    </div>
+                    <div id="right-column">
+                        <div class="hr-line-resonsive"></div>
+                        <div>{{event.eventTime}}</div>
+                        {%if event.parent %}
+                        <div>Location : <a class="eventlink" href="/community/map/{{event.parent.id}}">{{event.parent}}</a></div>
+                        {% endif %}
+                        {% for tag in event.tags.all %}
+                            <div class="tag-right"><a class="tagname" href="/tags/{{tag.name}}">*{{tag.name}}</a></div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+            <div id="footer">
+                {% include "project/footer.html" %} 
+                {% block footer %}{% endblock %}
+            </div>
+            <div id="list-timeline">
+                <div class="list-event">
+                    <a href="#" onclick="showEventList()">
+                        Select Events
+                        <div class="arrow-up"><i class="fa-solid fa-angle-up"></i></div>
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <div id="list-event-menu" class="mini-menu">
+            <div class="head-mini-menu">
+                <a class ="btn-close link-mini" href="#" onclick="hidePopupListEvent()">
+                    <i class="fa-solid fa-xmark"></i>
+                </a>
+            </div>
+            <div class="event-link-list-mini">                                  
+                {% for ev in eventsYear %}                                            
+                <div class="">{{ev.grouper}}</div>
+                <ul class="event-link-list-item">    
+                    {% for e in ev.list %}          
+                    <li class="event-item-mini"><a href="/community/timeline/{{e.id}}">{{e.title}}</a></li>
+                    {% endfor %}                            
+                </ul>                 
+                {% endfor %}                
+            </div>
+        </div> 
+    </body>
+</html>
+
