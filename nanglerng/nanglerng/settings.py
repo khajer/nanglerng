@@ -27,6 +27,12 @@ SECRET_KEY = 'g-@z6nk#t1vm!-#n^b)bde&o!c1rvbq+sc)f@2s=hu-*h8f8)_'
 # DEBUG = True
 DEBUG = False
 
+CSRF_COOKIE_SECURE = True
+SESSION_COOKIE_SECURE = True
+
+SECURE_SSL_REDIRECT = True
+SECURE_HSTS_SECONDS = True
+
 ALLOWED_HOSTS = ["*"]
 
 
