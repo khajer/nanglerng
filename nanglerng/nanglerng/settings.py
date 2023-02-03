@@ -27,14 +27,14 @@ SECRET_KEY = 'g-@z6nk#t1vm!-#n^b)bde&o!c1rvbq+sc)f@2s=hu-*h8f8)_'
 # DEBUG = True
 DEBUG = False
 
-CSRF_COOKIE_SECURE = True
-SESSION_COOKIE_SECURE = True
+#CSRF_COOKIE_SECURE = True
+#SESSION_COOKIE_SECURE = True
 
 #SECURE_SSL_REDIRECT = True
 #SECURE_HSTS_SECONDS = True
 
 
-
+ 
 ALLOWED_HOSTS = ["*"]
 
 
@@ -145,3 +145,5 @@ DEFAULT_AUTO_FIELD='django.db.models.AutoField'
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media').replace('\\', '/')
 MEDIA_URL = '/media/'
+
+CSRF_TRUSTED_ORIGINS = ['https://community-lab.co', 'https://www.community-lab.co']

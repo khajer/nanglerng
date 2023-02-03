@@ -1,1 +1,1 @@
-ssh ubuntu@ec2-54-251-220-210.ap-southeast-1.compute.amazonaws.com
+ssh ubuntu@ec2-52-74-12-59.ap-southeast-1.compute.amazonaws.com
